@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationManager.DAL", "ApplicationManager.DAL\ApplicationManager.DAL.csproj", "{55B895E1-4AB3-4C2F-A4A7-16CFAB0D788D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationManager", "ApplicationManager\ApplicationManager.csproj", "{70718571-DE2F-404A-9C7F-5FF75CAF7C42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55B895E1-4AB3-4C2F-A4A7-16CFAB0D788D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55B895E1-4AB3-4C2F-A4A7-16CFAB0D788D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B895E1-4AB3-4C2F-A4A7-16CFAB0D788D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55B895E1-4AB3-4C2F-A4A7-16CFAB0D788D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70718571-DE2F-404A-9C7F-5FF75CAF7C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70718571-DE2F-404A-9C7F-5FF75CAF7C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70718571-DE2F-404A-9C7F-5FF75CAF7C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70718571-DE2F-404A-9C7F-5FF75CAF7C42}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F67A0506-2F19-4FBB-8412-3F82BC9DD447}
+	EndGlobalSection
+EndGlobal
