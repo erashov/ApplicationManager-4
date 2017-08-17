@@ -1,0 +1,9 @@
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\bin\Release\netcoreapp2.0\ApplicationManager.Model.deps.json
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\bin\Release\netcoreapp2.0\ApplicationManager.Model.dll
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\bin\Release\netcoreapp2.0\ApplicationManager.Model.pdb
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\obj\Release\netcoreapp2.0\ApplicationManager.Model.csprojResolveAssemblyReference.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\obj\Release\netcoreapp2.0\ApplicationManager.Model.csproj.CoreCompileInputs.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\obj\Release\netcoreapp2.0\ApplicationManager.Model.AssemblyInfoInputs.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\obj\Release\netcoreapp2.0\ApplicationManager.Model.AssemblyInfo.cs
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\obj\Release\netcoreapp2.0\ApplicationManager.Model.dll
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Model\obj\Release\netcoreapp2.0\ApplicationManager.Model.pdb

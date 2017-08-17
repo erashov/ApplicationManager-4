@@ -8,4 +8,3 @@ C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfo.cs
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.dll
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.pdb
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.csprojResolveAssemblyReference.cache

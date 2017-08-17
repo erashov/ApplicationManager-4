@@ -28,7 +28,7 @@ namespace ApplicationManager.DAL
             if (adminRole == null)
             {
                 adminRole = new IdentityRole("admin");
-                //adminRole.Claims.Add(new IdentityRoleClaim<string> { ClaimType = "isAdmin", ClaimValue = "true" });
+               // adminRole.Claims.Add(new IdentityRoleClaim<string> { ClaimType = "isAdmin", ClaimValue = "true" });
                 await _roleManager.CreateAsync(adminRole);
             }
 
