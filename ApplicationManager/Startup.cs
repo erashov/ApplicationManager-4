@@ -1,5 +1,4 @@
-using ApplicationManager.DAL;
-using ApplicationManager.DAL.Entites;
+using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -9,7 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using ApplicationManager.DAL;
+using ApplicationManager.DAL.Entites;
 using ApplicationManager.Model;
 
 namespace ApplicationManager
