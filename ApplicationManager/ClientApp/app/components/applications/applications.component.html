@@ -1,0 +1,29 @@
+
+  <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
+
+    <ng-container cdkColumnDef="applicationId">
+      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> applicationId </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.applicationId}} </md-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container cdkColumnDef="address">
+      <md-header-cell *cdkHeaderCellDef> address </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
+    </ng-container>
+
+    <!--   
+    <ng-container cdkColumnDef="districtName">
+      <md-header-cell *cdkHeaderCellDef> districtName </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.district.districtName}} </md-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="statusName">
+      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> statusName </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.applicationStatus.statusName}} </md-cell>
+    </ng-container>
+ -->
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+  <md-paginator [length]="dataSource.resultsLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+  </md-paginator>

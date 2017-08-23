@@ -1,0 +1,43 @@
+<!-- <div class="pos-f-t fixed-top header">
+    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+        <button class="navbar-toggler navbar-toggler-right" (click)="toggleSidebar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">Сервис монтажника</a>
+        <div class="collapse navbar-collapse">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Искать">
+            </form>
+            <ul class="navbar-nav ml-auto mt-2 mt-md-1">           
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <i class="fa fa-user"></i><b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Профиль</a>
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-envelope"></i> Входящие</a>
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-gear"></i> Настройки</a>
+                        <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-fw fa-power-off"></i> Выйти</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+ -->
+<md-toolbar color="primary">
+
+    <span>MyCompany</span>
+ <!--    <span class="example-spacer"></span>
+    <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button> -->
+    <a [routerLink]="['/login']">Выйти</a>
+</md-toolbar>
+
+
+<!-- <md-toolbar color="primary">
+  <span>Custom Toolbar</span>
+
+
+</md-toolbar>
+<md-toolbar color="primary"> </md-toolbar> -->
