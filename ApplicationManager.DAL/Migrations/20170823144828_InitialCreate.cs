@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
+using System.Collections.Generic;
 
 namespace ApplicationManager.DAL.Migrations
 {
@@ -200,7 +201,10 @@ namespace ApplicationManager.DAL.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ApplicationStatusId = table.Column<int>(type: "int", nullable: false),
-                    DistrictId = table.Column<int>(type: "int", nullable: true)
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DistrictId = table.Column<int>(type: "int", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    NumML = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

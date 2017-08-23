@@ -11,7 +11,7 @@ using System;
 namespace ApplicationManager.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20170822083132_InitialCreate")]
+    [Migration("20170823144828_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,13 @@ namespace ApplicationManager.DAL.Migrations
 
                     b.Property<int>("ApplicationStatusId");
 
+                    b.Property<DateTime?>("CreateDate");
+
                     b.Property<int?>("DistrictId");
+
+                    b.Property<DateTime?>("EndDate");
+
+                    b.Property<int>("NumML");
 
                     b.HasKey("ApplicationId");
 

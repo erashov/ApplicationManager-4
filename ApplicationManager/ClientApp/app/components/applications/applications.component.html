@@ -2,28 +2,36 @@
   <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
 
     <ng-container cdkColumnDef="applicationId">
-      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> applicationId </md-header-cell>
+      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.applicationId}} </md-cell>
     </ng-container>
-
+    <ng-container cdkColumnDef="numML">
+      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № МЛ </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.numML}} </md-cell>
+    </ng-container>
     <!-- Title Column -->
     <ng-container cdkColumnDef="address">
-      <md-header-cell *cdkHeaderCellDef> address </md-header-cell>
+      <md-header-cell *cdkHeaderCellDef> Адреес </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
     </ng-container>
-
-    <!--   
     <ng-container cdkColumnDef="districtName">
-      <md-header-cell *cdkHeaderCellDef> districtName </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.district.districtName}} </md-cell>
+      <md-header-cell *cdkHeaderCellDef> Район </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.districtName}} </md-cell>
     </ng-container>
     <ng-container cdkColumnDef="statusName">
-      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> statusName </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.applicationStatus.statusName}} </md-cell>
+      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> Статус </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.statusName}} </md-cell>
     </ng-container>
- -->
+    <ng-container cdkColumnDef="createDate">
+      <md-header-cell *cdkHeaderCellDef> Время создания заявки </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.createDate}} </md-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="endDate">
+      <md-header-cell *cdkHeaderCellDef> Время закрытия заявки </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.endDate}} </md-cell>
+    </ng-container>
     <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
     <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
   </md-table>
-  <md-paginator [length]="dataSource.resultsLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+  <md-paginator [length]="dataSource.resultsLength" [pageSize]="15" [pageSizeOptions]="[5, 15, 25, 100]">
   </md-paginator>

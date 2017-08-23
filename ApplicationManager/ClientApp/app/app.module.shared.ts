@@ -19,7 +19,7 @@ import { RegisterComponent } from './components/register/index';
 import { SidebarComponent } from './components/shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
 import { ApplicationsComponent } from './components/applications/applications.component';
-import { ApplicationEditComponent } from './components/applications/edit/application.edit.component';
+//import { ApplicationEditComponent } from './components/applications/edit/application.edit.component';
 import {
     MaterialModule, MdAutocompleteModule,
     MdButtonModule,

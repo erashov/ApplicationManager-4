@@ -57,7 +57,7 @@ namespace ApplicationManager
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-            services.AddSingleton<IBaseRepository<ApplicationEntiry>, ApplicationRepository>();
+            services.AddTransient<IBaseRepository<ApplicationEntiry>, ApplicationRepository>();
             services.AddMvc();
         }
 

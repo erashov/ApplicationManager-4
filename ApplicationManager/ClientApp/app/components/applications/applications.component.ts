@@ -16,7 +16,7 @@ import { PagingList, Application } from "../_models/index";
   templateUrl: 'applications.component.html', styleUrls: ["./applications.component.scss"],// providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
-  displayedColumns = ['applicationId', 'address'];
+  displayedColumns = ['applicationId','numML', 'address','districtName','statusName', 'createDate', 'endDate'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource: ExampleDataSource | null;
 
@@ -37,7 +37,7 @@ export class ExampleHttpDao {
 
   getRepoIssues(sort: string, order: string, page: number,pageSize:number): Observable<PagingList> {
     const requestUrl =
-      `${this.originUrl}/api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}`;
+      `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}`;
     return this.http.get(requestUrl).map(response => response.json() as PagingList);
   }
 }

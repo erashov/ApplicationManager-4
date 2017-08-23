@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ApplicationManager.Repository;
 using ApplicationManager.DAL.Entites;
-using ApplicationManager.Model.View;
-
+using ApplicationManager.Model.BaseView;
+using ApplicationManager.Model.ApplicationViewModels;
 
 namespace ApplicationManager.Controllers
 {
@@ -26,13 +26,26 @@ namespace ApplicationManager.Controllers
         }
 
         [HttpGet,Route("get")]
-        public async Task<PagingModelView<ApplicationEntiry>> Get(int page, int pageSize, string sort, string order)
+        public async Task<PagingModelView<ApplicationView>> Get(int page, int pageSize, string sort, string order)
         {
             var t1 = Task.Run(() => _application.FindPage(page+1, pageSize));
             var t2 = Task.Run(() => _application.Find().Count());
 
             await Task.WhenAll(t1, t2);
-            return new PagingModelView<ApplicationEntiry>() { Items = t1.Result, Total_Count = t2.Result };
+            return new PagingModelView<ApplicationView>() {
+                Items = t1.Result.Select(c=>
+                new ApplicationView() {
+                    ApplicationId =c.ApplicationId,
+                    Address =c.Address,
+                    NumML =c.NumML,
+                    ApplicationStatusId =c.ApplicationStatusId,
+                    StatusName =c.ApplicationStatus.StatusName,
+                    DistrictId =c.DistrictId,
+                    DistrictName =c.District.DistrictName,
+                    CreateDate =c.CreateDate,
+                    EndDate =c.EndDate
+                }),
+                Total_Count = t2.Result };
         }
 
         [HttpGet,Route("getpage")]

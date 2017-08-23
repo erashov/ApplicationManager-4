@@ -3,6 +3,7 @@ using System.Linq;
 using ApplicationManager.DAL.Entites;
 using ApplicationManager.DAL;
 using Microsoft.EntityFrameworkCore;
+
 namespace ApplicationManager.Repository.Concrete
 {
     public class ApplicationRepository : IBaseRepository<ApplicationEntiry>

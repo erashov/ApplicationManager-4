@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ApplicationManager.Model.View
+namespace ApplicationManager.Model.BaseView
 {
     public class PagingModelView<T>
     {

@@ -30,7 +30,13 @@ namespace ApplicationManager.DAL.Migrations
 
                     b.Property<int>("ApplicationStatusId");
 
+                    b.Property<DateTime?>("CreateDate");
+
                     b.Property<int?>("DistrictId");
+
+                    b.Property<DateTime?>("EndDate");
+
+                    b.Property<int>("NumML");
 
                     b.HasKey("ApplicationId");
 
