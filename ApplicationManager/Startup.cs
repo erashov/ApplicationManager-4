@@ -12,6 +12,8 @@ using ApplicationManager.DAL;
 using ApplicationManager.DAL.Entites;
 using ApplicationManager.Model;
 using ApplicationManager.Service;
+using ApplicationManager.Repository;
+using ApplicationManager.Repository.Concrete;
 
 namespace ApplicationManager
 {
@@ -55,7 +57,7 @@ namespace ApplicationManager
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-
+            services.AddSingleton<IBaseRepository<ApplicationEntiry>, ApplicationRepository>();
             services.AddMvc();
         }
 
