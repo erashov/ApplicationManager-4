@@ -7,3 +7,12 @@ C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\bin\Release\netcoreapp2.0\ApplicationManager.DAL.pdb
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.dll
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\bin\Release\netcoreapp2.0\ApplicationManager.DAL.deps.json
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\bin\Release\netcoreapp2.0\ApplicationManager.DAL.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\bin\Release\netcoreapp2.0\ApplicationManager.DAL.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfoInputs.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfo.cs
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Release\netcoreapp2.0\ApplicationManager.DAL.pdb

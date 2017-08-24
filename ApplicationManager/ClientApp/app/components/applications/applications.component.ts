@@ -10,20 +10,21 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 import { PagingList, Application } from "../_models/index";
-import {DialogsService} from '../_services/dialogs.service';
+import { DialogsService } from '../_services/dialogs.service';
 @Component({
   selector: 'applications',
-  templateUrl: 'applications.component.html', styleUrls: ["./applications.component.scss"],// providers: [ApplicationService]
+  templateUrl: 'applications.component.html',
+  styleUrls: ["./applications.component.scss"],// providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
-  displayedColumns = ['applicationId','numML', 'address','districtName','statusName', 'createDate', 'endDate'];
+  displayedColumns = ['applicationId', 'numML', 'address', 'districtName', 'statusName', 'createDate', 'endDate'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource: ExampleDataSource | null;
   public result: any;
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
 
-  constructor(private http: Http, @Inject('BASE_URL') private originUrl: string,private dialogsService: DialogsService) {
+  constructor(private http: Http, @Inject('BASE_URL') private originUrl: string, private dialogsService: DialogsService) {
   }
 
   ngOnInit() {
@@ -34,14 +35,14 @@ export class ApplicationsComponent implements OnInit {
   public openDialog() {
     this.dialogsService
       .confirm('Confirm Dialog 1', 'Are you sure you want to do this?').subscribe(res => this.result = res);
-      ;
+    ;
   }
 }
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleHttpDao {
   constructor(private http: Http, private originUrl: string) { }
 
-  getRepoIssues(sort: string, order: string, page: number,pageSize:number): Observable<PagingList> {
+  getRepoIssues(sort: string, order: string, page: number, pageSize: number): Observable<PagingList> {
     const requestUrl =
       `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}`;
     return this.http.get(requestUrl).map(response => response.json() as PagingList);
@@ -75,19 +76,19 @@ export class ExampleDataSource extends DataSource<Application> {
       .switchMap(() => {
         this.isLoadingResults = true;
         return this.exampleDatabase.getRepoIssues(
-          this.sort.active, this.sort.direction, this.paginator.pageIndex,this.paginator.pageSize);
+          this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize);
       })
       .map(data => {
         // Flip flag to show that loading has finished.
         this.isLoadingResults = false;
-       // this.isRateLimitReached = false;
+        // this.isRateLimitReached = false;
         this.resultsLength = data.total_Count;
         return data.items;
       })
       .catch(() => {
         this.isLoadingResults = false;
         // Catch if the GitHub API has reached its rate limit. Return empty data.
-       // this.isRateLimitReached = true;
+        // this.isRateLimitReached = true;
         return Observable.of(null);
       });
   }

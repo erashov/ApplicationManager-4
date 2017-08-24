@@ -11,7 +11,7 @@ using System;
 namespace ApplicationManager.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20170823144828_InitialCreate")]
+    [Migration("20170824161644_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

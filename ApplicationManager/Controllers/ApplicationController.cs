@@ -34,9 +34,9 @@ namespace ApplicationManager.Controllers
             return new PagingModelView<ApplicationView>() {
                 Items = t1.Result.Select(c=>
                 new ApplicationView() {
-                    ApplicationId =c.ApplicationId,
-                    Address =c.Address,
-                    NumML =c.NumML,
+                    ApplicationId = c.ApplicationId,
+                    Address = c.Address,
+                    NumML = c.NumML,
                     ApplicationStatusId =c.ApplicationStatusId,
                     StatusName =c.ApplicationStatus.StatusName,
                     DistrictId =c.DistrictId,
