@@ -13,8 +13,9 @@ export class DialogsService {
         let dialogRef: MdDialogRef<ApplicationDialogComponent>;
 
         dialogRef = this.dialog.open(ApplicationDialogComponent, {
-            panelClass: 'my-full-screen-dialog',
-        
+            panelClass: 'my-full-screen-dialog', 
+            height: '100%',
+            width: '100%'
         });
         dialogRef.componentInstance.title = title;
         dialogRef.componentInstance.message = message;

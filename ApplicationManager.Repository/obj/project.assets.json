@@ -4029,12 +4029,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\ApplicationManager.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\ApplicationManager.Repository.csproj",
       "projectName": "ApplicationManager.Repository",
-      "projectPath": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\ApplicationManager.Repository.csproj",
+      "projectPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\ApplicationManager.Repository.csproj",
       "packagesPath": "C:\\Users\\ASErashov\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\obj\\",
+      "outputPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4054,8 +4057,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.DAL\\ApplicationManager.DAL.csproj": {
-              "projectPath": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.DAL\\ApplicationManager.DAL.csproj"
+            "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.DAL\\ApplicationManager.DAL.csproj": {
+              "projectPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.DAL\\ApplicationManager.DAL.csproj"
             }
           }
         }

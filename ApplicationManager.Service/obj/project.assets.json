@@ -669,12 +669,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
+      "projectUniqueName": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
       "projectName": "ApplicationManager.Service",
-      "projectPath": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
+      "projectPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
       "packagesPath": "C:\\Users\\ASErashov\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\obj\\",
+      "outputPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
