@@ -27,7 +27,7 @@ namespace ApplicationManager.Repository.Concrete
 
         public ApplicationEntiry FindById(int id)
         {
-            throw new NotImplementedException();
+            return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District).FirstOrDefault(a => a.ApplicationId == id);
         }
 
         public IQueryable<ApplicationEntiry> FindPage(int page, int pageSize)

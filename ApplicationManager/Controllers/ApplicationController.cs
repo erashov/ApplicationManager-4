@@ -54,9 +54,9 @@ namespace ApplicationManager.Controllers
         public IQueryable<ApplicationEntiry> GetAll() => _application.Find();
 
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ApplicationEntiry Get(int id)
         {
-            return "value";
+            return _application.FindById(id);
         }
 
         [HttpPost]

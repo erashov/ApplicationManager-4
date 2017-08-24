@@ -11,7 +11,7 @@ using System;
 namespace ApplicationManager.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20170824161644_InitialCreate")]
+    [Migration("20170824202515_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,22 @@ namespace ApplicationManager.DAL.Migrations
                     b.ToTable("ApplicationStatuses");
                 });
 
+            modelBuilder.Entity("ApplicationManager.DAL.Entites.ChanelEntity", b =>
+                {
+                    b.Property<int>("ChanelId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AddressNode")
+                        .IsRequired();
+
+                    b.Property<string>("Code")
+                        .IsRequired();
+
+                    b.HasKey("ChanelId");
+
+                    b.ToTable("Chanels");
+                });
+
             modelBuilder.Entity("ApplicationManager.DAL.Entites.DistrictEntity", b =>
                 {
                     b.Property<int>("DistrictId")
@@ -72,6 +88,37 @@ namespace ApplicationManager.DAL.Migrations
                     b.HasKey("DistrictId");
 
                     b.ToTable("Districts");
+                });
+
+            modelBuilder.Entity("ApplicationManager.DAL.Entites.EquipmentEntity", b =>
+                {
+                    b.Property<int>("EquipmentId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("ApplicationId");
+
+                    b.Property<int?>("ChanelId");
+
+                    b.Property<string>("Comment");
+
+                    b.Property<string>("Cross");
+
+                    b.Property<string>("EquipmentName")
+                        .IsRequired();
+
+                    b.Property<string>("Port");
+
+                    b.Property<string>("Position");
+
+                    b.Property<string>("SerialNumber");
+
+                    b.HasKey("EquipmentId");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.HasIndex("ChanelId");
+
+                    b.ToTable("Equipments");
                 });
 
             modelBuilder.Entity("ApplicationManager.DAL.Entites.GroupEntity", b =>
@@ -256,6 +303,17 @@ namespace ApplicationManager.DAL.Migrations
                     b.HasOne("ApplicationManager.DAL.Entites.DistrictEntity", "District")
                         .WithMany()
                         .HasForeignKey("DistrictId");
+                });
+
+            modelBuilder.Entity("ApplicationManager.DAL.Entites.EquipmentEntity", b =>
+                {
+                    b.HasOne("ApplicationManager.DAL.Entites.ApplicationEntiry", "Application")
+                        .WithMany("Equipments")
+                        .HasForeignKey("ApplicationId");
+
+                    b.HasOne("ApplicationManager.DAL.Entites.ChanelEntity", "Chanel")
+                        .WithMany()
+                        .HasForeignKey("ChanelId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
