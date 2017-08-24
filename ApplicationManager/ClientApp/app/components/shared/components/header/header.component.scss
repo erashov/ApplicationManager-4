@@ -67,6 +67,8 @@
         }
     }
 }
-.header .navbar {
-    background: $topnav-background-color !important;
+
+
+.mat-toolbar {
+    min-width: 580px;
 }

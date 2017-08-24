@@ -1,10 +1,17 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <md-input-container floatPlaceholder="never">
+      <input mdInput #filter placeholder="Поиск">
+    </md-input-container>
+    <button md-mini-fab (click)="openDialog()"><md-icon>playlist_add</md-icon></button>
+    <p>Result from dialog: {{ result }}</p>
+  </div>
 
-  <div class="example-container mat-elevation-z8">
   <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
 
     <ng-container cdkColumnDef="applicationId">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.applicationId}} </md-cell>
+      <md-cell *cdkCellDef="let row"> <button md-button (click)="openDialog()">{{row.applicationId}} </button></md-cell>
     </ng-container>
     <ng-container cdkColumnDef="numML">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № МЛ </md-header-cell>
@@ -25,11 +32,11 @@
     </ng-container>
     <ng-container cdkColumnDef="createDate">
       <md-header-cell *cdkHeaderCellDef> Время создания заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.createDate}} </md-cell>
+      <md-cell *cdkCellDef="let row"> {{row.createDate | date: 'dd/MM/yyyy hh:mm'}} </md-cell>
     </ng-container>
     <ng-container cdkColumnDef="endDate">
       <md-header-cell *cdkHeaderCellDef> Время закрытия заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.endDate}} </md-cell>
+      <md-cell *cdkCellDef="let row"> {{row.endDate | date: 'dd/MM/yyyy hh:mm'}} </md-cell>
     </ng-container>
     <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
     <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>

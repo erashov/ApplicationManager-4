@@ -26,18 +26,27 @@
     </nav>
 </div>
  -->
-<md-toolbar color="primary">
+<md-toolbar class="main-header mat-toolbar " layout-align="space-between center">
+    <span class='logo'><img  src="../../../../../assets/logo.png"></span>
 
-    <span>Сервис монтажника</span>
- <!--    <span class="example-spacer"></span>
-    <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button> -->
-    <a [routerLink]="['/login']">Выйти</a>
+
+        <button md-icon-button [mdMenuTriggerFor]="menu" class="ml-xs mat-icon-button">
+        <md-icon>account_circle</md-icon>
+        <span> Мой профиль</span>
+      </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item>
+          <md-icon>settings</md-icon>
+          <span>Настройки</span>
+    </button>
+
+    <button md-menu-item [routerLink]="['/login']">
+          <md-icon>power_settings_new</md-icon>
+          <span>Выйти</span>
+        </button>
+    </md-menu>
+  
+
+
 </md-toolbar>
 
-
-<!-- <md-toolbar color="primary">
-  <span>Custom Toolbar</span>
-
-
-</md-toolbar>
-<md-toolbar color="primary"> </md-toolbar> -->

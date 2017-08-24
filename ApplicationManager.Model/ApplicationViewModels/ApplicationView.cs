@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ApplicationManager.Model.ApplicationViewModels
 {
-   public class ApplicationView
+    public class ApplicationView
     {
         public int ApplicationId { get; set; }
         public int NumML { get; set; }

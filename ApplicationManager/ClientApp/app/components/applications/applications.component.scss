@@ -1,8 +1,8 @@
 
-
 .example-table {
   overflow: auto;
   min-height: 300px;
+  min-width: 600px;
 }
 
 .mat-column-title {
@@ -57,4 +57,37 @@
 
 .mat-table {
   overflow: auto;
+}
+
+#greetings{
+width: 150px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+ }
+
+ .mat-table {
+  display: table;
+  width: 100%;
+}
+
+.mat-table > .mat-header-row, .mat-table > .mat-row {
+display: table-row;
+padding: 0;
+border: none;
+}
+
+.mat-table > .mat-header-row > .mat-header-cell, 
+.mat-table > .mat-row > .mat-cell {
+  display: table-cell;
+  height: 48px;
+  vertical-align: middle;
+  padding: 0 0.5em;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.my-full-screen-dialog .mat-dialog-container {
+  max-width: none!important;
+  width: 100vw;
+  height: 100vh;
 }

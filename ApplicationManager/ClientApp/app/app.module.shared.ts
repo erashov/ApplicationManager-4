@@ -54,6 +54,7 @@ import {
     MdTooltipModule,
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
+import {DialogsModule } from './components/dialoforms/applicationdialog/dialogs.module';
 import 'hammerjs';
 
 @NgModule({
@@ -110,6 +111,7 @@ import 'hammerjs';
         MdToolbarModule,
         MdTooltipModule,
         CdkTableModule,
+        DialogsModule,
         routing
     ],
     providers: [

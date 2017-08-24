@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ApplicationManager.Model
+﻿namespace ApplicationManager.Model
 {
     public class AppConfiguration
     {

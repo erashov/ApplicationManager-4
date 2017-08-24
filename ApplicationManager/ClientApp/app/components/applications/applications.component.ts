@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 import { PagingList, Application } from "../_models/index";
-
+import {DialogsService} from '../_services/dialogs.service';
 @Component({
   selector: 'applications',
   templateUrl: 'applications.component.html', styleUrls: ["./applications.component.scss"],// providers: [ApplicationService]
@@ -19,16 +19,22 @@ export class ApplicationsComponent implements OnInit {
   displayedColumns = ['applicationId','numML', 'address','districtName','statusName', 'createDate', 'endDate'];
   exampleDatabase: ExampleHttpDao | null;
   dataSource: ExampleDataSource | null;
-
+  public result: any;
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
 
-  constructor(private http: Http, @Inject('BASE_URL') private originUrl: string) {
+  constructor(private http: Http, @Inject('BASE_URL') private originUrl: string,private dialogsService: DialogsService) {
   }
 
   ngOnInit() {
     this.exampleDatabase = new ExampleHttpDao(this.http, this.originUrl);
     this.dataSource = new ExampleDataSource(this.exampleDatabase!, this.paginator, this.sort);
+  }
+
+  public openDialog() {
+    this.dialogsService
+      .confirm('Confirm Dialog 1', 'Are you sure you want to do this?').subscribe(res => this.result = res);
+      ;
   }
 }
 /** An example database that the data source uses to retrieve data for the table. */
