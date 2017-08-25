@@ -16,10 +16,9 @@ import { LoginComponent } from './components/login/index';
 import { RegisterComponent } from './components/register/index';
 import { SidebarComponent } from './components/shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
-<<<<<<< HEAD
+
 import './components/style.scss';
-=======
->>>>>>> e3add93071e546485dbea468d3f6f3378982af22
+
 import {
     MaterialModule,
     MdButtonModule,
