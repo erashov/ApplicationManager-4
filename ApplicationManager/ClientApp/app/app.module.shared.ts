@@ -10,51 +10,26 @@ import { routing } from './components/app.routing';
 import { AlertComponent } from './components/_directives/index';
 import { AuthGuard } from './components/_guards/index';
 import { AlertService, AuthenticationService, UserService } from './components/_services/index';
-import { UserComponent } from './components/user/user.componet';
 import { HomeComponent } from './components/home/index';
-
+import { ApplicationModule } from './components/applications/application.module'
 import { LoginComponent } from './components/login/index';
 import { RegisterComponent } from './components/register/index';
-//import {NavBarComponent} from './nav-bar/nav-bar.component';
 import { SidebarComponent } from './components/shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
-import { ApplicationsComponent } from './components/applications/applications.component';
-//import { ApplicationEditComponent } from './components/applications/edit/application.edit.component';
+import './components/style.scss';
 import {
-    MaterialModule, MdAutocompleteModule,
+    MaterialModule,
     MdButtonModule,
-    MdButtonToggleModule,
     MdCardModule,
     MdCheckboxModule,
-    MdChipsModule,
-    MdCoreModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
     MdIconModule,
     MdInputModule,
-    MdListModule,
     MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
+    MdToolbarModule
+
 } from '@angular/material';
-import { CdkTableModule } from '@angular/cdk';
-import {DialogsModule } from './components/dialoforms/applicationdialog/dialogs.module';
+
+import { DialogsModule } from './components/dialoforms/applicationdialog/dialogs.module';
 import 'hammerjs';
 
 @NgModule({
@@ -65,9 +40,8 @@ import 'hammerjs';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        ApplicationsComponent,
         HeaderComponent,
-        SidebarComponent, UserComponent
+        SidebarComponent
     ],
 
     imports: [
@@ -79,38 +53,14 @@ import 'hammerjs';
         MaterialModule,
         MdInputModule,
         MdButtonModule,
-        MdTableModule, MdAutocompleteModule,
+        ApplicationModule,
         MdButtonModule,
-        MdButtonToggleModule,
         MdCardModule,
         MdCheckboxModule,
-        MdChipsModule,
-        MdCoreModule,
-        MdDatepickerModule,
-        MdDialogModule,
-        MdExpansionModule,
-        MdGridListModule,
         MdIconModule,
         MdInputModule,
-        MdListModule,
         MdMenuModule,
-        MdNativeDateModule,
-        MdPaginatorModule,
-        MdProgressBarModule,
-        MdProgressSpinnerModule,
-        MdRadioModule,
-        MdRippleModule,
-        MdSelectModule,
-        MdSidenavModule,
-        MdSliderModule,
-        MdSlideToggleModule,
-        MdSnackBarModule,
-        MdSortModule,
-        MdTableModule,
-        MdTabsModule,
         MdToolbarModule,
-        MdTooltipModule,
-        CdkTableModule,
         DialogsModule,
         routing
     ],

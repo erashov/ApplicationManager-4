@@ -91,7 +91,7 @@ namespace ApplicationManager
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-            seeder.SeedAsync().Wait();
+          seeder.SeedAsync().Wait();
         }
     }
 }

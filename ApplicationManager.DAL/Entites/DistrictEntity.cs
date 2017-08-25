@@ -7,6 +7,7 @@ namespace ApplicationManager.DAL.Entites
     {
         [Key]
         public int DistrictId { get; set; }
+
         [Required]
         public string DistrictName { get; set; }
     }

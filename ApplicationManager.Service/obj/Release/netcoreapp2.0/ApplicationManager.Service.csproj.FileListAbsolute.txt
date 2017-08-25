@@ -7,3 +7,12 @@ C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.AssemblyInfo.cs
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.dll
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\bin\Release\netcoreapp2.0\ApplicationManager.Service.deps.json
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\bin\Release\netcoreapp2.0\ApplicationManager.Service.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\bin\Release\netcoreapp2.0\ApplicationManager.Service.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.csprojResolveAssemblyReference.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.csproj.CoreCompileInputs.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.AssemblyInfoInputs.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.AssemblyInfo.cs
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Release\netcoreapp2.0\ApplicationManager.Service.pdb

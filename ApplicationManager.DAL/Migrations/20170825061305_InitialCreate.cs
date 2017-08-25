@@ -62,6 +62,20 @@ namespace ApplicationManager.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Chanels",
+                columns: table => new
+                {
+                    ChanelId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddressNode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chanels", x => x.ChanelId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Districts",
                 columns: table => new
                 {
@@ -223,6 +237,38 @@ namespace ApplicationManager.DAL.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Equipments",
+                columns: table => new
+                {
+                    EquipmentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ApplicationId = table.Column<int>(type: "int", nullable: true),
+                    ChanelId = table.Column<int>(type: "int", nullable: true),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cross = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EquipmentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Port = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Position = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Equipments", x => x.EquipmentId);
+                    table.ForeignKey(
+                        name: "FK_Equipments_Applications_ApplicationId",
+                        column: x => x.ApplicationId,
+                        principalTable: "Applications",
+                        principalColumn: "ApplicationId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Equipments_Chanels_ChanelId",
+                        column: x => x.ChanelId,
+                        principalTable: "Chanels",
+                        principalColumn: "ChanelId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Applications_ApplicationStatusId",
                 table: "Applications",
@@ -271,13 +317,20 @@ namespace ApplicationManager.DAL.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipments_ApplicationId",
+                table: "Equipments",
+                column: "ApplicationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipments_ChanelId",
+                table: "Equipments",
+                column: "ChanelId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Applications");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -294,19 +347,28 @@ namespace ApplicationManager.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Equipments");
+
+            migrationBuilder.DropTable(
                 name: "Groups");
-
-            migrationBuilder.DropTable(
-                name: "ApplicationStatuses");
-
-            migrationBuilder.DropTable(
-                name: "Districts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Applications");
+
+            migrationBuilder.DropTable(
+                name: "Chanels");
+
+            migrationBuilder.DropTable(
+                name: "ApplicationStatuses");
+
+            migrationBuilder.DropTable(
+                name: "Districts");
         }
     }
 }

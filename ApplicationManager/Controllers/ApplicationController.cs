@@ -34,9 +34,9 @@ namespace ApplicationManager.Controllers
             return new PagingModelView<ApplicationView>() {
                 Items = t1.Result.Select(c=>
                 new ApplicationView() {
-                    ApplicationId =c.ApplicationId,
-                    Address =c.Address,
-                    NumML =c.NumML,
+                    ApplicationId = c.ApplicationId,
+                    Address = c.Address,
+                    NumML = c.NumML,
                     ApplicationStatusId =c.ApplicationStatusId,
                     StatusName =c.ApplicationStatus.StatusName,
                     DistrictId =c.DistrictId,
@@ -54,9 +54,9 @@ namespace ApplicationManager.Controllers
         public IQueryable<ApplicationEntiry> GetAll() => _application.Find();
 
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ApplicationEntiry Get(int id)
         {
-            return "value";
+            return _application.FindById(id);
         }
 
         [HttpPost]

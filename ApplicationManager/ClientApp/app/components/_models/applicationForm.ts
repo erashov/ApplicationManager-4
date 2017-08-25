@@ -1,5 +1,5 @@
 
-export class Application {
+export class ApplicationForm {
     applicationId: number;
     numML: number;
     address: string;

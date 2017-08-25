@@ -20,8 +20,9 @@ namespace ApplicationManager.DAL
 
         public async Task SeedAsync()
         {
-            _ctx.Database.EnsureCreated();
 
+            _ctx.Database.EnsureCreated();
+            string[] addresses = new string[] { "Варшавское шоссе", "ул. Академика Янгеля", "ул. Чертановская", "ул. Россошанская", "ул. Ленинское шоссе", "ул. Охотный ряд", "ул. Воздвиженка", "ул. Новослободская", "ул. Трифоновская" };
             if (!_ctx.Users.Any())
             {
 
@@ -60,24 +61,59 @@ namespace ApplicationManager.DAL
                 });
                 _ctx.SaveChanges();
             }
+            if (!_ctx.Chanels.Any())
+            {
+                Random r = new Random();
+                // string[] EquipTypes = new string[] { "Концентратор", "Коммутатор", "Маршрутизаторы", "Мост", "Шлюз", "Мультиплексор", "Межсетевой экран" };
+                char[] chanels = new char[] { 'A', 'B', 'C','D','E','F','G','Y' };
+                for (int i = 0; i <= 200; i++)
+                {
+                    _ctx.Chanels.Add(new ChanelEntity {
+                        Code = $"{chanels[r.Next(0, chanels.Count() - 1)]}, {r.Next(2888, 4990)}",
+                        AddressNode = $"{addresses[r.Next(0, addresses.Count() - 1)]}, {r.Next(1, 200)}"
+
+                    });
+                }
+                _ctx.SaveChanges();
+            }
+
             if (!_ctx.Applications.Any())
             {
-                string[] addresses = new string[] { "Варшавское шоссе", "ул. Академика Янгеля","ул. Чертановская","ул. Россошанская", "ул. Ленинское шоссе","ул. Охотный ряд", "ул. Воздвиженка", "ул. Новослободская", "ул. Трифоновская" };
+               
                 Random r = new Random();
 
                 for (int i=0; i<50000; i++)
                 {
                     var create = GenererateRandomDate();
-                    int status = r.Next(1, 5);            
-                    
+                    int status = r.Next(1, 5);
+
                     _ctx.Applications.Add(new ApplicationEntiry {
                         NumML = r.Next(500001, 599999),
                         Address = $"{addresses[r.Next(0, addresses.Count() - 1)]}, {r.Next(1, 200)}",
                         ApplicationStatusId = status,
                         DistrictId = r.Next(1, 4),
                         CreateDate = create,
-                        EndDate = (status > 3) ? (DateTime?)create.AddDays(r.Next(1, 10)) : null
+                        EndDate = (status > 3) ? (DateTime?)create.AddDays(r.Next(1, 10)) : null,
+                      //  EquipmentId = r.Next(1, 199)
                 });
+                }
+                _ctx.SaveChanges();
+            }
+            if (!_ctx.Equipments.Any())
+            {
+                Random r = new Random();
+                string[] EquipTypes = new string[] { "Концентратор", "Коммутатор", "Маршрутизаторы", "Мост", "Шлюз", "Мультиплексор", "Межсетевой экран" };
+                string[] Brands = new string[] { "Cisco", "Huawei", "Netgear", "Erisson", "Dell", "HP", "Intel" };
+                for (int i = 0; i <= 2000; i++)
+                {
+                    _ctx.Equipments.Add(new EquipmentEntity
+                    {
+                        EquipmentName = $"{EquipTypes[r.Next(0, EquipTypes.Count() - 1)]} {Brands[r.Next(0, Brands.Count() - 1)]}",
+                        ChanelId = r.Next(1, 199),
+                        Port = r.Next(80, 8999).ToString(),
+                        SerialNumber = Guid.NewGuid().ToString(),
+                        ApplicationId = r.Next(3000, 49999)
+                    });
                 }
                 _ctx.SaveChanges();
             }

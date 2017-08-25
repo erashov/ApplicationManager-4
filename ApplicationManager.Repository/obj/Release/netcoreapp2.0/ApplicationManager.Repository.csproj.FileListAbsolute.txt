@@ -9,3 +9,14 @@ C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.pdb
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.DAL.dll
 C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.DAL.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.Repository.deps.json
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.Repository.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.Repository.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.DAL.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Release\netcoreapp2.0\ApplicationManager.DAL.pdb
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfoInputs.cache
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfo.cs
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.dll
+C:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Release\netcoreapp2.0\ApplicationManager.Repository.pdb
