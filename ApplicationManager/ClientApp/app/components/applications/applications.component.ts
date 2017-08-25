@@ -34,7 +34,11 @@ export class ApplicationsComponent implements OnInit {
 
   public openDialog() {
     this.dialogsService
+<<<<<<< HEAD
       .confirm('Заявка', '').subscribe(res => this.result = res);
+=======
+      .confirm('Confirm Dialog 1', 'Are you sure you want to do this?').subscribe(res => this.result = res);
+>>>>>>> e3add93071e546485dbea468d3f6f3378982af22
     ;
   }
 }

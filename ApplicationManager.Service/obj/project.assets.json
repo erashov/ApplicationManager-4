@@ -664,7 +664,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASErashov\\.nuget\\packages\\": {},
+    "C:\\Users\\Alexandr\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -673,17 +673,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
+      "projectUniqueName": "C:\\Users\\Alexandr\\Source\\Repository\\ApplicationManager-4\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
       "projectName": "ApplicationManager.Service",
-      "projectPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
-      "packagesPath": "C:\\Users\\ASErashov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Service\\obj\\",
+      "projectPath": "C:\\Users\\Alexandr\\Source\\Repository\\ApplicationManager-4\\ApplicationManager.Service\\ApplicationManager.Service.csproj",
+      "packagesPath": "C:\\Users\\Alexandr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alexandr\\Source\\Repository\\ApplicationManager-4\\ApplicationManager.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ASErashov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alexandr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -691,7 +691,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\ASErashov\\.dotnet\\NuGetFallbackFolder": {},
+        "C:\\Users\\Alexandr\\.dotnet\\NuGetFallbackFolder": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
