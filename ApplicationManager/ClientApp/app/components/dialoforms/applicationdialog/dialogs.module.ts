@@ -1,5 +1,5 @@
 import { DialogsService } from '../../_services/dialogs.service';
-import { MdDialogModule, MdButtonModule  } from '@angular/material';
+import { MdDialogModule, MdButtonModule,MdIconModule  } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { ApplicationDialogComponent } from './applicationdialog.componet';
 
@@ -7,6 +7,7 @@ import { ApplicationDialogComponent } from './applicationdialog.componet';
     imports: [
         MdDialogModule,
         MdButtonModule,
+        MdIconModule
     ],
     exports: [
         ApplicationDialogComponent,

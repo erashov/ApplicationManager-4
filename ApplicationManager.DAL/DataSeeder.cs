@@ -11,17 +11,27 @@ namespace ApplicationManager.DAL
     {
         private readonly AppDbContext _ctx;
         private readonly UserManager<UserEntity> _userManager;
-
-        public DataSeeder(AppDbContext ctx, UserManager<UserEntity> userManager)
+        private RoleManager<IdentityRole> _roleManager;
+        public DataSeeder(AppDbContext ctx, UserManager<UserEntity> userManager, RoleManager<IdentityRole> roleManager)
         {
             _ctx = ctx;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public async Task SeedAsync()
         {
 
             _ctx.Database.EnsureCreated();
+            Random r = new Random();
+            if (await _roleManager.FindByNameAsync("adminRole") == null)
+            {
+                await _roleManager.CreateAsync(new IdentityRole("adminRole"));
+            }
+            if (await _roleManager.FindByNameAsync("userRole") == null)
+            {
+                await _roleManager.CreateAsync(new IdentityRole("userRole"));
+            }
             string[] addresses = new string[] { "Варшавское шоссе", "ул. Академика Янгеля", "ул. Чертановская", "ул. Россошанская", "ул. Ленинское шоссе", "ул. Охотный ряд", "ул. Воздвиженка", "ул. Новослободская", "ул. Трифоновская" };
             if (!_ctx.Users.Any())
             {
@@ -30,6 +40,7 @@ namespace ApplicationManager.DAL
                 {
                     Email = "admin@acado.com",
                     UserName = "admin"
+                   
                 };
 
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
@@ -37,6 +48,27 @@ namespace ApplicationManager.DAL
                 {
                     user.EmailConfirmed = true;
                     await _userManager.UpdateAsync(user);
+                    await _userManager.AddToRoleAsync(user, "adminRole");
+                }
+
+                _ctx.Groups.AddRange(new List<GroupEntity>() { new GroupEntity() { GroupName = "Бригада 1" }, new GroupEntity() { GroupName = "Бригада 2" }, new GroupEntity() { GroupName = "Бригада 3" }, });
+                _ctx.SaveChanges();
+                for(int i = 0; i <= 10; i++)
+                {
+                    var adduser = new UserEntity()
+                    {
+                        Email = $"user{i}@acado.com",
+                        UserName = $"user{i}",
+                        GroupId = r.Next(1, 3)
+                    };
+
+                    var resultUser = await _userManager.CreateAsync(adduser, "P@ssw0rd!");
+                    if (resultUser.Succeeded)
+                    {
+                        user.EmailConfirmed = true;
+                        await _userManager.UpdateAsync(adduser);
+                        await _userManager.AddToRoleAsync(adduser, "userRole");
+                    }
                 }
             }
             if (!_ctx.ApplicationStatuses.Any())
@@ -63,7 +95,7 @@ namespace ApplicationManager.DAL
             }
             if (!_ctx.Chanels.Any())
             {
-                Random r = new Random();
+        
                 // string[] EquipTypes = new string[] { "Концентратор", "Коммутатор", "Маршрутизаторы", "Мост", "Шлюз", "Мультиплексор", "Межсетевой экран" };
                 char[] chanels = new char[] { 'A', 'B', 'C','D','E','F','G','Y' };
                 for (int i = 0; i <= 200; i++)
@@ -80,7 +112,7 @@ namespace ApplicationManager.DAL
             if (!_ctx.Applications.Any())
             {
                
-                Random r = new Random();
+               // Random r = new Random();
 
                 for (int i=0; i<50000; i++)
                 {
@@ -101,7 +133,7 @@ namespace ApplicationManager.DAL
             }
             if (!_ctx.Equipments.Any())
             {
-                Random r = new Random();
+              //  Random r = new Random();
                 string[] EquipTypes = new string[] { "Концентратор", "Коммутатор", "Маршрутизаторы", "Мост", "Шлюз", "Мультиплексор", "Межсетевой экран" };
                 string[] Brands = new string[] { "Cisco", "Huawei", "Netgear", "Erisson", "Dell", "HP", "Intel" };
                 for (int i = 0; i <= 2000; i++)

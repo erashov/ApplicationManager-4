@@ -9,7 +9,7 @@ import { FormControl, Validators } from "@angular/forms";
 @Component({
     moduleId: module.id.toString(),
     templateUrl: "login.component.html",
-    styleUrls: ['./login.component.scss'],
+    styleUrls: ['./login.component.css'],
     animations: [routerTransition()]
 })
 

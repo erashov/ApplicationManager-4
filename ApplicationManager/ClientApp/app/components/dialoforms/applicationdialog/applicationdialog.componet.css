@@ -3,9 +3,9 @@
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
-    font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
-    background: #3AAFAB;
-    color: #fff;
+
+    background: #fff;;
+    color: #333;
     padding: 50px 0;
   }
   
@@ -69,22 +69,8 @@
     border: none;
   }
   
-  .flex-outer li button {
-    margin-left: auto;
-    padding: 8px 16px;
-    border: none;
-    background: #333;
-    color: #f2f2f2;
-    text-transform: uppercase;
-    letter-spacing: .09em;
-    border-radius: 2px;
-  }
+
   
   .flex-inner li {
     width: 100px;
   }
-  .mat-dialog-container {
-
-    max-width: 100vw!important;
-   
-}

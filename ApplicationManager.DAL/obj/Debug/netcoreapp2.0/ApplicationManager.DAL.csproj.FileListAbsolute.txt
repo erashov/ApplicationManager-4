@@ -6,3 +6,11 @@ c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfo.cs
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.dll
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\bin\Debug\netcoreapp2.0\ApplicationManager.DAL.deps.json
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\bin\Debug\netcoreapp2.0\ApplicationManager.DAL.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\bin\Debug\netcoreapp2.0\ApplicationManager.DAL.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.csproj.CoreCompileInputs.cache
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfoInputs.cache
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfo.cs
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.DAL\obj\Debug\netcoreapp2.0\ApplicationManager.DAL.pdb

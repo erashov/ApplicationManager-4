@@ -5,11 +5,12 @@ import { Router, NavigationEnd } from '@angular/router';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-    constructor( public router: Router) {
+    username: string;
+    constructor(public router: Router) {
+        this.username=localStorage.getItem("currentUserName");
         this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992) {
                 this.toggleSidebar();
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     toggleSidebar() {
         const dom: any = document.querySelector('body');

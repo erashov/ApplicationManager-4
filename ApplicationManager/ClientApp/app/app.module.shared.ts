@@ -16,15 +16,16 @@ import { LoginComponent } from './components/login/index';
 import { RegisterComponent } from './components/register/index';
 import { SidebarComponent } from './components/shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
+
 import {
     MaterialModule,
-    MdButtonModule,
+/*     MdButtonModule,
     MdCardModule,
     MdCheckboxModule,
     MdIconModule,
     MdInputModule,
     MdMenuModule,
-    MdToolbarModule
+    MdToolbarModule */
 
 } from '@angular/material';
 
@@ -50,16 +51,16 @@ import 'hammerjs';
         ReactiveFormsModule,
         HttpModule,
         MaterialModule,
-        MdInputModule,
-        MdButtonModule,
+/*         MdInputModule,
+        MdButtonModule, */
         ApplicationModule,
-        MdButtonModule,
+/*         MdButtonModule,
         MdCardModule,
         MdCheckboxModule,
         MdIconModule,
         MdInputModule,
         MdMenuModule,
-        MdToolbarModule,
+        MdToolbarModule, */
         DialogsModule,
         routing
     ],

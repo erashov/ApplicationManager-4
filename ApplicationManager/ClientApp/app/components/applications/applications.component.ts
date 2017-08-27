@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { Http } from '@angular/http';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator, MdSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
@@ -11,43 +10,35 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 import { PagingList, Application } from "../_models/index";
 import { DialogsService } from '../_services/dialogs.service';
+import { ApplicationService } from '../_services/application.service';
 @Component({
   selector: 'applications',
   templateUrl: 'applications.component.html',
-  styleUrls: ["./applications.component.scss"],// providers: [ApplicationService]
+  styleUrls: ["./applications.component.css"],
+  providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
   displayedColumns = ['applicationId', 'numML', 'address', 'districtName', 'statusName', 'createDate', 'endDate'];
-  exampleDatabase: ExampleHttpDao | null;
   dataSource: ExampleDataSource | null;
   public result: any;
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
 
-  constructor(private http: Http, @Inject('BASE_URL') private originUrl: string, private dialogsService: DialogsService) {
+  constructor( private dialogsService: DialogsService, private appService: ApplicationService) {
   }
 
   ngOnInit() {
-    this.exampleDatabase = new ExampleHttpDao(this.http, this.originUrl);
-    this.dataSource = new ExampleDataSource(this.exampleDatabase!, this.paginator, this.sort);
+    this.dataSource = new ExampleDataSource(this.appService, this.paginator, this.sort);
   }
 
   public openDialog() {
     this.dialogsService
-      .confirm('Confirm Dialog 1', 'Are you sure you want to do this?').subscribe(res => this.result = res);
-    ;
-  }
-}
-/** An example database that the data source uses to retrieve data for the table. */
-export class ExampleHttpDao {
-  constructor(private http: Http, private originUrl: string) { }
 
-  getRepoIssues(sort: string, order: string, page: number, pageSize: number): Observable<PagingList> {
-    const requestUrl =
-      `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}`;
-    return this.http.get(requestUrl).map(response => response.json() as PagingList);
+      .confirm('Заявка', '').subscribe(res => this.result = res);
+
   }
 }
+
 
 export class ExampleDataSource extends DataSource<Application> {
   // The number of issues returned by github matching the query.
@@ -55,7 +46,7 @@ export class ExampleDataSource extends DataSource<Application> {
   isLoadingResults = false;
   //isRateLimitReached = false;
 
-  constructor(private exampleDatabase: ExampleHttpDao,
+  constructor(private exampleDatabase: ApplicationService,
     private paginator: MdPaginator,
     private sort: MdSort) {
     super();
@@ -75,7 +66,7 @@ export class ExampleDataSource extends DataSource<Application> {
       .startWith(null)
       .switchMap(() => {
         this.isLoadingResults = true;
-        return this.exampleDatabase.getRepoIssues(
+        return this.exampleDatabase.getApplications(
           this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize);
       })
       .map(data => {

@@ -6,10 +6,14 @@ using ApplicationManager.Repository;
 using ApplicationManager.DAL.Entites;
 using ApplicationManager.Model.BaseView;
 using ApplicationManager.Model.ApplicationViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ApplicationManager.Controllers
 {
     [Route("api/[controller]")]
+    //  [Authorize(Roles = "userRole")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ApplicationController : Controller
     {
         IBaseRepository<ApplicationEntiry> _application;
@@ -24,33 +28,37 @@ namespace ApplicationManager.Controllers
             return _application.Find();
         }
 
-        [HttpGet,Route("get")]
+        [HttpGet, Route("get")]
         public async Task<PagingModelView<ApplicationView>> Get(int page, int pageSize, string sort, string order)
         {
-            var t1 = Task.Run(() => _application.FindPage(page+1, pageSize));
+            var t1 = Task.Run(() => _application.FindPage(page + 1, pageSize));
             var t2 = Task.Run(() => _application.Find().Count());
 
             await Task.WhenAll(t1, t2);
-            return new PagingModelView<ApplicationView>() {
-                Items = t1.Result.Select(c=>
-                new ApplicationView() {
+            return new PagingModelView<ApplicationView>()
+            {
+                Items = t1.Result.Select(c =>
+                new ApplicationView()
+                {
                     ApplicationId = c.ApplicationId,
                     Address = c.Address,
                     NumML = c.NumML,
-                    ApplicationStatusId =c.ApplicationStatusId,
-                    StatusName =c.ApplicationStatus.StatusName,
-                    DistrictId =c.DistrictId,
-                    DistrictName =c.District.DistrictName,
-                    CreateDate =c.CreateDate,
-                    EndDate =c.EndDate
+                    ApplicationStatusId = c.ApplicationStatusId,
+                    StatusName = c.ApplicationStatus.StatusName,
+                    DistrictId = c.DistrictId,
+                    DistrictName = c.District.DistrictName,
+                    CreateDate = c.CreateDate,
+                    EndDate = c.EndDate,
+                    GroupName=(c.GroupId!=null)?c.Group.GroupName:string.Empty
                 }),
-                Total_Count = t2.Result };
+                Total_Count = t2.Result
+            };
         }
 
-        [HttpGet,Route("getpage")]
+        [HttpGet, Route("getpage")]
         public IQueryable<ApplicationEntiry> GetPage(int page, int pageSize) => _application.FindPage(page, pageSize);
 
-        [HttpGet,Route("getAll")]
+        [HttpGet, Route("getAll")]
         public IQueryable<ApplicationEntiry> GetAll() => _application.Find();
 
         [HttpGet("{id}")]

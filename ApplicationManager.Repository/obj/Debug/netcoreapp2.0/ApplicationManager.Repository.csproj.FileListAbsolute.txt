@@ -8,3 +8,13 @@ c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfo.cs
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.dll
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Debug\netcoreapp2.0\ApplicationManager.Repository.deps.json
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Debug\netcoreapp2.0\ApplicationManager.Repository.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Debug\netcoreapp2.0\ApplicationManager.Repository.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Debug\netcoreapp2.0\ApplicationManager.DAL.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\bin\Debug\netcoreapp2.0\ApplicationManager.DAL.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.csproj.CoreCompileInputs.cache
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfoInputs.cache
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfo.cs
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.pdb

@@ -6,10 +6,10 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class AuthenticationService {
-    public url: string;
+    //public url: string;
     // public localStorage : any;
-    constructor(private http: Http, @Inject('BASE_URL') originUrl: string) {
-        this.url = originUrl;
+    constructor(private http: Http, @Inject('BASE_URL') private originUrl: string) {
+       // this.url = originUrl;
     }
 
 
@@ -18,7 +18,7 @@ export class AuthenticationService {
         let headers = new Headers({ "Content-Type": "application/json" });
  
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.url + "api/Account/token", JSON.stringify({ email: username, password: password }), options)
+        return this.http.post(this.originUrl + "api/Account/token", JSON.stringify({ email: username, password: password }), options)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
 
@@ -28,6 +28,7 @@ export class AuthenticationService {
 
                     //if (typeof window !== "undefined") {
                         localStorage.setItem("currentUser", JSON.stringify(user));
+                        localStorage.setItem("currentUserName",username)
 
                   //  }
                 }
@@ -39,6 +40,7 @@ export class AuthenticationService {
         // remove user from local storage to log user out
    //   if (typeof window !== "undefined") {
         localStorage.removeItem("currentUser");
+        localStorage.removeItem("currentUserName");
       // }
     }
 }

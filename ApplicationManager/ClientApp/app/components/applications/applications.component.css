@@ -15,8 +15,7 @@
 /* Column Widths */
 .mat-column-number,
 .mat-column-state {
-  max-width: 64px;
-}
+  max-width: 64px;}
 
 .mat-column-created {
   max-width: 124px;
@@ -43,7 +42,7 @@
 .example-container {
   display: flex;
   flex-direction: column;
-  max-height: 800px;
+  max-height: 600px;
   min-width: 300px;
 }
 
@@ -94,8 +93,8 @@ border: none;
 .mat-paginator {
   justify-content: baseline!important;
 }
-.mat-dialog-container {
-  
-      max-width: 100vw!important;
-     
-  }
+.custom-button{
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}

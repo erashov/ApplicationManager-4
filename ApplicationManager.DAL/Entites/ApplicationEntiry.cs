@@ -30,5 +30,7 @@ namespace ApplicationManager.DAL.Entites
        // public int? EquipmentId { get; set; }
 
         public List<EquipmentEntity> Equipments { get; set; }
+        public int? GroupId { get; set; }
+        public GroupEntity Group { get; set; }
     }
 }

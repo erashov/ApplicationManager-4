@@ -6,3 +6,11 @@ c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\Appl
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.AssemblyInfo.cs
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.dll
 c:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\bin\Debug\netcoreapp2.0\ApplicationManager.Service.deps.json
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\bin\Debug\netcoreapp2.0\ApplicationManager.Service.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\bin\Debug\netcoreapp2.0\ApplicationManager.Service.pdb
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.csproj.CoreCompileInputs.cache
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.AssemblyInfoInputs.cache
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.AssemblyInfo.cs
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.dll
+c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Service\obj\Debug\netcoreapp2.0\ApplicationManager.Service.pdb

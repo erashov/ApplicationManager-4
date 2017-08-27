@@ -11,7 +11,7 @@ using System;
 namespace ApplicationManager.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20170824202515_InitialCreate")]
+    [Migration("20170827195039_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,8 @@ namespace ApplicationManager.DAL.Migrations
 
                     b.Property<DateTime?>("EndDate");
 
+                    b.Property<int?>("GroupId");
+
                     b.Property<int>("NumML");
 
                     b.HasKey("ApplicationId");
@@ -44,6 +46,8 @@ namespace ApplicationManager.DAL.Migrations
                     b.HasIndex("ApplicationStatusId");
 
                     b.HasIndex("DistrictId");
+
+                    b.HasIndex("GroupId");
 
                     b.ToTable("Applications");
                 });
@@ -149,6 +153,8 @@ namespace ApplicationManager.DAL.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<int?>("GroupId");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -173,6 +179,8 @@ namespace ApplicationManager.DAL.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -303,6 +311,10 @@ namespace ApplicationManager.DAL.Migrations
                     b.HasOne("ApplicationManager.DAL.Entites.DistrictEntity", "District")
                         .WithMany()
                         .HasForeignKey("DistrictId");
+
+                    b.HasOne("ApplicationManager.DAL.Entites.GroupEntity", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId");
                 });
 
             modelBuilder.Entity("ApplicationManager.DAL.Entites.EquipmentEntity", b =>
@@ -314,6 +326,13 @@ namespace ApplicationManager.DAL.Migrations
                     b.HasOne("ApplicationManager.DAL.Entites.ChanelEntity", "Chanel")
                         .WithMany()
                         .HasForeignKey("ChanelId");
+                });
+
+            modelBuilder.Entity("ApplicationManager.DAL.Entites.UserEntity", b =>
+                {
+                    b.HasOne("ApplicationManager.DAL.Entites.GroupEntity", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
