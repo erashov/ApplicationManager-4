@@ -18,13 +18,13 @@ import { ApplicationService } from '../_services/application.service';
   providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
-  displayedColumns = ['applicationId', 'numML', 'address', 'districtName', 'statusName', 'createDate', 'endDate'];
+  displayedColumns = ['applicationId', 'numML', 'address', 'districtName', 'statusName', 'createDate', 'endDate', 'groupName'];
   dataSource: ExampleDataSource | null;
   public result: any;
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
 
-  constructor( private dialogsService: DialogsService, private appService: ApplicationService) {
+  constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
   }
 
   ngOnInit() {
@@ -32,9 +32,13 @@ export class ApplicationsComponent implements OnInit {
   }
 
   public openDialog() {
-    this.dialogsService
-
-      .confirm('Заявка', '').subscribe(res => this.result = res);
+    this.dialogsService.confirm('Заявка', '').subscribe(res => this.result = res);
+  }
+  public takeInWork(app: Application) {
+   // let username=localStorage.getItem("currentUserName");
+  //  let groupId=localStorage.getItem("currentUserGroupId");
+    this.appService.editApplication(app);
+   // console.log(app);
 
   }
 }

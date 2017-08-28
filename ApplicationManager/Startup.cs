@@ -12,6 +12,7 @@ using ApplicationManager.DAL.Entites;
 using ApplicationManager.Service;
 using ApplicationManager.Repository;
 using ApplicationManager.Repository.Concrete;
+using ApplicationManager.Repository.Abstract;
 
 namespace ApplicationManager
 {
@@ -56,6 +57,7 @@ namespace ApplicationManager
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IBaseRepository<ApplicationEntiry>, ApplicationRepository>();
+            services.AddTransient <IGroupRepository, GroupRepository>();
             services.AddMvc();
         }
 
@@ -91,7 +93,7 @@ namespace ApplicationManager
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-         seeder.SeedAsync().Wait();
+         //seeder.SeedAsync().Wait();
         }
     }
 }

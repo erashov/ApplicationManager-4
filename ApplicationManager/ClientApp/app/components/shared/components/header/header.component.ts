@@ -8,9 +8,9 @@ import { Router, NavigationEnd } from '@angular/router';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-    username: string;
+    user: any;
     constructor(public router: Router) {
-        this.username=localStorage.getItem("currentUserName");
+        this.user=JSON.parse(localStorage.getItem("currentUser"));
         this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992) {
                 this.toggleSidebar();

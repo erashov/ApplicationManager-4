@@ -1,17 +1,17 @@
 import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
-import { Response, RequestOptions,Headers } from '@angular/http';
+import { Response, RequestOptions, Headers } from '@angular/http';
 import { PagingList } from "../_models/pagingList";
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Application } from "../_models/index";
+import { ApplicationChangeState } from "../_models/ApplicationChangeState";
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ApplicationService {
-    //  public url: string;
-
     constructor(private http: Http, @Inject('BASE_URL') private originUrl: string) {
-        //  this.url = originUrl;
     }
     getListPage(page: number, amount: number): Observable<PagingList> {
         return this.http.get(this.originUrl + '/api/Application/getpage?page=' + page + '&pageSize=' + amount).map(response => response.json() as PagingList);
@@ -37,12 +37,23 @@ export class ApplicationService {
     getApplications(sort: string, order: string, page: number, pageSize: number): Observable<PagingList> {
         const requestUrl =
             `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}`;
-        return this.http.get(requestUrl,this.jwt()).map(response => response.json() as PagingList);
+        return this.http.get(requestUrl, this.jwt()).map(response => response.json() as PagingList);
+    }
+    editApplication(app: Application) {
+        let url = `${this.originUrl}api/Application/update`;
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (currentUser) {
+        app.groupId = currentUser.groupId;          
+        }
+        var appChangeStg: ApplicationChangeState = { applicationId: app.applicationId, groupId: app.groupId };
+        const body = JSON.stringify(appChangeStg);
+         this.http.put(url, appChangeStg, this.jwt()).map(res=>res.json()).subscribe(() => { alert('Success'); });
+
+            
     }
 
     private jwt() {
         // create authorization header with jwt token
-
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 

@@ -14,6 +14,7 @@ using ApplicationManager.DAL.Entites;
 using ApplicationManager.Model.AccountViewModels;
 using ApplicationManager.Service;
 using ApplicationManager.Extensions;
+using ApplicationManager.Repository.Abstract;
 
 namespace ApplicationManager.Controllers
 {
@@ -27,19 +28,20 @@ namespace ApplicationManager.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
         private readonly IConfiguration _config;
-
+        private readonly IGroupRepository _group;
         public AccountController(
             UserManager<UserEntity> userManager,
             SignInManager<UserEntity> signInManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
-            IConfiguration config)
+            IConfiguration config, IGroupRepository group)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
             _config = config;
+            _group = group;
         }
 
         [TempData]
@@ -449,7 +451,7 @@ namespace ApplicationManager.Controllers
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
-
+                var group = _group.FindByUserName(model.Email);
                 if (user != null)
                 {
                     var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
@@ -471,7 +473,11 @@ namespace ApplicationManager.Controllers
                           expires: DateTime.Now.AddDays(30),
                           signingCredentials: creds);
 
-                        return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
+                        return Ok(new {
+                            userName=model.Email,
+                            groupName = group.GroupName,
+                            groupId = group.GroupId,
+                            token = new JwtSecurityTokenHandler().WriteToken(token) });
                     }
                 }
             }

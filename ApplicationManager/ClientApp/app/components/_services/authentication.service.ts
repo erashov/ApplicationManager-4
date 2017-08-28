@@ -28,7 +28,8 @@ export class AuthenticationService {
 
                     //if (typeof window !== "undefined") {
                         localStorage.setItem("currentUser", JSON.stringify(user));
-                        localStorage.setItem("currentUserName",username)
+                       // localStorage.setItem("currentUserName",username)
+                        //localStorage.setItem("currentGroupID",groupId)
 
                   //  }
                 }
@@ -40,7 +41,7 @@ export class AuthenticationService {
         // remove user from local storage to log user out
    //   if (typeof window !== "undefined") {
         localStorage.removeItem("currentUser");
-        localStorage.removeItem("currentUserName");
+       // localStorage.removeItem("currentUserName");
       // }
     }
 }

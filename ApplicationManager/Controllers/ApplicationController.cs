@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ApplicationManager.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     //  [Authorize(Roles = "userRole")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
@@ -55,7 +56,7 @@ namespace ApplicationManager.Controllers
             };
         }
 
-        [HttpGet, Route("getpage")]
+        [HttpGet,]
         public IQueryable<ApplicationEntiry> GetPage(int page, int pageSize) => _application.FindPage(page, pageSize);
 
         [HttpGet, Route("getAll")]
@@ -73,15 +74,19 @@ namespace ApplicationManager.Controllers
             _application.Add(value);
         }
 
-        [HttpPut()]
-        public ApplicationEntiry Put([FromBody]ApplicationEntiry value)
+        [HttpPut(),Route("Update")]
+        public ApplicationEntiry Update([FromBody]ApplicationChangeStateView value)
         {
-            return _application.Update(value);
+            var app=_application.FindById(value.applicationId);
+            app.GroupId = value.groupId;
+            return _application.Update(app);
         }
+
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
         }
+      
     }
 }

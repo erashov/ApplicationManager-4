@@ -9,7 +9,8 @@ export class Application {
     statusName: string;
     creacteDate: Date;
     endDate: Date;
-
+    groupId: number;
+    groupName: string;
     constructor() {
     }
 
