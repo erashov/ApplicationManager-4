@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, ElementRef } from '@angular/core';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator, MdSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
@@ -18,12 +18,14 @@ import { ApplicationService } from '../_services/application.service';
   providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
-  displayedColumns = ['applicationId', 'numML', 'address', 'districtName', 'statusName', 'createDate', 'endDate', 'groupName'];
+  displayedColumns = ['applicationId', 'numML',
+   //'address', 'districtName', 
+   'statusName', 'createDate', 'endDate', 'groupName'];
   dataSource: ExampleDataSource | null;
   public result: any;
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
-
+  @ViewChild('filter') filter: ElementRef;
   constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
   }
 
@@ -60,7 +62,7 @@ export class ExampleDataSource extends DataSource<Application> {
   connect(): Observable<Application[]> {
     const displayDataChanges = [
       this.sort.mdSortChange,
-      this.paginator.page
+
     ];
 
     // If the user changes the sort order, reset back to the first page.

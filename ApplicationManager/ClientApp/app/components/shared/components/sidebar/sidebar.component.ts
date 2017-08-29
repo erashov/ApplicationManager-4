@@ -6,16 +6,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-    isActive = false;
-    showMenu = '';
-    eventCalled() {
-        this.isActive = !this.isActive;
+    user: any;
+    constructor() {
+        this.user = JSON.parse(localStorage.getItem("currentUser"));
     }
-    addExpandClass(element: any) {
-        if (element === this.showMenu) {
-            this.showMenu = '0';
-        } else {
-            this.showMenu = element;
-        }
-    }
+
 }

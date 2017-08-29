@@ -5,13 +5,16 @@ import { PagingList } from "../_models/pagingList";
 import 'rxjs/add/operator/map';
 import { Application } from "../_models/index";
 import { ApplicationChangeState } from "../_models/ApplicationChangeState";
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+//import { Router } from "@angular/router";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ApplicationService {
-    constructor(private http: Http, @Inject('BASE_URL') private originUrl: string) {
+    constructor(private http: Http, @Inject('BASE_URL') private originUrl: string
+   // , private router: Router
+) {
     }
     getListPage(page: number, amount: number): Observable<PagingList> {
         return this.http.get(this.originUrl + '/api/Application/getpage?page=' + page + '&pageSize=' + amount).map(response => response.json() as PagingList);
@@ -43,13 +46,14 @@ export class ApplicationService {
         let url = `${this.originUrl}api/Application/update`;
         let currentUser = JSON.parse(localStorage.getItem("currentUser"));
         if (currentUser) {
-        app.groupId = currentUser.groupId;          
+            app.groupId = currentUser.groupId;
         }
         var appChangeStg: ApplicationChangeState = { applicationId: app.applicationId, groupId: app.groupId };
         const body = JSON.stringify(appChangeStg);
-         this.http.put(url, appChangeStg, this.jwt()).map(res=>res.json()).subscribe(() => { alert('Success'); });
+        this.http.put(url, appChangeStg, this.jwt()).map(res => res.json()).subscribe(() =>  {alert("suc")}//this.router.navigate(['/applications'])
+    );
 
-            
+
     }
 
     private jwt() {

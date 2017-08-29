@@ -1,52 +1,30 @@
-<!-- <div class="pos-f-t fixed-top header">
-    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
-        <button class="navbar-toggler navbar-toggler-right" (click)="toggleSidebar()">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="javascript:void(0)">Сервис монтажника</a>
-        <div class="collapse navbar-collapse">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Искать">
-            </form>
-            <ul class="navbar-nav ml-auto mt-2 mt-md-1">           
-
-                <li class="nav-item dropdown" ngbDropdown>
-                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-                        <i class="fa fa-user"></i><b class="caret"></b>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Профиль</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-envelope"></i> Входящие</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-gear"></i> Настройки</a>
-                        <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-fw fa-power-off"></i> Выйти</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
- -->
-<md-toolbar class="main-header mat-toolbar " layout-align="space-between center">
+<!-- <md-toolbar class="main-header mat-toolbar " layout-align="space-between center">
     <span class='logo'><img  src="../../../../../assets/logo.png"></span>
 
-
+    <span class="example-fill-remaining-space"></span>
+    <span>
         <button md-icon-button [mdMenuTriggerFor]="menu" class="ml-xs mat-icon-button">
         <md-icon>account_circle</md-icon>
         <span>{{user.userName}} ({{user.groupName}})</span>
-      </button>
-      <md-menu #menu="mdMenu">
+    </button>
+    <md-menu #menu="mdMenu">
         <button md-menu-item>
           <md-icon>settings</md-icon>
           <span>Настройки</span>
     </button>
 
-    <button md-menu-item [routerLink]="['/login']">
+        <button md-menu-item [routerLink]="['/login']">
           <md-icon>power_settings_new</md-icon>
           <span>Выйти</span>
         </button>
     </md-menu>
-  
+    </span>
+</md-toolbar> -->
 
 
-</md-toolbar>
+<button class="app-icon-button" (click)="sidenav.toggle()">
+    <i class="material-icons app-toolbar-menu">menu</i>
+</button><span class='logo'><img  src="../../../../../assets/logo.png"></span>
 
+  <span class="app-toolbar-filler"></span>
+  <button md-button>Сервис монтажника</button>

@@ -95,3 +95,55 @@ padding: 8px 16px;
 width: 100px;
 }
 
+
+.mat-toolbar {
+    min-width: 580px;
+}
+
+.app-toolbar-filler {
+    flex: 1 1 auto;
+  }
+  
+  .app-toolbar-menu {
+    padding: 0 14px 0 14px;
+    color: white;
+  }
+  
+  .app-icon-button {
+    box-shadow: none;
+    user-select: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    filter: none;
+    font-weight: normal;
+    height: auto;
+    line-height: inherit;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  .example-sidenav{
+
+    padding: 10px;
+    min-width: 200px;
+  }
+  .mat-sidenav {
+
+    min-width: 200px;
+
+}
+.mat-sidenav-container {
+    max-height: 1000px;
+    min-height: 480px;
+    height: 100vh;
+}

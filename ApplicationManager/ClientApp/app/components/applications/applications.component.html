@@ -6,26 +6,33 @@
     <button md-mini-fab (click)="openDialog()"><md-icon>playlist_add</md-icon></button>
   
   </div> -->
-
-  <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
+  <div class="example-header" >
+      <md-input-container floatPlaceholder="never">
+        <input mdInput #filter placeholder="Filter users">
+      </md-input-container>
+    </div>
+  <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" [trackBy]="applicationId" mdSortDisableClear mdSortDirection="asc">
 
     <ng-container cdkColumnDef="applicationId">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row"> <button md-button (click)="openDialog()">{{row.applicationId}} </button></md-cell>
+      <md-cell *cdkCellDef="let row">
+        <div><button md-button (click)="openDialog()"><strong>{{row.applicationId}}</strong> </button></div>
+        <div>{{row.districtName}}, {{row.address}}</div>
+      </md-cell>
     </ng-container>
     <ng-container cdkColumnDef="numML">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № МЛ </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.numML}} </md-cell>
     </ng-container>
     <!-- Title Column -->
-    <ng-container cdkColumnDef="address">
+<!--     <ng-container cdkColumnDef="address">
       <md-header-cell *cdkHeaderCellDef> Адреес </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
-    </ng-container>
-    <ng-container cdkColumnDef="districtName">
+    </ng-container> -->
+<!--     <ng-container cdkColumnDef="districtName">
       <md-header-cell *cdkHeaderCellDef> Район </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.districtName}} </md-cell>
-    </ng-container>
+    </ng-container> -->
     <ng-container cdkColumnDef="statusName">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> Статус </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.statusName}} </md-cell>

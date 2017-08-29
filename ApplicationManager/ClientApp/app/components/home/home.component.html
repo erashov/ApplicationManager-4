@@ -1,6 +1,25 @@
-﻿<app-header></app-header>
+﻿<md-sidenav-container class="example-container">
+    <md-sidenav #sidenav mode="side" class="app-sidenav">
+        <footer>
+        <app-sidebar></app-sidebar></footer>
+    </md-sidenav>
+
+    <md-toolbar >
+        <div class="example-sidenav-content">
+            <button class="app-icon-button" (click)="sidenav.toggle()">
+          <i class="material-icons app-toolbar-menu">menu</i>
+        </button><span class='logo'><img  src="../../../assets/logo.png"></span>
+        </div>
+        <span class="app-toolbar-filler"></span>
+        <h1>Сервис монтажника</h1>
+    </md-toolbar>
+    <div class="app-content">
+        <applications></applications>
+    </div>
+</md-sidenav-container>
+<!-- <app-header></app-header> -->
 <!-- <app-sidebar></app-sidebar> -->
 <!-- <section class="main-container"> -->
 
-    <applications></applications>
+
 <!-- </section> -->
