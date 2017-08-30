@@ -6,12 +6,12 @@
     <button md-mini-fab (click)="openDialog()"><md-icon>playlist_add</md-icon></button>
   
   </div> -->
-  <div class="example-header" >
+<!--   <div class="example-header" >
       <md-input-container floatPlaceholder="never">
         <input mdInput #filter placeholder="Filter users">
       </md-input-container>
-    </div>
-  <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" [trackBy]="applicationId" mdSortDisableClear mdSortDirection="asc">
+    </div> -->
+  <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
 
     <ng-container cdkColumnDef="applicationId">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>

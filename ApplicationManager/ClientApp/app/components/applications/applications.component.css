@@ -2,7 +2,7 @@
 .example-table {
   overflow: auto;
   min-height: 300px;
-  min-width: 600px;
+  min-width: 580px;
 }
 
 .mat-column-title {
@@ -88,7 +88,7 @@ border: none;
 .my-full-screen-dialog .mat-dialog-container {
   max-width: none!important;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
 }
 .mat-paginator {
   justify-content: baseline!important;

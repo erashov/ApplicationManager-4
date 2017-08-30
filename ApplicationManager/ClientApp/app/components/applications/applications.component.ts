@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Inject, ElementRef } from '@angular/core';
-import { DataSource } from '@angular/cdk';
+import { DataSource } from '@angular/cdk/table';
 import { MdPaginator, MdSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/merge';
@@ -19,13 +19,13 @@ import { ApplicationService } from '../_services/application.service';
 })
 export class ApplicationsComponent implements OnInit {
   displayedColumns = ['applicationId', 'numML',
-   //'address', 'districtName', 
-   'statusName', 'createDate', 'endDate', 'groupName'];
+    //'address', 'districtName', 
+    'statusName', 'createDate', 'endDate', 'groupName'];
   dataSource: ExampleDataSource | null;
   public result: any;
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
-  @ViewChild('filter') filter: ElementRef;
+  //@ViewChild('filter') filter: ElementRef;
   constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
   }
 
@@ -37,17 +37,14 @@ export class ApplicationsComponent implements OnInit {
     this.dialogsService.confirm('Заявка', '').subscribe(res => this.result = res);
   }
   public takeInWork(app: Application) {
-   // let username=localStorage.getItem("currentUserName");
-  //  let groupId=localStorage.getItem("currentUserGroupId");
     this.appService.editApplication(app);
-   // console.log(app);
 
   }
 }
 
 
 export class ExampleDataSource extends DataSource<Application> {
-  // The number of issues returned by github matching the query.
+
   resultsLength = 0;
   isLoadingResults = false;
   //isRateLimitReached = false;
@@ -62,7 +59,7 @@ export class ExampleDataSource extends DataSource<Application> {
   connect(): Observable<Application[]> {
     const displayDataChanges = [
       this.sort.mdSortChange,
-
+      this.paginator.page,
     ];
 
     // If the user changes the sort order, reset back to the first page.

@@ -17,17 +17,7 @@ import { RegisterComponent } from './components/register/index';
 import { SidebarComponent } from './components/shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
 
-import {
-    MaterialModule,
-/*     MdButtonModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdIconModule,
-    MdInputModule,
-    MdMenuModule,
-    MdToolbarModule */
-
-} from '@angular/material';
+import { MaterialModule } from '@angular/material';
 
 import { DialogsModule } from './components/dialoforms/applicationdialog/dialogs.module';
 import 'hammerjs';
@@ -51,16 +41,16 @@ import 'hammerjs';
         ReactiveFormsModule,
         HttpModule,
         MaterialModule,
-/*         MdInputModule,
-        MdButtonModule, */
+        /*         MdInputModule,
+                MdButtonModule, */
         ApplicationModule,
-/*         MdButtonModule,
-        MdCardModule,
-        MdCheckboxModule,
-        MdIconModule,
-        MdInputModule,
-        MdMenuModule,
-        MdToolbarModule, */
+        /*         MdButtonModule,
+                MdCardModule,
+                MdCheckboxModule,
+                MdIconModule,
+                MdInputModule,
+                MdMenuModule,
+                MdToolbarModule, */
         DialogsModule,
         routing
     ],
