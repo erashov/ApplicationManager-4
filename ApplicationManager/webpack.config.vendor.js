@@ -5,7 +5,7 @@ const merge = require('webpack-merge');
 const treeShakableModules = [
     '@angular/animations',
     '@angular/common',
-    '@angular/compiler',
+   // '@angular/compiler',
     '@angular/core',
     '@angular/forms',
     '@angular/http',
@@ -21,8 +21,8 @@ const nonTreeShakableModules = [
     '@angular/material/prebuilt-themes/indigo-pink.css',
     '@angular/cdk',
     'web-animations-js',
-    'es6-promise',
-    'es6-shim',
+    //'es6-promise',
+   // 'es6-shim',
     'event-source-polyfill',
     'hammerjs'
     //'jquery',

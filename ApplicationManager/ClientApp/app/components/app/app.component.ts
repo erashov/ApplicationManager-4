@@ -4,9 +4,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
     moduleId: module.id.toString(),
     selector: 'app',
     templateUrl: './app.component.html',
-
+    encapsulation:ViewEncapsulation.None,
    // styles:[require('../style.scss')],
-   // styleUrls:['./app.component.scss']
+     styleUrls:['./app.component.css']
 
 
 })

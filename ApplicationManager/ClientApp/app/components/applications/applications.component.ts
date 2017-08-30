@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, ElementRef, ViewEncapsulation } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
 import { MdPaginator, MdSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
@@ -15,6 +15,7 @@ import { ApplicationService } from '../_services/application.service';
   selector: 'applications',
   templateUrl: 'applications.component.html',
   styleUrls: ["./applications.component.css"],
+//  encapsulation:ViewEncapsulation.None,
   providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
@@ -42,9 +43,7 @@ export class ApplicationsComponent implements OnInit {
   }
 }
 
-
 export class ExampleDataSource extends DataSource<Application> {
-
   resultsLength = 0;
   isLoadingResults = false;
   //isRateLimitReached = false;
@@ -73,7 +72,6 @@ export class ExampleDataSource extends DataSource<Application> {
           this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize);
       })
       .map(data => {
-        // Flip flag to show that loading has finished.
         this.isLoadingResults = false;
         // this.isRateLimitReached = false;
         this.resultsLength = data.total_Count;
@@ -81,7 +79,6 @@ export class ExampleDataSource extends DataSource<Application> {
       })
       .catch(() => {
         this.isLoadingResults = false;
-        // Catch if the GitHub API has reached its rate limit. Return empty data.
         // this.isRateLimitReached = true;
         return Observable.of(null);
       });
