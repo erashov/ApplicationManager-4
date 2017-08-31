@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationManager.Service"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationManager.Repository", "ApplicationManager.Repository\ApplicationManager.Repository.csproj", "{1BC602FF-E1B2-4C97-8F0E-3C723313F275}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationManager.Test", "ApplicationManager.Test\ApplicationManager.Test.csproj", "{EFA2E3D8-1240-49FB-BEA9-0D4040A0F28D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1BC602FF-E1B2-4C97-8F0E-3C723313F275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BC602FF-E1B2-4C97-8F0E-3C723313F275}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BC602FF-E1B2-4C97-8F0E-3C723313F275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFA2E3D8-1240-49FB-BEA9-0D4040A0F28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA2E3D8-1240-49FB-BEA9-0D4040A0F28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA2E3D8-1240-49FB-BEA9-0D4040A0F28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA2E3D8-1240-49FB-BEA9-0D4040A0F28D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

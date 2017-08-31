@@ -23,13 +23,11 @@ export class AlertService {
         });
     }
 
-    // tslint:disable-next-line:typedef
     success(message: string, keepAfterNavigationChange = false) {
         this.keepAfterNavigationChange = keepAfterNavigationChange;
         this.subject.next({ type: "success", text: message });
     }
 
-    // tslint:disable-next-line:typedef
     error(message: string, keepAfterNavigationChange = false) {
         this.keepAfterNavigationChange = keepAfterNavigationChange;
         this.subject.next({ type: "error", text: message });

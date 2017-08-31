@@ -57,7 +57,7 @@ namespace ApplicationManager
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IBaseRepository<ApplicationEntiry>, ApplicationRepository>();
-            services.AddTransient <IGroupRepository, GroupRepository>();
+            services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddMvc();
         }
 
@@ -78,7 +78,6 @@ namespace ApplicationManager
             }
 
             app.UseStaticFiles();
-            app.UseStaticFiles();
 
             app.UseAuthentication();
 
@@ -93,7 +92,7 @@ namespace ApplicationManager
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-         //seeder.SeedAsync().Wait();
+            //seeder.SeedAsync().Wait();
         }
     }
 }
