@@ -11,22 +11,24 @@ import 'rxjs/add/operator/switchMap';
 import { PagingList, Application } from "../_models/index";
 import { DialogsService } from '../_services/dialogs.service';
 import { ApplicationService } from '../_services/application.service';
+import { SelectionModel } from "@angular/cdk/collections";
 @Component({
   selector: 'applications',
   templateUrl: 'applications.component.html',
   styleUrls: ["./applications.component.css"],
-//  encapsulation:ViewEncapsulation.None,
+  //  encapsulation:ViewEncapsulation.None,
   providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
-  displayedColumns = ['applicationId', 'numML',
+  displayedColumns = ['select', 'applicationId', 'numML',
     //'address', 'districtName', 
     'statusName', 'createDate', 'endDate', 'groupName'];
   dataSource: ExampleDataSource | null;
   public result: any;
+  selection = new SelectionModel<string>(true, []);
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
-  //@ViewChild('filter') filter: ElementRef;
+  @ViewChild('filter') filter: ElementRef;
   constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
   }
 
@@ -40,6 +42,33 @@ export class ApplicationsComponent implements OnInit {
   public takeInWork(app: Application) {
     this.appService.editApplication(app);
 
+  }
+  isAllSelected(): boolean {
+    console.log(this.dataSource);
+    if (this.selection.isEmpty()) { return false; }
+    /*   console.log(this.dataSource);
+      
+      if (!this.dataSource) { return false; }
+      if (this.selection.isEmpty()) { return false; }
+  
+      if (this.filter.nativeElement.value) {
+        return this.selection.selected.length == this.paginator.pageSize;
+      } else {
+        return this.selection.selected.length == this.paginator.pageSize;
+      } */
+    return true;
+  }
+  masterToggle() {
+   // console.log(this.dataSource);
+/*     if (!this.dataSource) { return; }
+
+    if (this.isAllSelected()) {
+      this.selection.clear();
+    } else if (this.filter.nativeElement.value) {
+      //this.dataSource.renderedData.forEach(data => this.selection.select(data.id));
+    } else {
+      // this.exampleDatabase.data.forEach(data => this.selection.select(data.id));
+    } */
   }
 }
 

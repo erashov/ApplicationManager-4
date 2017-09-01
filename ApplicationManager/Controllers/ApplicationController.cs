@@ -11,10 +11,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ApplicationManager.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Produces("application/json"), Route("api/[controller]"), Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     //  [Authorize(Roles = "userRole")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ApplicationController : Controller
     {
         IBaseRepository<ApplicationEntiry> _application;
@@ -50,7 +48,7 @@ namespace ApplicationManager.Controllers
                     DistrictName = c.District.DistrictName,
                     CreateDate = c.CreateDate,
                     EndDate = c.EndDate,
-                    GroupName=(c.GroupId!=null)?c.Group.GroupName:string.Empty
+                    GroupName = (c.GroupId != null) ? c.Group.GroupName : string.Empty
                 }),
                 Total_Count = t2.Result
             };
@@ -74,10 +72,10 @@ namespace ApplicationManager.Controllers
             _application.Add(value);
         }
 
-        [HttpPut(),Route("Update")]
+        [HttpPut(), Route("Update")]
         public ApplicationEntiry Update([FromBody]ApplicationChangeStateView value)
         {
-            var app=_application.FindById(value.applicationId);
+            var app = _application.FindById(value.applicationId);
             app.GroupId = value.groupId;
             return _application.Update(app);
         }
@@ -87,6 +85,6 @@ namespace ApplicationManager.Controllers
         public void Delete(int id)
         {
         }
-      
+
     }
 }

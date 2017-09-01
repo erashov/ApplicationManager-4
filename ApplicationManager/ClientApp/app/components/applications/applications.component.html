@@ -6,12 +6,24 @@
     <button md-mini-fab (click)="openDialog()"><md-icon>playlist_add</md-icon></button>
   
   </div> -->
-<!--   <div class="example-header" >
+  <!--   <div class="example-header" >
       <md-input-container floatPlaceholder="never">
         <input mdInput #filter placeholder="Filter users">
       </md-input-container>
     </div> -->
+
+
   <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
+    <ng-container cdkColumnDef="select">
+      <md-header-cell *cdkHeaderCellDef>
+        <md-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </md-checkbox>
+      </md-header-cell>
+      <md-cell *cdkCellDef="let row">
+        <md-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.applicationId) : null" [checked]="selection.isSelected(row.applicationId)">
+        </md-checkbox>
+      </md-cell>
+    </ng-container>
 
     <ng-container cdkColumnDef="applicationId">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>
@@ -25,11 +37,11 @@
       <md-cell *cdkCellDef="let row"> {{row.numML}} </md-cell>
     </ng-container>
     <!-- Title Column -->
-<!--     <ng-container cdkColumnDef="address">
+    <!--     <ng-container cdkColumnDef="address">
       <md-header-cell *cdkHeaderCellDef> Адреес </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
     </ng-container> -->
-<!--     <ng-container cdkColumnDef="districtName">
+    <!--     <ng-container cdkColumnDef="districtName">
       <md-header-cell *cdkHeaderCellDef> Район </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.districtName}} </md-cell>
     </ng-container> -->
