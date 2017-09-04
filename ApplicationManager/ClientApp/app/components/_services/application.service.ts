@@ -35,7 +35,7 @@ export class ApplicationService {
     }
 
     getApplications(sort: string, order: string, page: number, pageSize: number, filter:string): Observable<PagingList> {
-        console.log(filter);
+       if(filter.length<3){filter='';}
         
         const requestUrl =
             `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}&filter=${filter}`;

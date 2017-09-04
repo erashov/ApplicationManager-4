@@ -39,12 +39,12 @@ export class ApplicationsComponent implements OnInit {
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.appService, this.paginator, this.sort);
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
-    .debounceTime(150)
-    .distinctUntilChanged()
-    .subscribe(() => {
-      if (!this.dataSource) { return; }
-      this.dataSource.filter = this.filter.nativeElement.value;
-    });
+      .debounceTime(150)
+      .distinctUntilChanged()
+      .subscribe(() => {
+        if (!this.dataSource) { return; }
+        this.dataSource.filter = this.filter.nativeElement.value;
+      });
 
   }
 
@@ -56,7 +56,7 @@ export class ApplicationsComponent implements OnInit {
 
   }
   isAllSelected(): boolean {
- //   console.log(this.dataSource);
+    //   console.log(this.dataSource);
     if (this.selection.isEmpty()) { return false; }
     /*   console.log(this.dataSource);
       
