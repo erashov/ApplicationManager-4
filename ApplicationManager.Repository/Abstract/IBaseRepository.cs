@@ -5,8 +5,9 @@ namespace ApplicationManager.Repository
     public interface IBaseRepository<T>
     {
         IQueryable<T> Find();
+        IQueryable<T> Find(string filter);
 
-        IQueryable<T> FindPage(int page, int pageSize);
+        IQueryable<T> FindPage(int page, int pageSize, string sort, string order, string filter);
 
         T FindById(int id);
 

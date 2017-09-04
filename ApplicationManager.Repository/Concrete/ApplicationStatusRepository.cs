@@ -24,12 +24,17 @@ namespace ApplicationManager.Repository.Concrete
            return _appContext.ApplicationStatuses;
         }
 
+        public IQueryable<ApplicationStatusEntity> Find(string filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public ApplicationStatusEntity FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IQueryable<ApplicationStatusEntity> FindPage(int page, int count)
+        public IQueryable<ApplicationStatusEntity> FindPage(int page, int pageSize, string sort, string order, string filter)
         {
             throw new NotImplementedException();
         }

@@ -18,3 +18,4 @@ c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repo
 c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfo.cs
 c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.dll
 c:\Users\Alexandr\Source\Repository\ApplicationManager-4\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.pdb
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\ApplicationManager.Repository\obj\Debug\netcoreapp2.0\ApplicationManager.Repository.csprojResolveAssemblyReference.cache

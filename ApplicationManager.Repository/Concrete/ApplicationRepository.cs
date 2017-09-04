@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-using ApplicationManager.DAL.Entites;
 using ApplicationManager.DAL;
+using ApplicationManager.DAL.Entites;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApplicationManager.Repository.Concrete
@@ -25,6 +25,13 @@ namespace ApplicationManager.Repository.Concrete
             return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District);
         }
 
+        public IQueryable<ApplicationEntiry> Find(string filter)
+        {
+            if (string.IsNullOrWhiteSpace(filter) || filter?.Length<3)
+            { return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District); }
+            else { return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District).Where(a=>a.Address.Contains(filter)); }
+        }
+
         public ApplicationEntiry FindById(int id)
         {
             return _appContext.Applications.Include(c => c.ApplicationStatus)
@@ -34,9 +41,10 @@ namespace ApplicationManager.Repository.Concrete
                 .FirstOrDefault(a => a.ApplicationId == id);
         }
 
-        public IQueryable<ApplicationEntiry> FindPage(int page, int pageSize)
+        public IQueryable<ApplicationEntiry> FindPage(int page, int pageSize, string sort, string order, string filter)
         {
-            return Find().OrderByDescending(i => i.ApplicationId).Skip(pageSize * (page - 1)).Take(pageSize);
+      
+            return Find(filter).OrderByDescending(i => i.ApplicationId).Skip(pageSize * (page - 1)).Take(pageSize);
         }
 
         public ApplicationEntiry Remove(ApplicationEntiry entity)

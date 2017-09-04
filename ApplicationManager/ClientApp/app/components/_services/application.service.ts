@@ -34,9 +34,11 @@ export class ApplicationService {
             .catch(err => Observable.throw(err));
     }
 
-    getApplications(sort: string, order: string, page: number, pageSize: number): Observable<PagingList> {
+    getApplications(sort: string, order: string, page: number, pageSize: number, filter:string): Observable<PagingList> {
+        console.log(filter);
+        
         const requestUrl =
-            `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}`;
+            `${this.originUrl}api/Application/get?sort=${sort}&order=${order}&page=${page}&pageSize=${pageSize}&filter=${filter}`;
         return this.http.get(requestUrl, this.jwt()).map(response => response.json() as PagingList);
     }
     

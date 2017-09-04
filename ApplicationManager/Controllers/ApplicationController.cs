@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using ApplicationManager.Repository;
 using ApplicationManager.DAL.Entites;
 using ApplicationManager.Model.BaseView;
@@ -11,7 +11,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ApplicationManager.Controllers
 {
-    [Produces("application/json"), Route("api/[controller]"), Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Produces("application/json"), Route("api/[controller]"),
+      //  Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)
+        ]
     //  [Authorize(Roles = "userRole")]
     public class ApplicationController : Controller
     {
@@ -28,12 +30,13 @@ namespace ApplicationManager.Controllers
         }
 
         [HttpGet, Route("get")]
-        public async Task<PagingModelView<ApplicationView>> Get(int page, int pageSize, string sort, string order)
+        public async Task<PagingModelView<ApplicationView>> Get(int page, int pageSize, string sort, string order, string filter)
         {
-            var t1 = Task.Run(() => _application.FindPage(page + 1, pageSize));
-            var t2 = Task.Run(() => _application.Find().Count());
+            var t1 = Task.Run(() => _application.FindPage(page + 1, pageSize, sort, order, filter));
+            var t2 = Task.Run(() => _application.Find(filter).Count());
 
             await Task.WhenAll(t1, t2);
+
             return new PagingModelView<ApplicationView>()
             {
                 Items = t1.Result.Select(c =>
@@ -53,9 +56,6 @@ namespace ApplicationManager.Controllers
                 Total_Count = t2.Result
             };
         }
-
-        [HttpGet,]
-        public IQueryable<ApplicationEntiry> GetPage(int page, int pageSize) => _application.FindPage(page, pageSize);
 
         [HttpGet, Route("getAll")]
         public IQueryable<ApplicationEntiry> GetAll() => _application.Find();

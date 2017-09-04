@@ -26,6 +26,11 @@ namespace ApplicationManager.Repository.Concrete
             throw new NotImplementedException();
         }
 
+        public IQueryable<GroupEntity> Find(string filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public GroupEntity FindById(int id)
         {
             throw new NotImplementedException();
@@ -36,7 +41,7 @@ namespace ApplicationManager.Repository.Concrete
             return _appContext.Users.Include(c => c.Group).FirstOrDefault(u => u.Email == userName).Group;
         }
 
-        public IQueryable<GroupEntity> FindPage(int page, int pageSize)
+        public IQueryable<GroupEntity> FindPage(int page, int pageSize, string sort, string order, string filter)
         {
             throw new NotImplementedException();
         }
