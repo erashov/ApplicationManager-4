@@ -1,5 +1,4 @@
 ﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-
 import { User } from "../_models/index";
 import { UserService } from "../_services/index";
 

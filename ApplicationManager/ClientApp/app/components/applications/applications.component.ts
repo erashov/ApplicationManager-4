@@ -28,16 +28,20 @@ export class ApplicationsComponent implements OnInit {
     //'address', 'districtName', 
     'statusName', 'createDate', 'endDate', 'groupName'];
   dataSource: ExampleDataSource | null;
+  count = 1;
   public result: any;
   selection = new SelectionModel<string>(true, []);
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
   @ViewChild('filter') filter: ElementRef;
+  @ViewChild('buttonEvent') button:ElementRef;
   constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
+    //  this.dataSource.refresh=this.count.toString();
   }
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.appService, this.paginator, this.sort);
+
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
       .debounceTime(150)
       .distinctUntilChanged()
@@ -45,6 +49,8 @@ export class ApplicationsComponent implements OnInit {
         if (!this.dataSource) { return; }
         this.dataSource.filter = this.filter.nativeElement.value;
       });
+   
+   
 
   }
 
@@ -52,42 +58,66 @@ export class ApplicationsComponent implements OnInit {
     this.dialogsService.confirm('Заявка', '').subscribe(res => this.result = res);
   }
   public takeInWork(app: Application) {
-    this.appService.editApplication(app);
+/*      Observable.fromEvent(this.button.nativeElement, 'click')
+    .debounceTime(150)
+    .distinctUntilChanged()
+    .subscribe(() => {
+      if (!this.dataSource) { return; }
+      this.dataSource.refresh = this.count.toString();
+    });   */
+    ++this.count;
+
+    setTimeout(() => this.appService.editApplication(app), 350);
+
+    this.dataSource.refresh = this.count.toString();
+
+
 
   }
   isAllSelected(): boolean {
-    //   console.log(this.dataSource);
+
+    if (!this.dataSource) { return false; }
     if (this.selection.isEmpty()) { return false; }
-    /*   console.log(this.dataSource);
-      
-      if (!this.dataSource) { return false; }
-      if (this.selection.isEmpty()) { return false; }
-  
-      if (this.filter.nativeElement.value) {
-        return this.selection.selected.length == this.paginator.pageSize;
-      } else {
-        return this.selection.selected.length == this.paginator.pageSize;
-      } */
-    return true;
+
+    if (this.filter.nativeElement.value) {
+
+      return this.selection.selected.length == this.dataSource.data.length
+    } else {
+      return this.selection.selected.length == this.dataSource.data.length;
+    }
   }
   masterToggle() {
-    // console.log(this.dataSource);
-    /*     if (!this.dataSource) { return; }
-    
-        if (this.isAllSelected()) {
-          this.selection.clear();
-        } else if (this.filter.nativeElement.value) {
-          //this.dataSource.renderedData.forEach(data => this.selection.select(data.id));
-        } else {
-          // this.exampleDatabase.data.forEach(data => this.selection.select(data.id));
-        } */
+    console.log("1111111");
+
+
+    if (!this.dataSource) { return; }
+
+    if (this.isAllSelected()) {
+      console.log("1111112");
+      this.selection.clear();
+    } else {
+      console.log("1111113");
+      this.dataSource.data.forEach(data => this.selection.select(data.applicationId.toString()));
+      console.log(this.selection.selected);
+
+    }
   }
 }
 
 export class ExampleDataSource extends DataSource<Application> {
   resultsLength = 0;
   isLoadingResults = false;
+  data: Application[];
+
+
+  _refreshChange = new BehaviorSubject('');
+  get refresh(): string { return this._refreshChange.value; }
+  set refresh(refresh: string) {
+    this._refreshChange.next(refresh);
+  }
+
   _filterChange = new BehaviorSubject('');
+
   get filter(): string { return this._filterChange.value; }
   set filter(filter: string) { this._filterChange.next(filter); }
 
@@ -95,6 +125,7 @@ export class ExampleDataSource extends DataSource<Application> {
     private paginator: MdPaginator,
     private sort: MdSort) {
     super();
+
     this._filterChange.subscribe(() => this.paginator.pageIndex = 0);
   }
 
@@ -104,6 +135,7 @@ export class ExampleDataSource extends DataSource<Application> {
       this.sort.mdSortChange,
       this.paginator.page,
       this._filterChange,
+      this._refreshChange
     ];
 
     // If the user changes the sort order, reset back to the first page.
@@ -120,6 +152,7 @@ export class ExampleDataSource extends DataSource<Application> {
         this.isLoadingResults = false;
         // this.isRateLimitReached = false;
         this.resultsLength = data.total_Count;
+        this.data = data.items;
         return data.items;
       })
       .catch(() => {

@@ -50,7 +50,7 @@ export class ApplicationService {
         }
         var appChangeStg: ApplicationChangeState = { applicationId: app.applicationId, groupId: app.groupId };
         const body = JSON.stringify(appChangeStg);
-        this.http.put(url, appChangeStg, this.jwt()).map(res => res.json()).subscribe(() => { alert("suc") }//this.router.navigate(['/applications'])
+        this.http.put(url, appChangeStg, this.jwt()).map(res => res.json()).subscribe(() => {  }//this.router.navigate(['/applications'])
         );
 
 
