@@ -1,7 +1,5 @@
 ﻿using ApplicationManager.Repository.Abstract;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using ApplicationManager.DAL.Entites;
 using System.Linq;
 using ApplicationManager.DAL;

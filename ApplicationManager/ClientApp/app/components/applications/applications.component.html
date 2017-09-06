@@ -5,10 +5,8 @@
     </md-form-field>
   </div>
 
-
   <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
-
-    <ng-container mdColumnDef="select">
+<!--     <ng-container mdColumnDef="select">
       <md-header-cell *mdHeaderCellDef>
         <md-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
         </md-checkbox>
@@ -17,7 +15,7 @@
         <md-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.applicationId) : null" [checked]="selection.isSelected(row.applicationId)">
         </md-checkbox>
       </md-cell>
-    </ng-container>
+    </ng-container> -->
 
     <ng-container cdkColumnDef="applicationId">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>
@@ -47,7 +45,7 @@
 
     <ng-container cdkColumnDef="groupName">
       <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> В работе у бригады </md-header-cell>
-      <md-cell *cdkCellDef="let row"> <button #buttonEvent md-button (click)="takeInWork(row)"> В работе у {{row.groupName}}</button> </md-cell>
+      <md-cell *cdkCellDef="let row"> <button md-button (click)="takeInWork(row)"> В работе у {{row.groupName}}</button> </md-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="createDate">

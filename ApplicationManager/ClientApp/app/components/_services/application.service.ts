@@ -42,7 +42,7 @@ export class ApplicationService {
         return this.http.get(requestUrl, this.jwt()).map(response => response.json() as PagingList);
     }
     
-    editApplication(app: Application) {
+    editApplication(app: Application):Observable<any> {
         let url = `${this.originUrl}api/Application/update`;
         let currentUser = JSON.parse(localStorage.getItem("currentUser"));
         if (currentUser) {
@@ -50,8 +50,8 @@ export class ApplicationService {
         }
         var appChangeStg: ApplicationChangeState = { applicationId: app.applicationId, groupId: app.groupId };
         const body = JSON.stringify(appChangeStg);
-        this.http.put(url, appChangeStg, this.jwt()).map(res => res.json()).subscribe(() => {  }//this.router.navigate(['/applications'])
-        );
+        return this.http.put(url, appChangeStg, this.jwt()).map(res => res.json());//this.router.navigate(['/applications'])
+        
 
 
     }

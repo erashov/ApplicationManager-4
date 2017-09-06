@@ -2,6 +2,11 @@ import { Component, OnInit, ViewChild, Inject, ElementRef, ViewEncapsulation } f
 import { DataSource } from '@angular/cdk/table';
 import { MdPaginator, MdSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
+import { Application } from "../_models/index";
+import { DialogsService } from '../_services/dialogs.service';
+import { ApplicationService } from '../_services/application.service';
+import { SelectionModel } from "@angular/cdk/collections";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/debounceTime';
@@ -11,20 +16,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
-import { PagingList, Application } from "../_models/index";
-import { DialogsService } from '../_services/dialogs.service';
-import { ApplicationService } from '../_services/application.service';
-import { SelectionModel } from "@angular/cdk/collections";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+
 @Component({
   selector: 'applications',
   templateUrl: 'applications.component.html',
   styleUrls: ["./applications.component.css"],
-  //  encapsulation:ViewEncapsulation.None,
+  //encapsulation:ViewEncapsulation.None,
   providers: [ApplicationService]
 })
 export class ApplicationsComponent implements OnInit {
-  displayedColumns = ['select', 'applicationId', 'numML',
+  displayedColumns = [
+    //'select', 
+    'applicationId', 'numML',
     //'address', 'districtName', 
     'statusName', 'createDate', 'endDate', 'groupName'];
   dataSource: ExampleDataSource | null;
@@ -34,9 +37,9 @@ export class ApplicationsComponent implements OnInit {
   @ViewChild(MdPaginator) paginator: MdPaginator;
   @ViewChild(MdSort) sort: MdSort;
   @ViewChild('filter') filter: ElementRef;
-  @ViewChild('buttonEvent') button:ElementRef;
+
   constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
-    //  this.dataSource.refresh=this.count.toString();
+
   }
 
   ngOnInit() {
@@ -49,33 +52,20 @@ export class ApplicationsComponent implements OnInit {
         if (!this.dataSource) { return; }
         this.dataSource.filter = this.filter.nativeElement.value;
       });
-   
-   
-
   }
 
   public openDialog() {
     this.dialogsService.confirm('Заявка', '').subscribe(res => this.result = res);
   }
   public takeInWork(app: Application) {
-/*      Observable.fromEvent(this.button.nativeElement, 'click')
-    .debounceTime(150)
-    .distinctUntilChanged()
-    .subscribe(() => {
-      if (!this.dataSource) { return; }
-      this.dataSource.refresh = this.count.toString();
-    });   */
     ++this.count;
-
-    setTimeout(() => this.appService.editApplication(app), 350);
-
-    this.dataSource.refresh = this.count.toString();
-
-
-
+    this.appService.editApplication(app).subscribe(() => {
+      if (!this.dataSource) { return; }
+      this.dataSource.refresh = this.count.toString()
+    });
   }
   isAllSelected(): boolean {
-
+  //  console.log("1111110");
     if (!this.dataSource) { return false; }
     if (this.selection.isEmpty()) { return false; }
 
@@ -97,10 +87,13 @@ export class ApplicationsComponent implements OnInit {
       this.selection.clear();
     } else {
       console.log("1111113");
-      this.dataSource.data.forEach(data => this.selection.select(data.applicationId.toString()));
-      console.log(this.selection.selected);
+      this.dataSource.data.forEach(data => //console.log(data.applicationId.toString())
+       this.selection.select(data.applicationId.toString())
+      );
+     // console.log(this.selection.selected);
 
     }
+    console.log(this.selection.selected);
   }
 }
 
