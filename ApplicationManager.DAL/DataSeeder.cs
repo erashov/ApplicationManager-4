@@ -32,7 +32,7 @@ namespace ApplicationManager.DAL
             {
                 await _roleManager.CreateAsync(new IdentityRole("userRole"));
             }
-            string[] addresses = new string[] { "Варшавское шоссе", "ул. Академика Янгеля", "ул. Чертановская", "ул. Россошанская", "ул. Ленинское шоссе", "ул. Охотный ряд", "ул. Воздвиженка", "ул. Новослободская", "ул. Трифоновская" };
+            string[] addresses = new string[] { "Варшавское шоссе", "ул. Академика Янгеля", "ул. Чертановская", "Рязанский пр.","Волгоградский пр.", "ш. Энтузиастов", "ул. Россошанская", "ул. Ленинское шоссе", "ул. Охотный ряд", "ул. Воздвиженка", "ул. Новослободская", "ул. Трифоновская" };
             if (!_ctx.Users.Any())
             {
 
@@ -114,7 +114,7 @@ namespace ApplicationManager.DAL
                
                // Random r = new Random();
 
-                for (int i=0; i<50000; i++)
+                for (int i=0; i<500000; i++)
                 {
                     var create = GenererateRandomDate();
                     int status = r.Next(1, 5);
