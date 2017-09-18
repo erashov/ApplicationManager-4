@@ -5620,9 +5620,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Test\\ApplicationManager.Test.csproj",
       "projectName": "ApplicationManager.Test",
@@ -5659,22 +5656,23 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "xunit.runner.visualstudio": {
-            "target": "Package",
-            "version": "2.2.0"
-          },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
+          },
+          "Microsoft.NET.Test.Sdk": {
+            "target": "Package",
+            "version": "15.3.0-preview-20170628-02"
           },
           "xunit": {
             "target": "Package",
             "version": "2.2.0"
           },
-          "Microsoft.NET.Test.Sdk": {
+          "xunit.runner.visualstudio": {
             "target": "Package",
-            "version": "15.3.0-preview-20170628-02"
+            "version": "2.2.0"
           }
         },
         "imports": [
