@@ -27,24 +27,29 @@ namespace ApplicationManager.Repository.Concrete
 
         public IQueryable<ApplicationEntiry> Find(string filter)
         {
-            if (string.IsNullOrWhiteSpace(filter) || filter?.Length<3)
-            { return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District); }
-            else { return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District).Where(a=>a.Address.Contains(filter)); }
+            if (string.IsNullOrWhiteSpace(filter) || filter?.Length < 3)
+            {
+                return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District);
+            }
+            else
+            {
+                return _appContext.Applications.Include(c => c.ApplicationStatus).Include(c => c.District).Where(a => a.Address.Contains(filter));
+            }
         }
 
         public ApplicationEntiry FindById(int id)
         {
             return _appContext.Applications.Include(c => c.ApplicationStatus)
                 .Include(c => c.District)
-                .Include(c=>c.Equipments)
-                .Include(c=>c.Group)
+                .Include(c => c.Equipments)
+                .Include(c => c.Group)
                 .FirstOrDefault(a => a.ApplicationId == id);
         }
 
         public IQueryable<ApplicationEntiry> FindPage(int page, int pageSize, string sort, string order, string filter)
         {
-      
-            return Find(filter).OrderByDescending(i => i.ApplicationId).Skip(pageSize * (page - 1)).Take(pageSize);
+
+            return Find(filter).OrderByDescending(i => i.ApplicationId).Skip(pageSize * (page - 1)).Take(pageSize).AsNoTracking();
         }
 
         public ApplicationEntiry Remove(ApplicationEntiry entity)
@@ -61,7 +66,7 @@ namespace ApplicationManager.Repository.Concrete
             //if (app != null)
             //{
             //    app.Address = entity.Address;
-                
+
             //}
 
             return entity;

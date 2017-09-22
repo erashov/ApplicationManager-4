@@ -4029,6 +4029,9 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\Users\\ASErashov\\Documents\\Visual Studio 2017\\Projects\\ApplicationManager\\ApplicationManager.Repository\\ApplicationManager.Repository.csproj",
       "projectName": "ApplicationManager.Repository",

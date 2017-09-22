@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 namespace ApplicationManager.Controllers
 {
     [Produces("application/json"), Route("api/[controller]"),
-      //  Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)
+     Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)
         ]
     //  [Authorize(Roles = "userRole")]
     public class ApplicationController : Controller
