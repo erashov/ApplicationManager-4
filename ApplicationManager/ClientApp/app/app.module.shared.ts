@@ -14,7 +14,7 @@ import { LoginComponent } from './components/login/index';
 import { RegisterComponent } from './components/register/index';
 import { SidebarComponent } from './components/shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
-import { MaterialModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule } from '@angular/material';
 import { DialogsModule } from './components/dialoforms/applicationdialog/dialogs.module';
 import 'hammerjs';
 
@@ -36,7 +36,11 @@ import 'hammerjs';
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
-        MaterialModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
         ApplicationModule,
         DialogsModule,
         routing

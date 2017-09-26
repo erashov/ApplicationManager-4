@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CdkTableModule, DataSource } from '@angular/cdk/table';
-import { MdTableModule, MdSortModule, MdDatepickerModule, MaterialModule, MdIconModule, MdInputModule, MdPaginatorModule, } from '@angular/material';
+import { MatTableModule, MatSortModule, MatDatepickerModule,  MatIconModule, MatInputModule, MatPaginatorModule, } from '@angular/material';
 import { ApplicationsComponent } from './applications.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports: [
         CommonModule,
-        MaterialModule,
-        MdDatepickerModule,
+        
+        MatDatepickerModule,
         CdkTableModule,
-        MdTableModule,
-        MdIconModule,
-        MdInputModule,
-        MdPaginatorModule,
-        MdSortModule,
+        MatTableModule,
+        MatIconModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSortModule,
     ],
     exports: [ApplicationsComponent],
     declarations: [ApplicationsComponent],

@@ -65,7 +65,7 @@ export class ApplicationsComponent implements OnInit {
     });
   }
   isAllSelected(): boolean {
-  //  console.log("1111110");
+    //  console.log("1111110");
     if (!this.dataSource) { return false; }
     if (this.selection.isEmpty()) { return false; }
 
@@ -88,9 +88,9 @@ export class ApplicationsComponent implements OnInit {
     } else {
       console.log("1111113");
       this.dataSource.data.forEach(data => //console.log(data.applicationId.toString())
-       this.selection.select(data.applicationId.toString())
+        this.selection.select(data.applicationId.toString())
       );
-     // console.log(this.selection.selected);
+      // console.log(this.selection.selected);
 
     }
     console.log(this.selection.selected);
@@ -125,14 +125,14 @@ export class ExampleDataSource extends DataSource<Application> {
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<Application[]> {
     const displayDataChanges = [
-      this.sort.mdSortChange,
+      this.sort.sortChange,
       this.paginator.page,
       this._filterChange,
       this._refreshChange
     ];
 
     // If the user changes the sort order, reset back to the first page.
-    this.sort.mdSortChange.subscribe(() => this.paginator.pageIndex = 0);
+    this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
 
     return Observable.merge(...displayDataChanges)
       .startWith(null)
