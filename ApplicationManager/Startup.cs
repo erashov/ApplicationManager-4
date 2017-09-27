@@ -55,6 +55,7 @@ namespace ApplicationManager
               });
 
             // Add application services.
+            services.AddResponseCompression();
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IBaseRepository<ApplicationEntiry>, ApplicationRepository>();
             services.AddTransient<IGroupRepository, GroupRepository>();
@@ -76,7 +77,7 @@ namespace ApplicationManager
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseResponseCompression();
             app.UseStaticFiles();
 
             app.UseAuthentication();

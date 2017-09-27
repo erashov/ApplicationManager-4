@@ -4,7 +4,7 @@
 
             <form class="form-signin" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
                 <h4 class="form-signin-heading">Пожалйста авторизуйтесь</h4>
-                <div >
+                <div>
                     <!--  <label for="username">Логин</label> -->
                     <md-input-container class="example-full-width">
                         <input mdInput placeholder="Логин" [formControl]="loginFormControl">
@@ -13,12 +13,13 @@
                             Необходимо ввести логин
                         </md-error>
                     </md-input-container>
-       
+
                 </div>
-                <div >
+                <div>
 
                     <md-input-container class="example-full-width">
-                        <input mdInput type="password" placeholder="Пароль" name="password" [(ngModel)]="model.password"  [formControl]="passwordFormControl"/>
+                        <input mdInput type="password" placeholder="Пароль" name="password" [(ngModel)]="model.password" [formControl]="passwordFormControl"
+                        />
                         <md-error *ngIf="passwordFormControl.hasError('required')">
                             Необходимо ввести пароль
                         </md-error>
