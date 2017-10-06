@@ -1,67 +1,67 @@
 <div class="example-container mat-elevation-z8">
   <div class="example-header">
-    <md-form-field floatPlaceholder="never">
+    <mat-form-field floatPlaceholder="never">
       <input mdInput #filter placeholder="Поиск">
-    </md-form-field>
+    </mat-form-field>
   </div>
 
-  <md-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
-    <!--     <ng-container mdColumnDef="select">
-      <md-header-cell *mdHeaderCellDef>
-        <md-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
-        </md-checkbox>
-      </md-header-cell>
-      <md-cell *mdCellDef="let row">
-        <md-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.applicationId) : null" [checked]="selection.isSelected(row.applicationId)">
-        </md-checkbox>
-      </md-cell>
+  <mat-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
+    <!--<ng-container mdColumnDef="select">
+      <mat-header-cell *mdHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *mdCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.applicationId) : null" [checked]="selection.isSelected(row.applicationId)">
+        </mat-checkbox>
+      </mat-cell>
     </ng-container> -->
 
     <ng-container cdkColumnDef="applicationId">
-      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row">
-        <div><button md-button (click)="openDialog()"><strong>{{row.applicationId}}</strong> </button></div>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear="true"> № заявки </mat-header-cell>
+      <mat-cell *cdkCellDef="let row">
+        <div><button mat-button (click)="openDialog()"><strong>{{row.applicationId}}</strong> </button></div>
         <div>{{row.districtName}}, {{row.address}}</div>
-      </md-cell>
+      </mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="numML">
-      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> № МЛ </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.numML}} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear="true"> № МЛ </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{row.numML}} </mat-cell>
     </ng-container>
     <!-- Title Column -->
     <!--     <ng-container cdkColumnDef="address">
-      <md-header-cell *cdkHeaderCellDef> Адреес </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef> Адреес </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{row.address}} </mat-cell>
     </ng-container> -->
     <!--     <ng-container cdkColumnDef="districtName">
-      <md-header-cell *cdkHeaderCellDef> Район </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.districtName}} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef> Район </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{row.districtName}} </mat-cell>
     </ng-container> -->
     <ng-container cdkColumnDef="statusName">
-      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> Статус </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.statusName}} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear="true"> Статус </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{row.statusName}} </mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="groupName">
-      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear="true"> В работе у бригады </md-header-cell>
-      <md-cell *cdkCellDef="let row"> <button md-button (click)="takeInWork(row)"> В работе у {{row.groupName}}</button> </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear="true"> В работе у бригады </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> <button mat-button (click)="takeInWork(row)"> В работе у {{row.groupName}}</button> </mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="createDate">
-      <md-header-cell *cdkHeaderCellDef> Время создания заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.createDate | date: 'dd/MM/yyyy hh:mm'}} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef> Время создания заявки </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{row.createDate | date: 'dd/MM/yyyy hh:mm'}} </mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="endDate">
-      <md-header-cell *cdkHeaderCellDef> Время закрытия заявки </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.endDate | date: 'dd/MM/yyyy hh:mm'}} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef> Время закрытия заявки </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{row.endDate | date: 'dd/MM/yyyy hh:mm'}} </mat-cell>
     </ng-container>
 
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
-  <md-paginator [length]="dataSource.resultsLength" [pageSize]="10" [pageSizeOptions]="[10, 15, 25, 100]">
-  </md-paginator>
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [length]="dataSource.resultsLength" [pageSize]="10" [pageSizeOptions]="[10, 15, 25, 100]">
+  </mat-paginator>
 
 </div>

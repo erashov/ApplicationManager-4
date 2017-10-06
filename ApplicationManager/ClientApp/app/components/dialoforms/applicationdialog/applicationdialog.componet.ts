@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 @Component({
     selector: 'application-dialog',
     templateUrl: 'applicationdialog.componet.html'
@@ -10,7 +10,7 @@ export class ApplicationDialogComponent {
     public title: string;
     public message: string;
 
-    constructor(public dialogRef: MdDialogRef<ApplicationDialogComponent>) {
+    constructor(public dialogRef: MatDialogRef<ApplicationDialogComponent>) {
 
     }
 

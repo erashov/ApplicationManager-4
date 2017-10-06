@@ -1,16 +1,16 @@
 import { Observable } from 'rxjs/Rx';
 import { ApplicationDialogComponent } from '../dialoforms/applicationdialog/applicationdialog.componet';
-import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
+import { MatDialogRef, MatDialog,MatDialogConfig } from '@angular/material';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DialogsService {
 
-    constructor(private dialog: MdDialog) { }
+    constructor(private dialog: MatDialog) { }
 
     public confirm(title: string, message: string): Observable<boolean> {
 
-        let dialogRef: MdDialogRef<ApplicationDialogComponent>;
+        let dialogRef: MatDialogRef<ApplicationDialogComponent>;
 
         dialogRef = this.dialog.open(ApplicationDialogComponent, {
             panelClass: 'my-full-screen-dialog', 

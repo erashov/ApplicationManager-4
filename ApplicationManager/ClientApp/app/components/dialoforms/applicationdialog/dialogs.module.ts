@@ -1,13 +1,13 @@
 import { DialogsService } from '../../_services/dialogs.service';
-import { MdDialogModule, MdButtonModule,MdIconModule  } from '@angular/material';
+import { MatDialogModule, MatButtonModule,MatIconModule  } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { ApplicationDialogComponent } from './applicationdialog.componet';
 
 @NgModule({
     imports: [
-        MdDialogModule,
-        MdButtonModule,
-        MdIconModule
+        MatDialogModule,
+        MatButtonModule,
+        MatIconModule
     ],
     exports: [
         ApplicationDialogComponent,

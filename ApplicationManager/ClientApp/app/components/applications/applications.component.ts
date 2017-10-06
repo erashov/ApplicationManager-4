@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Inject, ElementRef, ViewEncapsulation } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
-import { MdPaginator, MdSort } from '@angular/material';
+import { MatPaginator, MatSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Application } from "../_models/index";
 import { DialogsService } from '../_services/dialogs.service';
@@ -34,8 +34,8 @@ export class ApplicationsComponent implements OnInit {
   count = 1;
   public result: any;
   selection = new SelectionModel<string>(true, []);
-  @ViewChild(MdPaginator) paginator: MdPaginator;
-  @ViewChild(MdSort) sort: MdSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild('filter') filter: ElementRef;
 
   constructor(private dialogsService: DialogsService, private appService: ApplicationService) {
@@ -115,8 +115,8 @@ export class ExampleDataSource extends DataSource<Application> {
   set filter(filter: string) { this._filterChange.next(filter); }
 
   constructor(private exampleDatabase: ApplicationService,
-    private paginator: MdPaginator,
-    private sort: MdSort) {
+    private paginator: MatPaginator,
+    private sort: MatSort) {
     super();
 
     this._filterChange.subscribe(() => this.paginator.pageIndex = 0);
