@@ -6,27 +6,27 @@
                 <h4 class="form-signin-heading">Пожалйста авторизуйтесь</h4>
                 <div>
                     <!--  <label for="username">Логин</label> -->
-                    <md-input-container class="example-full-width">
-                        <input mdInput placeholder="Логин" [formControl]="loginFormControl">
+                    <mat-input-container class="example-full-width">
+                        <input matInput placeholder="Логин" [formControl]="loginFormControl">
 
-                        <md-error *ngIf="loginFormControl.hasError('required')">
+                        <mat-error *ngIf="loginFormControl.hasError('required')">
                             Необходимо ввести логин
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
                 </div>
                 <div>
 
-                    <md-input-container class="example-full-width">
-                        <input mdInput type="password" placeholder="Пароль" name="password" [(ngModel)]="model.password" [formControl]="passwordFormControl"
+                    <mat-input-container class="example-full-width">
+                        <input matInput type="password" placeholder="Пароль" name="password" [(ngModel)]="model.password" [formControl]="passwordFormControl"
                         />
-                        <md-error *ngIf="passwordFormControl.hasError('required')">
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
                             Необходимо ввести пароль
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
                 </div>
                 <div>
-                    <button [disabled]="loading" md-raised-button>Войти</button>
+                    <button [disabled]="loading" mat-raised-button>Войти</button>
                     <!--  <button [disabled]="loading" class="btn btn-primary">Войти</button> -->
                     <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/> -->
                     <!--    <a [routerLink]="['/register']" class="btn btn-link">Зарегистрироваться</a> -->

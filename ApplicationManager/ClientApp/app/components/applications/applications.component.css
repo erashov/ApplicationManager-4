@@ -42,7 +42,7 @@
 .example-container {
   display: flex;
   flex-direction: column;
-  max-height: 600px;
+
   min-width: 300px;
 }
 

@@ -1,0 +1,9 @@
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.deps.json
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.dll
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.pdb
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.csprojResolveAssemblyReference.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfoInputs.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.AssemblyInfo.cs
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.dll
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.DAL\Debug\netcoreapp2.0\ApplicationManager.DAL.pdb

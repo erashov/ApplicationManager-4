@@ -1,0 +1,11 @@
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.deps.json
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.runtimeconfig.json
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.runtimeconfig.dev.json
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.dll
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.pdb
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.csprojResolveAssemblyReference.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.csproj.CoreCompileInputs.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.AssemblyInfoInputs.cache
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.AssemblyInfo.cs
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.dll
+C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager\Debug\netcoreapp2.0\ApplicationManager.pdb

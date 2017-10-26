@@ -1,11 +1,11 @@
 <div class="example-container mat-elevation-z8">
   <div class="example-header">
     <mat-form-field floatPlaceholder="never">
-      <input mdInput #filter placeholder="Поиск">
+      <input matInput #filter placeholder="Поиск">
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="dataSource" class="example-table" mdSort mdSortActive="applicationId" mdSortDisableClear mdSortDirection="asc">
+  <mat-table #table [dataSource]="dataSource" class="example-table" matSort mdSortActive="applicationId" matSortDisableClear matSortDirection="asc">
     <!--<ng-container mdColumnDef="select">
       <mat-header-cell *mdHeaderCellDef>
         <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
