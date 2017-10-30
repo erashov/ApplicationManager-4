@@ -13,7 +13,6 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApplicationManager.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("Package Description")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApplicationManager.DAL")]

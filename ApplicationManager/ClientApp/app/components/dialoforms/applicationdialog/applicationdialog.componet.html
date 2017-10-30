@@ -1,13 +1,11 @@
-<md-toolbar class="main-header mat-toolbar ">
-
+<mat-toolbar class="main-header mat-toolbar ">
     <span>
-    
-            <button md-icon-button  (click)="dialogRef.close()">
-            <md-icon>keyboard_backspace</md-icon>
+        <button mat-icon-button (click)="dialogRef.close()">
+            <mat-icon>keyboard_backspace</mat-icon>
             <strong>{{ title }}</strong>
-          </button>
+        </button>
     </span>
-</md-toolbar>
+</mat-toolbar>
 <p>{{ message }}</p>
 
 <div class="container">
@@ -88,8 +86,8 @@
                 </ul>
             </li>
             <li>
-                <button type="button" md-raised-button (click)="dialogRef.close(true)">Сохранить</button>
-                <button type="button" md-button (click)="dialogRef.close()">Отмена</button>
+                <button type="button" mat-raised-button (click)="dialogRef.close(true)">Сохранить</button>
+                <button type="button" mat-button (click)="dialogRef.close()">Отмена</button>
             </li>
         </ul>
     </form>
