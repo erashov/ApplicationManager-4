@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5de76ca736430b8b7ac1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dcf92c8c35822abdf78e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1616,7 +1616,7 @@ function toComment(sourceMap) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__);
 /**
- * @license Angular v5.0.1
+ * @license Angular v5.0.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -6539,6 +6539,9 @@ var Router = (function () {
         else {
             q = preserveQueryParams ? this.currentUrlTree.queryParams : queryParams || null;
         }
+        if (q !== null) {
+            q = this.removeEmptyProps(q);
+        }
         return createUrlTree(a, this.currentUrlTree, commands, /** @type {?} */ ((q)), /** @type {?} */ ((f)));
     };
     /**
@@ -6685,9 +6688,6 @@ var Router = (function () {
     function (commands, extras) {
         if (extras === void 0) { extras = { skipLocationChange: false }; }
         validateCommands(commands);
-        if (typeof extras.queryParams === 'object' && extras.queryParams !== null) {
-            extras.queryParams = this.removeEmptyProps(extras.queryParams);
-        }
         return this.navigateByUrl(this.createUrlTree(commands, extras), extras);
     };
     /** Serializes a {@link UrlTree} into a string */
@@ -8869,7 +8869,7 @@ function provideRouterInitializer() {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.1');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.3');
 
 /**
  * @fileoverview added by tsickle
@@ -9054,7 +9054,7 @@ module.exports = function (it, TYPE) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(36);
 /**
- * @license Angular v5.0.1
+ * @license Angular v5.0.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11750,7 +11750,7 @@ var JsonpModule = (function () {
 /**
  * @deprecated use \@angular/common/http instead
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.0.1');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.0.3');
 
 /**
  * @fileoverview added by tsickle
@@ -24000,7 +24000,7 @@ $metadata.exp({ metadata: function metadata(metadataKey, metadataValue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tslib__ = __webpack_require__(35);
 /**
- * @license Angular v5.0.1
+ * @license Angular v5.0.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -24651,7 +24651,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.1');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.3');
 
 /**
  * @fileoverview added by tsickle
@@ -24928,7 +24928,7 @@ var platformBrowserDynamic = Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[
 /* unused harmony export removeSummaryDuplicates */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(35);
 /**
- * @license Angular v5.0.1
+ * @license Angular v5.0.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -25548,7 +25548,7 @@ var Version = (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('5.0.1');
+var VERSION = new Version('5.0.3');
 
 /**
  * @fileoverview added by tsickle
@@ -32375,7 +32375,8 @@ var ParseError = (function () {
      */
     function () {
         var /** @type {?} */ ctx = this.span.start.getContext(100, 3);
-        return ctx ? " (\"" + ctx.before + "[" + ParseErrorLevel[this.level] + " ->]" + ctx.after + "\")" : '';
+        return ctx ? this.msg + " (\"" + ctx.before + "[" + ParseErrorLevel[this.level] + " ->]" + ctx.after + "\")" :
+            this.msg;
     };
     /**
      * @return {?}
@@ -32385,7 +32386,7 @@ var ParseError = (function () {
      */
     function () {
         var /** @type {?} */ details = this.span.details ? ", " + this.span.details : '';
-        return "" + this.msg + this.contextualMessage() + ": " + this.span.start + details;
+        return this.contextualMessage() + ": " + this.span.start + details;
     };
     return ParseError;
 }());
@@ -47806,17 +47807,31 @@ var ShadowCss = (function () {
         var /** @type {?} */ startIndex = 0;
         var /** @type {?} */ res;
         var /** @type {?} */ sep = /( |>|\+|~(?!=))\s*/g;
-        var /** @type {?} */ scopeAfter = selector.indexOf(_polyfillHostNoCombinator);
+        // If a selector appears before :host it should not be shimmed as it
+        // matches on ancestor elements and not on elements in the host's shadow
+        // `:host-context(div)` is transformed to
+        // `-shadowcsshost-no-combinatordiv, div -shadowcsshost-no-combinator`
+        // the `div` is not part of the component in the 2nd selectors and should not be scoped.
+        // Historically `component-tag:host` was matching the component so we also want to preserve
+        // this behavior to avoid breaking legacy apps (it should not match).
+        // The behavior should be:
+        // - `tag:host` -> `tag[h]` (this is to avoid breaking legacy apps, should not match anything)
+        // - `tag :host` -> `tag [h]` (`tag` is not scoped because it's considered part of a
+        //   `:host-context(tag)`)
+        var /** @type {?} */ hasHost = selector.indexOf(_polyfillHostNoCombinator) > -1;
+        // Only scope parts after the first `-shadowcsshost-no-combinator` when it is present
+        var /** @type {?} */ shouldScope = !hasHost;
         while ((res = sep.exec(selector)) !== null) {
             var /** @type {?} */ separator = res[1];
-            var /** @type {?} */ part = selector.slice(startIndex, res.index).trim();
-            // if a selector appears before :host-context it should not be shimmed as it
-            // matches on ancestor elements and not on elements in the host's shadow
-            var /** @type {?} */ scopedPart = startIndex >= scopeAfter ? _scopeSelectorPart(part) : part;
+            var /** @type {?} */ part_1 = selector.slice(startIndex, res.index).trim();
+            shouldScope = shouldScope || part_1.indexOf(_polyfillHostNoCombinator) > -1;
+            var /** @type {?} */ scopedPart = shouldScope ? _scopeSelectorPart(part_1) : part_1;
             scopedSelector += scopedPart + " " + separator + " ";
             startIndex = sep.lastIndex;
         }
-        scopedSelector += _scopeSelectorPart(selector.substring(startIndex));
+        var /** @type {?} */ part = selector.substring(startIndex);
+        shouldScope = shouldScope || part.indexOf(_polyfillHostNoCombinator) > -1;
+        scopedSelector += shouldScope ? _scopeSelectorPart(part) : part;
         // replace the placeholders with their original values
         return safeContent.restore(scopedSelector);
     };
@@ -51491,6 +51506,28 @@ var TypeCheckCompiler = (function () {
     return TypeCheckCompiler;
 }());
 var DYNAMIC_VAR_NAME = '_any';
+var TypeCheckLocalResolver = (function () {
+    function TypeCheckLocalResolver() {
+    }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    TypeCheckLocalResolver.prototype.getLocal = /**
+     * @param {?} name
+     * @return {?}
+     */
+    function (name) {
+        if (name === EventHandlerVars.event.name) {
+            // References to the event should not be type-checked.
+            // TODO(chuckj): determine a better type for the event.
+            return variable(DYNAMIC_VAR_NAME);
+        }
+        return null;
+    };
+    return TypeCheckLocalResolver;
+}());
+var defaultResolver = new TypeCheckLocalResolver();
 var ViewBuilder = (function () {
     function ViewBuilder(options, reflector, externalReferenceVars, parent, component, isHostComponent, embeddedViewIndex, pipes, viewBuilderFactory) {
         this.options = options;
@@ -51565,7 +51602,7 @@ var ViewBuilder = (function () {
         this.updates.forEach(function (expression) {
             var _a = _this.preprocessUpdateExpression(expression), sourceSpan = _a.sourceSpan, context = _a.context, value = _a.value;
             var /** @type {?} */ bindingId = "" + bindingCount++;
-            var /** @type {?} */ nameResolver = context === _this.component ? _this : null;
+            var /** @type {?} */ nameResolver = context === _this.component ? _this : defaultResolver;
             var _b = convertPropertyBinding(nameResolver, variable(_this.getOutputVar(context)), value, bindingId), stmts = _b.stmts, currValExpr = _b.currValExpr;
             stmts.push(new ExpressionStatement(currValExpr));
             viewStmts.push.apply(viewStmts, stmts.map(function (stmt) { return applySourceSpanToStatementIfNeeded(stmt, sourceSpan); }));
@@ -51573,7 +51610,7 @@ var ViewBuilder = (function () {
         this.actions.forEach(function (_a) {
             var sourceSpan = _a.sourceSpan, context = _a.context, value = _a.value;
             var /** @type {?} */ bindingId = "" + bindingCount++;
-            var /** @type {?} */ nameResolver = context === _this.component ? _this : null;
+            var /** @type {?} */ nameResolver = context === _this.component ? _this : defaultResolver;
             var stmts = convertActionBinding(nameResolver, variable(_this.getOutputVar(context)), value, bindingId).stmts;
             viewStmts.push.apply(viewStmts, stmts.map(function (stmt) { return applySourceSpanToStatementIfNeeded(stmt, sourceSpan); }));
         });
@@ -54351,7 +54388,7 @@ var AotCompiler = (function () {
             // These can be used by the type check block for components,
             // and they also cause TypeScript to include these files into the program too,
             // which will make them part of the analyzedFiles.
-            var /** @type {?} */ externalReferences = ngModuleMeta.transitiveModule.directives.map(function (d) { return d.reference; }).concat(ngModuleMeta.transitiveModule.pipes.map(function (d) { return d.reference; }), ngModuleMeta.importedModules.map(function (m) { return m.type.reference; }), ngModuleMeta.exportedModules.map(function (m) { return m.type.reference; }));
+            var /** @type {?} */ externalReferences = ngModuleMeta.transitiveModule.directives.map(function (d) { return d.reference; }).concat(ngModuleMeta.transitiveModule.pipes.map(function (d) { return d.reference; }), ngModuleMeta.importedModules.map(function (m) { return m.type.reference; }), ngModuleMeta.exportedModules.map(function (m) { return m.type.reference; }), _this._externalIdentifierReferences([Identifiers.TemplateRef, Identifiers.ElementRef]));
             var /** @type {?} */ externalReferenceVars = new Map();
             externalReferences.forEach(function (ref, typeIndex) {
                 if (_this._host.isSourceFile(ref.filePath)) {
@@ -54379,6 +54416,25 @@ var AotCompiler = (function () {
         if (outputCtx.statements.length === 0) {
             _createEmptyStub(outputCtx);
         }
+    };
+    /**
+     * @param {?} references
+     * @return {?}
+     */
+    AotCompiler.prototype._externalIdentifierReferences = /**
+     * @param {?} references
+     * @return {?}
+     */
+    function (references) {
+        var /** @type {?} */ result = [];
+        for (var _i = 0, references_1 = references; _i < references_1.length; _i++) {
+            var reference = references_1[_i];
+            var /** @type {?} */ token = createTokenForExternalReference(this._reflector, reference);
+            if (token.identifier) {
+                result.push(token.identifier.reference);
+            }
+        }
+        return result;
     };
     /**
      * @param {?} ctx
@@ -54970,16 +55026,16 @@ function analyzeFile(host, staticSymbolResolver, metadataResolver, fileName) {
                     isNgSymbol = true;
                     pipes.push(symbol);
                 }
-                else if (metadataResolver.isInjectable(symbol)) {
-                    isNgSymbol = true;
-                    injectables.push(symbol);
-                }
-                else {
+                else if (metadataResolver.isNgModule(symbol)) {
                     var /** @type {?} */ ngModule = metadataResolver.getNgModuleMetadata(symbol, false);
                     if (ngModule) {
                         isNgSymbol = true;
                         ngModules.push(ngModule);
                     }
+                }
+                else if (metadataResolver.isInjectable(symbol)) {
+                    isNgSymbol = true;
+                    injectables.push(symbol);
                 }
             }
             if (!isNgSymbol) {
@@ -59449,7 +59505,7 @@ var AppModuleShared = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_animations__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_animations_browser__ = __webpack_require__(315);
 /**
- * @license Angular v5.0.1
+ * @license Angular v5.0.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -60401,7 +60457,7 @@ var NoopAnimationsModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tslib__ = __webpack_require__(35);
 /**
- * @license Angular v5.0.1
+ * @license Angular v5.0.3
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -61242,6 +61298,9 @@ var AnimationAstBuilderVisitor = (function () {
         var /** @type {?} */ depCount = context.depCount = 0;
         var /** @type {?} */ states = [];
         var /** @type {?} */ transitions = [];
+        if (metadata.name.charAt(0) == '@') {
+            context.errors.push('animation triggers cannot be prefixed with an `@` sign (e.g. trigger(\'@foo\', [...]))');
+        }
         metadata.definitions.forEach(function (def) {
             _this._resetContextStyleTimingState(context);
             if (def.type == 0 /* State */) {
@@ -64978,11 +65037,15 @@ var TransitionAnimationEngine = (function () {
             }
         }
         var /** @type {?} */ allPreviousPlayersMap = new Map();
-        var /** @type {?} */ sortedParentElements = [];
+        // this map works to tell which element in the DOM tree is contained by
+        // which animation. Further down below this map will get populated once
+        // the players are built and in doing so it can efficiently figure out
+        // if a sub player is skipped due to a parent player having priority.
+        var /** @type {?} */ animationElementMap = new Map();
         queuedInstructions.forEach(function (entry) {
             var /** @type {?} */ element = entry.element;
             if (subTimelines.has(element)) {
-                sortedParentElements.unshift(element);
+                animationElementMap.set(element, element);
                 _this._beforeAnimationBuild(entry.player.namespaceId, entry.instruction, allPreviousPlayersMap);
             }
         });
@@ -65022,36 +65085,48 @@ var TransitionAnimationEngine = (function () {
         });
         var /** @type {?} */ rootPlayers = [];
         var /** @type {?} */ subPlayers = [];
+        var /** @type {?} */ NO_PARENT_ANIMATION_ELEMENT_DETECTED = {};
         queuedInstructions.forEach(function (entry) {
             var element = entry.element, player = entry.player, instruction = entry.instruction;
             // this means that it was never consumed by a parent animation which
             // means that it is independent and therefore should be set for animation
             if (subTimelines.has(element)) {
                 if (disabledElementsSet.has(element)) {
+                    player.onDestroy(function () { return setStyles(element, instruction.toStyles); });
                     skippedPlayers.push(player);
                     return;
                 }
+                // this will flow up the DOM and query the map to figure out
+                // if a parent animation has priority over it. In the situation
+                // that a parent is detected then it will cancel the loop. If
+                // nothing is detected, or it takes a few hops to find a parent,
+                // then it will fill in the missing nodes and signal them as having
+                // a detected parent (or a NO_PARENT value via a special constant).
+                var /** @type {?} */ parentWithAnimation_1 = NO_PARENT_ANIMATION_ELEMENT_DETECTED;
+                if (animationElementMap.size > 1) {
+                    var /** @type {?} */ elm = element;
+                    var /** @type {?} */ parentsToAdd = [];
+                    while (elm = elm.parentNode) {
+                        var /** @type {?} */ detectedParent = animationElementMap.get(elm);
+                        if (detectedParent) {
+                            parentWithAnimation_1 = detectedParent;
+                            break;
+                        }
+                        parentsToAdd.push(elm);
+                    }
+                    parentsToAdd.forEach(function (parent) { return animationElementMap.set(parent, parentWithAnimation_1); });
+                }
                 var /** @type {?} */ innerPlayer = _this._buildAnimation(player.namespaceId, instruction, allPreviousPlayersMap, skippedPlayersMap, preStylesMap, postStylesMap);
                 player.setRealPlayer(innerPlayer);
-                var /** @type {?} */ parentHasPriority = null;
-                for (var /** @type {?} */ i = 0; i < sortedParentElements.length; i++) {
-                    var /** @type {?} */ parent_2 = sortedParentElements[i];
-                    if (parent_2 === element)
-                        break;
-                    if (_this.driver.containsElement(parent_2, element)) {
-                        parentHasPriority = parent_2;
-                        break;
-                    }
+                if (parentWithAnimation_1 === NO_PARENT_ANIMATION_ELEMENT_DETECTED) {
+                    rootPlayers.push(player);
                 }
-                if (parentHasPriority) {
-                    var /** @type {?} */ parentPlayers = _this.playersByElement.get(parentHasPriority);
+                else {
+                    var /** @type {?} */ parentPlayers = _this.playersByElement.get(parentWithAnimation_1);
                     if (parentPlayers && parentPlayers.length) {
                         player.parentPlayer = optimizeGroupPlayer(parentPlayers);
                     }
                     skippedPlayers.push(player);
-                }
-                else {
-                    rootPlayers.push(player);
                 }
             }
             else {
@@ -65081,7 +65156,7 @@ var TransitionAnimationEngine = (function () {
         // fire the start/done transition callback events
         skippedPlayers.forEach(function (player) {
             if (player.parentPlayer) {
-                player.parentPlayer.onDestroy(function () { return player.destroy(); });
+                player.syncPlayerEvents(player.parentPlayer);
             }
             else {
                 player.destroy();
@@ -65239,18 +65314,17 @@ var TransitionAnimationEngine = (function () {
      * @return {?}
      */
     function (namespaceId, instruction, allPreviousPlayersMap) {
-        var _this = this;
         var /** @type {?} */ triggerName = instruction.triggerName;
         var /** @type {?} */ rootElement = instruction.element;
         // when a removal animation occurs, ALL previous players are collected
         // and destroyed (even if they are outside of the current namespace)
         var /** @type {?} */ targetNameSpaceId = instruction.isRemovalTransition ? undefined : namespaceId;
         var /** @type {?} */ targetTriggerName = instruction.isRemovalTransition ? undefined : triggerName;
-        instruction.timelines.map(function (timelineInstruction) {
+        var _loop_1 = function (timelineInstruction) {
             var /** @type {?} */ element = timelineInstruction.element;
             var /** @type {?} */ isQueriedElement = element !== rootElement;
             var /** @type {?} */ players = getOrSetAsInMap(allPreviousPlayersMap, element, []);
-            var /** @type {?} */ previousPlayers = _this._getPreviousPlayers(element, isQueriedElement, targetNameSpaceId, targetTriggerName, instruction.toState);
+            var /** @type {?} */ previousPlayers = this_1._getPreviousPlayers(element, isQueriedElement, targetNameSpaceId, targetTriggerName, instruction.toState);
             previousPlayers.forEach(function (player) {
                 var /** @type {?} */ realPlayer = /** @type {?} */ (player.getRealPlayer());
                 if (realPlayer.beforeDestroy) {
@@ -65259,7 +65333,12 @@ var TransitionAnimationEngine = (function () {
                 player.destroy();
                 players.push(player);
             });
-        });
+        };
+        var this_1 = this;
+        for (var _i = 0, _a = instruction.timelines; _i < _a.length; _i++) {
+            var timelineInstruction = _a[_i];
+            _loop_1(timelineInstruction);
+        }
         // this needs to be done so that the PRE/POST styles can be
         // computed properly without interfering with the previous animation
         eraseStyles(rootElement, instruction.fromStyles);
@@ -65408,6 +65487,23 @@ var TransitionAnimationPlayer = (function () {
      */
     function () { return this._player; };
     /**
+     * @param {?} player
+     * @return {?}
+     */
+    TransitionAnimationPlayer.prototype.syncPlayerEvents = /**
+     * @param {?} player
+     * @return {?}
+     */
+    function (player) {
+        var _this = this;
+        var /** @type {?} */ p = /** @type {?} */ (this._player);
+        if (p.triggerCallback) {
+            player.onStart(function () { return p.triggerCallback('start'); });
+        }
+        player.onDone(function () { return _this.finish(); });
+        player.onDestroy(function () { return _this.destroy(); });
+    };
+    /**
      * @param {?} name
      * @param {?} callback
      * @return {?}
@@ -65549,6 +65645,21 @@ var TransitionAnimationPlayer = (function () {
         enumerable: true,
         configurable: true
     });
+    /* @internal */
+    /**
+     * @param {?} phaseName
+     * @return {?}
+     */
+    TransitionAnimationPlayer.prototype.triggerCallback = /**
+     * @param {?} phaseName
+     * @return {?}
+     */
+    function (phaseName) {
+        var /** @type {?} */ p = /** @type {?} */ (this._player);
+        if (p.triggerCallback) {
+            p.triggerCallback(phaseName);
+        }
+    };
     return TransitionAnimationPlayer;
 }());
 /**
@@ -66269,6 +66380,20 @@ var WebAnimationsPlayer = (function () {
             });
         }
         this.currentSnapshot = styles;
+    };
+    /* @internal */
+    /**
+     * @param {?} phaseName
+     * @return {?}
+     */
+    WebAnimationsPlayer.prototype.triggerCallback = /**
+     * @param {?} phaseName
+     * @return {?}
+     */
+    function (phaseName) {
+        var /** @type {?} */ methods = phaseName == 'start' ? this._onStartFns : this._onDoneFns;
+        methods.forEach(function (fn) { return fn(); });
+        methods.length = 0;
     };
     return WebAnimationsPlayer;
 }());
