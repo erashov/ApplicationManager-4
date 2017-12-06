@@ -25,14 +25,14 @@ namespace ApplicationManager.Controllers
     {
         private readonly UserManager<UserEntity> _userManager;
         private readonly SignInManager<UserEntity> _signInManager;
-        private readonly IEmailSender _emailSender;
+        private readonly IEmail _emailSender;
         private readonly ILogger _logger;
         private readonly IConfiguration _config;
         private readonly IGroupRepository _group;
         public AccountController(
             UserManager<UserEntity> userManager,
             SignInManager<UserEntity> signInManager,
-            IEmailSender emailSender,
+            IEmail emailSender,
             ILogger<AccountController> logger,
             IConfiguration config, IGroupRepository group)
         {

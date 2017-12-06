@@ -2,8 +2,8 @@
 /******/ 	function hotDisposeChunk(chunkId) {
 /******/ 		delete installedChunks[chunkId];
 /******/ 	}
-/******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
-/******/ 	this["webpackHotUpdate"] = 
+/******/ 	var parentHotUpdateCallback = window["webpackHotUpdate"];
+/******/ 	window["webpackHotUpdate"] = 
 /******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
 /******/ 		hotAddUpdateChunk(chunkId, moreModules);
 /******/ 		if(parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules);
@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dcf92c8c35822abdf78e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d9f452b6bd1e312e1b1a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -778,7 +778,7 @@ module.exports = $export;
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = vendor_06a6fbec89fa1301606d;
+module.exports = vendor_1e04544669b5c96a0ea1;
 
 /***/ }),
 /* 2 */
@@ -1616,7 +1616,7 @@ function toComment(sourceMap) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__);
 /**
- * @license Angular v5.0.3
+ * @license Angular v5.0.5
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -8869,7 +8869,7 @@ function provideRouterInitializer() {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.5');
 
 /**
  * @fileoverview added by tsickle
@@ -9054,7 +9054,7 @@ module.exports = function (it, TYPE) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(36);
 /**
- * @license Angular v5.0.3
+ * @license Angular v5.0.5
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11750,7 +11750,7 @@ var JsonpModule = (function () {
 /**
  * @deprecated use \@angular/common/http instead
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.0.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.0.5');
 
 /**
  * @fileoverview added by tsickle
@@ -18041,7 +18041,9 @@ var options = {
   log: true,
   warn: true,
   name: '',
-  autoConnect: true
+  autoConnect: true,
+  overlayStyles: {},
+  ansiColors: {}
 };
 if (true) {
   var querystring = __webpack_require__(142);
@@ -18089,6 +18091,9 @@ function setOverrides(overrides) {
   if (overrides.dynamicPublicPath) {
     options.path = __webpack_require__.p + options.path;
   }
+
+  if (overrides.ansiColors) options.ansiColors = JSON.parse(overrides.ansiColors);
+  if (overrides.overlayStyles) options.overlayStyles = JSON.parse(overrides.overlayStyles);
 }
 
 function EventSourceWrapper() {
@@ -18182,7 +18187,10 @@ function createReporter() {
 
   var overlay;
   if (typeof document !== 'undefined' && options.overlay) {
-    overlay = __webpack_require__(147);
+    overlay = __webpack_require__(147)({
+      ansiColors: options.ansiColors,
+      overlayStyles: options.overlayStyles
+    });
   }
 
   var styles = {
@@ -18575,9 +18583,6 @@ var styles = {
   dir: 'ltr',
   textAlign: 'left'
 };
-for (var key in styles) {
-  clientOverlay.style[key] = styles[key];
-}
 
 var ansiHTML = __webpack_require__(148);
 var colors = {
@@ -18592,12 +18597,10 @@ var colors = {
   lightgrey: 'EBE7E3',
   darkgrey: '6D7891'
 };
-ansiHTML.setColors(colors);
 
 var Entities = __webpack_require__(149).AllHtmlEntities;
 var entities = new Entities();
 
-exports.showProblems =
 function showProblems(type, lines) {
   clientOverlay.innerHTML = '';
   lines.forEach(function(msg) {
@@ -18610,21 +18613,19 @@ function showProblems(type, lines) {
   if (document.body) {
     document.body.appendChild(clientOverlay);
   }
-};
+}
 
-exports.clear =
 function clear() {
   if (document.body && clientOverlay.parentNode) {
     document.body.removeChild(clientOverlay);
   }
-};
-
-var problemColors = {
-  errors: colors.red,
-  warnings: colors.yellow
-};
+}
 
 function problemType (type) {
+  var problemColors = {
+    errors: colors.red,
+    warnings: colors.yellow
+  };
   var color = problemColors[type] || colors.red;
   return (
     '<span style="background-color:#' + color + '; color:#fff; padding:2px 4px; border-radius: 2px">' +
@@ -18632,6 +18633,31 @@ function problemType (type) {
     '</span>'
   );
 }
+
+module.exports = function(options) {
+  for (var color in options.overlayColors) {
+    if (color in colors) {
+      colors[color] = options.overlayColors[color];
+    }
+    ansiHTML.setColors(colors);
+  }
+
+  for (var style in options.overlayStyles) {
+    styles[style] = options.overlayStyles[style];
+  }
+
+  for (var key in styles) {
+    clientOverlay.style[key] = styles[key];
+  }
+
+  return {
+    showProblems: showProblems,
+    clear: clear
+  }
+};
+
+module.exports.clear = clear;
+module.exports.showProblems = showProblems;
 
 
 /***/ }),
@@ -24000,7 +24026,7 @@ $metadata.exp({ metadata: function metadata(metadataKey, metadataValue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tslib__ = __webpack_require__(35);
 /**
- * @license Angular v5.0.3
+ * @license Angular v5.0.5
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -24651,7 +24677,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.0.5');
 
 /**
  * @fileoverview added by tsickle
@@ -24928,7 +24954,7 @@ var platformBrowserDynamic = Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[
 /* unused harmony export removeSummaryDuplicates */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(35);
 /**
- * @license Angular v5.0.3
+ * @license Angular v5.0.5
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -25548,7 +25574,7 @@ var Version = (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('5.0.3');
+var VERSION = new Version('5.0.5');
 
 /**
  * @fileoverview added by tsickle
@@ -59505,7 +59531,7 @@ var AppModuleShared = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_animations__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_animations_browser__ = __webpack_require__(315);
 /**
- * @license Angular v5.0.3
+ * @license Angular v5.0.5
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -60457,7 +60483,7 @@ var NoopAnimationsModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tslib__ = __webpack_require__(35);
 /**
- * @license Angular v5.0.3
+ * @license Angular v5.0.5
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -60811,8 +60837,8 @@ var SUBSTITUTION_EXPR_START = '{{';
 var SUBSTITUTION_EXPR_END = '}}';
 var ENTER_CLASSNAME = 'ng-enter';
 var LEAVE_CLASSNAME = 'ng-leave';
-var ENTER_SELECTOR = '.ng-enter';
-var LEAVE_SELECTOR = '.ng-leave';
+
+
 var NG_TRIGGER_CLASSNAME = 'ng-trigger';
 var NG_TRIGGER_SELECTOR = '.ng-trigger';
 var NG_ANIMATING_CLASSNAME = 'ng-animating';
@@ -61244,10 +61270,6 @@ var SELF_TOKEN_REGEX = new RegExp("s*" + SELF_TOKEN + "s*,?", 'g');
 function buildAnimationAst(driver, metadata, errors) {
     return new AnimationAstBuilderVisitor(driver).build(metadata, errors);
 }
-var LEAVE_TOKEN = ':leave';
-var LEAVE_TOKEN_REGEX = new RegExp(LEAVE_TOKEN, 'g');
-var ENTER_TOKEN = ':enter';
-var ENTER_TOKEN_REGEX = new RegExp(ENTER_TOKEN, 'g');
 var ROOT_SELECTOR = '';
 var AnimationAstBuilderVisitor = (function () {
     function AnimationAstBuilderVisitor(_driver) {
@@ -61784,9 +61806,8 @@ function normalizeSelector(selector) {
     if (hasAmpersand) {
         selector = selector.replace(SELF_TOKEN_REGEX, '');
     }
-    selector = selector.replace(ENTER_TOKEN_REGEX, ENTER_SELECTOR)
-        .replace(LEAVE_TOKEN_REGEX, LEAVE_SELECTOR)
-        .replace(/@\*/g, NG_TRIGGER_SELECTOR)
+    // the :enter and :leave selectors are filled in at runtime during timeline building
+    selector = selector.replace(/@\*/g, NG_TRIGGER_SELECTOR)
         .replace(/@\w+/g, function (match) { return NG_TRIGGER_SELECTOR + '-' + match.substr(1); })
         .replace(/:animating/g, NG_ANIMATING_SELECTOR);
     return [selector, hasAmpersand];
@@ -62003,10 +62024,16 @@ var ElementInstructionMap = (function () {
  * found in the LICENSE file at https://angular.io/license
  */
 var ONE_FRAME_IN_MILLISECONDS = 1;
+var ENTER_TOKEN = ':enter';
+var ENTER_TOKEN_REGEX = new RegExp(ENTER_TOKEN, 'g');
+var LEAVE_TOKEN = ':leave';
+var LEAVE_TOKEN_REGEX = new RegExp(LEAVE_TOKEN, 'g');
 /**
  * @param {?} driver
  * @param {?} rootElement
  * @param {?} ast
+ * @param {?} enterClassName
+ * @param {?} leaveClassName
  * @param {?=} startingStyles
  * @param {?=} finalStyles
  * @param {?=} options
@@ -62014,11 +62041,11 @@ var ONE_FRAME_IN_MILLISECONDS = 1;
  * @param {?=} errors
  * @return {?}
  */
-function buildAnimationTimelines(driver, rootElement, ast, startingStyles, finalStyles, options, subInstructions, errors) {
+function buildAnimationTimelines(driver, rootElement, ast, enterClassName, leaveClassName, startingStyles, finalStyles, options, subInstructions, errors) {
     if (startingStyles === void 0) { startingStyles = {}; }
     if (finalStyles === void 0) { finalStyles = {}; }
     if (errors === void 0) { errors = []; }
-    return new AnimationTimelineBuilderVisitor().buildKeyframes(driver, rootElement, ast, startingStyles, finalStyles, options, subInstructions, errors);
+    return new AnimationTimelineBuilderVisitor().buildKeyframes(driver, rootElement, ast, enterClassName, leaveClassName, startingStyles, finalStyles, options, subInstructions, errors);
 }
 var AnimationTimelineBuilderVisitor = (function () {
     function AnimationTimelineBuilderVisitor() {
@@ -62027,6 +62054,8 @@ var AnimationTimelineBuilderVisitor = (function () {
      * @param {?} driver
      * @param {?} rootElement
      * @param {?} ast
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
      * @param {?} startingStyles
      * @param {?} finalStyles
      * @param {?} options
@@ -62038,6 +62067,8 @@ var AnimationTimelineBuilderVisitor = (function () {
      * @param {?} driver
      * @param {?} rootElement
      * @param {?} ast
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
      * @param {?} startingStyles
      * @param {?} finalStyles
      * @param {?} options
@@ -62045,10 +62076,10 @@ var AnimationTimelineBuilderVisitor = (function () {
      * @param {?=} errors
      * @return {?}
      */
-    function (driver, rootElement, ast, startingStyles, finalStyles, options, subInstructions, errors) {
+    function (driver, rootElement, ast, enterClassName, leaveClassName, startingStyles, finalStyles, options, subInstructions, errors) {
         if (errors === void 0) { errors = []; }
         subInstructions = subInstructions || new ElementInstructionMap();
-        var /** @type {?} */ context = new AnimationTimelineContext(driver, rootElement, subInstructions, errors, []);
+        var /** @type {?} */ context = new AnimationTimelineContext(driver, rootElement, subInstructions, enterClassName, leaveClassName, errors, []);
         context.options = options;
         context.currentTimeline.setStyles([startingStyles], null, context.errors, options);
         visitDslNode(this, ast, context);
@@ -62460,10 +62491,12 @@ var AnimationTimelineBuilderVisitor = (function () {
 }());
 var DEFAULT_NOOP_PREVIOUS_NODE = /** @type {?} */ ({});
 var AnimationTimelineContext = (function () {
-    function AnimationTimelineContext(_driver, element, subInstructions, errors, timelines, initialTimeline) {
+    function AnimationTimelineContext(_driver, element, subInstructions, _enterClassName, _leaveClassName, errors, timelines, initialTimeline) {
         this._driver = _driver;
         this.element = element;
         this.subInstructions = subInstructions;
+        this._enterClassName = _enterClassName;
+        this._leaveClassName = _leaveClassName;
         this.errors = errors;
         this.timelines = timelines;
         this.parentContext = null;
@@ -62553,7 +62586,7 @@ var AnimationTimelineContext = (function () {
     function (options, element, newTime) {
         if (options === void 0) { options = null; }
         var /** @type {?} */ target = element || this.element;
-        var /** @type {?} */ context = new AnimationTimelineContext(this._driver, target, this.subInstructions, this.errors, this.timelines, this.currentTimeline.fork(target, newTime || 0));
+        var /** @type {?} */ context = new AnimationTimelineContext(this._driver, target, this.subInstructions, this._enterClassName, this._leaveClassName, this.errors, this.timelines, this.currentTimeline.fork(target, newTime || 0));
         context.previousNode = this.previousNode;
         context.currentAnimateTimings = this.currentAnimateTimings;
         context.options = this._copyOptions();
@@ -62650,6 +62683,8 @@ var AnimationTimelineContext = (function () {
         }
         if (selector.length > 0) {
             // if :self is only used then the selector is empty
+            selector = selector.replace(ENTER_TOKEN_REGEX, '.' + this._enterClassName);
+            selector = selector.replace(LEAVE_TOKEN_REGEX, '.' + this._leaveClassName);
             var /** @type {?} */ multi = limit != 1;
             var /** @type {?} */ elements = this._driver.query(this.element, selector, multi);
             if (limit !== 0) {
@@ -63135,7 +63170,7 @@ var Animation = (function () {
         var /** @type {?} */ dest = Array.isArray(destinationStyles) ? normalizeStyles(destinationStyles) : /** @type {?} */ (destinationStyles);
         var /** @type {?} */ errors = [];
         subInstructions = subInstructions || new ElementInstructionMap();
-        var /** @type {?} */ result = buildAnimationTimelines(this._driver, element, this._animationAst, start, dest, options, subInstructions, errors);
+        var /** @type {?} */ result = buildAnimationTimelines(this._driver, element, this._animationAst, ENTER_CLASSNAME, LEAVE_CLASSNAME, start, dest, options, subInstructions, errors);
         if (errors.length) {
             var /** @type {?} */ errorMessage = "animation building failed:\n" + errors.join("\n");
             throw new Error(errorMessage);
@@ -63356,6 +63391,8 @@ var AnimationTransitionFactory = (function () {
      * @param {?} element
      * @param {?} currentState
      * @param {?} nextState
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
      * @param {?=} currentOptions
      * @param {?=} nextOptions
      * @param {?=} subInstructions
@@ -63366,12 +63403,14 @@ var AnimationTransitionFactory = (function () {
      * @param {?} element
      * @param {?} currentState
      * @param {?} nextState
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
      * @param {?=} currentOptions
      * @param {?=} nextOptions
      * @param {?=} subInstructions
      * @return {?}
      */
-    function (driver, element, currentState, nextState, currentOptions, nextOptions, subInstructions) {
+    function (driver, element, currentState, nextState, enterClassName, leaveClassName, currentOptions, nextOptions, subInstructions) {
         var /** @type {?} */ errors = [];
         var /** @type {?} */ transitionAnimationParams = this.ast.options && this.ast.options.params || EMPTY_OBJECT;
         var /** @type {?} */ currentAnimationParams = currentOptions && currentOptions.params || EMPTY_OBJECT;
@@ -63383,7 +63422,7 @@ var AnimationTransitionFactory = (function () {
         var /** @type {?} */ postStyleMap = new Map();
         var /** @type {?} */ isRemoval = nextState === 'void';
         var /** @type {?} */ animationOptions = { params: Object(__WEBPACK_IMPORTED_MODULE_1_tslib__["__assign"])({}, transitionAnimationParams, nextAnimationParams) };
-        var /** @type {?} */ timelines = buildAnimationTimelines(driver, element, this.ast.animation, currentStateStyles, nextStateStyles, animationOptions, subInstructions, errors);
+        var /** @type {?} */ timelines = buildAnimationTimelines(driver, element, this.ast.animation, enterClassName, leaveClassName, currentStateStyles, nextStateStyles, animationOptions, subInstructions, errors);
         if (errors.length) {
             return createTransitionInstruction(element, this._triggerName, currentState, nextState, isRemoval, currentStateStyles, nextStateStyles, [], [], preStyleMap, postStyleMap, errors);
         }
@@ -63637,7 +63676,7 @@ var TimelineAnimationEngine = (function () {
         var /** @type {?} */ instructions;
         var /** @type {?} */ autoStylesMap = new Map();
         if (ast) {
-            instructions = buildAnimationTimelines(this._driver, element, ast, {}, {}, options, EMPTY_INSTRUCTION_MAP, errors);
+            instructions = buildAnimationTimelines(this._driver, element, ast, ENTER_CLASSNAME, LEAVE_CLASSNAME, {}, {}, options, EMPTY_INSTRUCTION_MAP, errors);
             instructions.forEach(function (inst) {
                 var /** @type {?} */ styles = getOrSetAsInMap(autoStylesMap, inst.element, {});
                 inst.postStyleProps.forEach(function (prop) { return styles[prop] = null; });
@@ -63785,6 +63824,8 @@ var QUEUED_CLASSNAME = 'ng-animate-queued';
 var QUEUED_SELECTOR = '.ng-animate-queued';
 var DISABLED_CLASSNAME = 'ng-animate-disabled';
 var DISABLED_SELECTOR = '.ng-animate-disabled';
+var STAR_CLASSNAME = 'ng-star-inserted';
+var STAR_SELECTOR = '.ng-star-inserted';
 var EMPTY_PLAYER_ARRAY = [];
 var NULL_REMOVAL_STATE = {
     namespaceId: '',
@@ -64724,15 +64765,19 @@ var TransitionAnimationEngine = (function () {
     /**
      * @param {?} entry
      * @param {?} subTimelines
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
      * @return {?}
      */
     TransitionAnimationEngine.prototype._buildInstruction = /**
      * @param {?} entry
      * @param {?} subTimelines
+     * @param {?} enterClassName
+     * @param {?} leaveClassName
      * @return {?}
      */
-    function (entry, subTimelines) {
-        return entry.transition.build(this.driver, entry.element, entry.fromState.value, entry.toState.value, entry.fromState.options, entry.toState.options, subTimelines);
+    function (entry, subTimelines, enterClassName, leaveClassName) {
+        return entry.transition.build(this.driver, entry.element, entry.fromState.value, entry.toState.value, enterClassName, leaveClassName, entry.fromState.options, entry.toState.options, subTimelines);
     };
     /**
      * @param {?} containerElement
@@ -64856,6 +64901,12 @@ var TransitionAnimationEngine = (function () {
             this.newHostElements.forEach(function (ns, element) { return _this._balanceNamespaceList(ns, element); });
             this.newHostElements.clear();
         }
+        if (this.totalAnimations && this.collectedEnterElements.length) {
+            for (var /** @type {?} */ i = 0; i < this.collectedEnterElements.length; i++) {
+                var /** @type {?} */ elm = this.collectedEnterElements[i];
+                addClass(elm, STAR_CLASSNAME);
+            }
+        }
         if (this._namespaceList.length &&
             (this.totalQueuedPlayers || this.collectedLeaveElements.length)) {
             var /** @type {?} */ cleanupFns = [];
@@ -64927,44 +64978,62 @@ var TransitionAnimationEngine = (function () {
         this.disabledNodes.forEach(function (node) {
             disabledElementsSet.add(node);
             var /** @type {?} */ nodesThatAreDisabled = _this.driver.query(node, QUEUED_SELECTOR, true);
-            for (var /** @type {?} */ i = 0; i < nodesThatAreDisabled.length; i++) {
-                disabledElementsSet.add(nodesThatAreDisabled[i]);
+            for (var /** @type {?} */ i_1 = 0; i_1 < nodesThatAreDisabled.length; i_1++) {
+                disabledElementsSet.add(nodesThatAreDisabled[i_1]);
             }
         });
         var /** @type {?} */ bodyNode = getBodyNode();
-        var /** @type {?} */ allEnterNodes = this.collectedEnterElements.length ?
-            this.collectedEnterElements.filter(createIsRootFilterFn(this.collectedEnterElements)) :
-            [];
+        var /** @type {?} */ allTriggerElements = Array.from(this.statesByElement.keys());
+        var /** @type {?} */ enterNodeMap = buildRootMap(allTriggerElements, this.collectedEnterElements);
         // this must occur before the instructions are built below such that
         // the :enter queries match the elements (since the timeline queries
         // are fired during instruction building).
-        for (var /** @type {?} */ i = 0; i < allEnterNodes.length; i++) {
-            addClass(allEnterNodes[i], ENTER_CLASSNAME);
-        }
+        var /** @type {?} */ enterNodeMapIds = new Map();
+        var /** @type {?} */ i = 0;
+        enterNodeMap.forEach(function (nodes, root) {
+            var /** @type {?} */ className = ENTER_CLASSNAME + i++;
+            enterNodeMapIds.set(root, className);
+            nodes.forEach(function (node) { return addClass(node, className); });
+        });
         var /** @type {?} */ allLeaveNodes = [];
+        var /** @type {?} */ mergedLeaveNodes = new Set();
         var /** @type {?} */ leaveNodesWithoutAnimations = new Set();
-        for (var /** @type {?} */ i = 0; i < this.collectedLeaveElements.length; i++) {
-            var /** @type {?} */ element = this.collectedLeaveElements[i];
+        for (var /** @type {?} */ i_2 = 0; i_2 < this.collectedLeaveElements.length; i_2++) {
+            var /** @type {?} */ element = this.collectedLeaveElements[i_2];
             var /** @type {?} */ details = /** @type {?} */ (element[REMOVAL_FLAG]);
             if (details && details.setForRemoval) {
-                addClass(element, LEAVE_CLASSNAME);
                 allLeaveNodes.push(element);
-                if (!details.hasAnimation) {
+                mergedLeaveNodes.add(element);
+                if (details.hasAnimation) {
+                    this.driver.query(element, STAR_SELECTOR, true).forEach(function (elm) { return mergedLeaveNodes.add(elm); });
+                }
+                else {
                     leaveNodesWithoutAnimations.add(element);
                 }
             }
         }
+        var /** @type {?} */ leaveNodeMapIds = new Map();
+        var /** @type {?} */ leaveNodeMap = buildRootMap(allTriggerElements, Array.from(mergedLeaveNodes));
+        leaveNodeMap.forEach(function (nodes, root) {
+            var /** @type {?} */ className = LEAVE_CLASSNAME + i++;
+            leaveNodeMapIds.set(root, className);
+            nodes.forEach(function (node) { return addClass(node, className); });
+        });
         cleanupFns.push(function () {
-            allEnterNodes.forEach(function (element) { return removeClass(element, ENTER_CLASSNAME); });
-            allLeaveNodes.forEach(function (element) {
-                removeClass(element, LEAVE_CLASSNAME);
-                _this.processLeaveNode(element);
+            enterNodeMap.forEach(function (nodes, root) {
+                var /** @type {?} */ className = /** @type {?} */ ((enterNodeMapIds.get(root)));
+                nodes.forEach(function (node) { return removeClass(node, className); });
             });
+            leaveNodeMap.forEach(function (nodes, root) {
+                var /** @type {?} */ className = /** @type {?} */ ((leaveNodeMapIds.get(root)));
+                nodes.forEach(function (node) { return removeClass(node, className); });
+            });
+            allLeaveNodes.forEach(function (element) { _this.processLeaveNode(element); });
         });
         var /** @type {?} */ allPlayers = [];
         var /** @type {?} */ erroneousTransitions = [];
-        for (var /** @type {?} */ i = this._namespaceList.length - 1; i >= 0; i--) {
-            var /** @type {?} */ ns = this._namespaceList[i];
+        for (var /** @type {?} */ i_3 = this._namespaceList.length - 1; i_3 >= 0; i_3--) {
+            var /** @type {?} */ ns = this._namespaceList[i_3];
             ns.drainQueuedTransitions(microtaskId).forEach(function (entry) {
                 var /** @type {?} */ player = entry.player;
                 allPlayers.push(player);
@@ -64973,7 +65042,9 @@ var TransitionAnimationEngine = (function () {
                     player.destroy();
                     return;
                 }
-                var /** @type {?} */ instruction = /** @type {?} */ ((_this._buildInstruction(entry, subTimelines)));
+                var /** @type {?} */ leaveClassName = /** @type {?} */ ((leaveNodeMapIds.get(element)));
+                var /** @type {?} */ enterClassName = /** @type {?} */ ((enterNodeMapIds.get(element)));
+                var /** @type {?} */ instruction = /** @type {?} */ ((_this._buildInstruction(entry, subTimelines, enterClassName, leaveClassName)));
                 if (instruction.errors && instruction.errors.length) {
                     erroneousTransitions.push(instruction);
                     return;
@@ -65025,17 +65096,6 @@ var TransitionAnimationEngine = (function () {
             allPlayers.forEach(function (player) { return player.destroy(); });
             this.reportError(errors_1);
         }
-        // these can only be detected here since we have a map of all the elements
-        // that have animations attached to them... We use a set here in the event
-        // multiple enter captures on the same element were caught in different
-        // renderer namespaces (e.g. when a @trigger was on a host binding that had *ngIf)
-        var /** @type {?} */ enterNodesWithoutAnimations = new Set();
-        for (var /** @type {?} */ i = 0; i < allEnterNodes.length; i++) {
-            var /** @type {?} */ element = allEnterNodes[i];
-            if (!subTimelines.has(element)) {
-                enterNodesWithoutAnimations.add(element);
-            }
-        }
         var /** @type {?} */ allPreviousPlayersMap = new Map();
         // this map works to tell which element in the DOM tree is contained by
         // which animation. Further down below this map will get populated once
@@ -65068,16 +65128,18 @@ var TransitionAnimationEngine = (function () {
             return replacePostStylesAsPre(node, allPreStyleElements, allPostStyleElements);
         });
         // POST STAGE: fill the * styles
-        var _a = cloakAndComputeStyles(this.driver, leaveNodesWithoutAnimations, allPostStyleElements, __WEBPACK_IMPORTED_MODULE_0__angular_animations__["AUTO_STYLE"]), postStylesMap = _a[0], allLeaveQueriedNodes = _a[1];
+        var /** @type {?} */ postStylesMap = new Map();
+        var /** @type {?} */ allLeaveQueriedNodes = cloakAndComputeStyles(postStylesMap, this.driver, leaveNodesWithoutAnimations, allPostStyleElements, __WEBPACK_IMPORTED_MODULE_0__angular_animations__["AUTO_STYLE"]);
         allLeaveQueriedNodes.forEach(function (node) {
             if (replacePostStylesAsPre(node, allPreStyleElements, allPostStyleElements)) {
                 replaceNodes.push(node);
             }
         });
         // PRE STAGE: fill the ! styles
-        var preStylesMap = (allPreStyleElements.size ?
-            cloakAndComputeStyles(this.driver, enterNodesWithoutAnimations, allPreStyleElements, __WEBPACK_IMPORTED_MODULE_0__angular_animations__["ɵPRE_STYLE"]) :
-            [new Map()])[0];
+        var /** @type {?} */ preStylesMap = new Map();
+        enterNodeMap.forEach(function (nodes, root) {
+            cloakAndComputeStyles(preStylesMap, _this.driver, new Set(nodes), allPreStyleElements, __WEBPACK_IMPORTED_MODULE_0__angular_animations__["ɵPRE_STYLE"]);
+        });
         replaceNodes.forEach(function (node) {
             var /** @type {?} */ post = postStylesMap.get(node);
             var /** @type {?} */ pre = preStylesMap.get(node);
@@ -65165,8 +65227,8 @@ var TransitionAnimationEngine = (function () {
         // run through all of the queued removals and see if they
         // were picked up by a query. If not then perform the removal
         // operation right away unless a parent animation is ongoing.
-        for (var /** @type {?} */ i = 0; i < allLeaveNodes.length; i++) {
-            var /** @type {?} */ element = allLeaveNodes[i];
+        for (var /** @type {?} */ i_4 = 0; i_4 < allLeaveNodes.length; i_4++) {
+            var /** @type {?} */ element = allLeaveNodes[i_4];
             var /** @type {?} */ details = /** @type {?} */ (element[REMOVAL_FLAG]);
             removeClass(element, LEAVE_CLASSNAME);
             // this means the element has a removal animation that is being
@@ -65731,16 +65793,16 @@ function cloakElement(element, value) {
     return oldValue;
 }
 /**
+ * @param {?} valuesMap
  * @param {?} driver
  * @param {?} elements
  * @param {?} elementPropsMap
  * @param {?} defaultStyle
  * @return {?}
  */
-function cloakAndComputeStyles(driver, elements, elementPropsMap, defaultStyle) {
+function cloakAndComputeStyles(valuesMap, driver, elements, elementPropsMap, defaultStyle) {
     var /** @type {?} */ cloakVals = [];
     elements.forEach(function (element) { return cloakVals.push(cloakElement(element)); });
-    var /** @type {?} */ valuesMap = new Map();
     var /** @type {?} */ failedElements = [];
     elementPropsMap.forEach(function (props, element) {
         var /** @type {?} */ styles = {};
@@ -65759,30 +65821,54 @@ function cloakAndComputeStyles(driver, elements, elementPropsMap, defaultStyle) 
     // an index value for the closure (but instead just the value)
     var /** @type {?} */ i = 0;
     elements.forEach(function (element) { return cloakElement(element, cloakVals[i++]); });
-    return [valuesMap, failedElements];
+    return failedElements;
 }
 /**
+ * @param {?} roots
  * @param {?} nodes
  * @return {?}
  */
-function createIsRootFilterFn(nodes) {
+function buildRootMap(roots, nodes) {
+    var /** @type {?} */ rootMap = new Map();
+    roots.forEach(function (root) { return rootMap.set(root, []); });
+    if (nodes.length == 0)
+        return rootMap;
+    var /** @type {?} */ NULL_NODE = 1;
     var /** @type {?} */ nodeSet = new Set(nodes);
-    var /** @type {?} */ knownRootContainer = new Set();
-    var /** @type {?} */ isRoot;
-    isRoot = function (node) {
+    var /** @type {?} */ localRootMap = new Map();
+    /**
+     * @param {?} node
+     * @return {?}
+     */
+    function getRoot(node) {
         if (!node)
-            return true;
-        if (nodeSet.has(node.parentNode))
-            return false;
-        if (knownRootContainer.has(node.parentNode))
-            return true;
-        if (isRoot(node.parentNode)) {
-            knownRootContainer.add(node);
-            return true;
+            return NULL_NODE;
+        var /** @type {?} */ root = localRootMap.get(node);
+        if (root)
+            return root;
+        var /** @type {?} */ parent = node.parentNode;
+        if (rootMap.has(parent)) {
+            // ngIf inside @trigger
+            root = parent;
         }
-        return false;
-    };
-    return isRoot;
+        else if (nodeSet.has(parent)) {
+            // ngIf inside ngIf
+            root = NULL_NODE;
+        }
+        else {
+            // recurse upwards
+            root = getRoot(parent);
+        }
+        localRootMap.set(node, root);
+        return root;
+    }
+    nodes.forEach(function (node) {
+        var /** @type {?} */ root = getRoot(node);
+        if (root !== NULL_NODE) {
+            /** @type {?} */ ((rootMap.get(root))).push(node);
+        }
+    });
+    return rootMap;
 }
 var CLASSES_CACHE_KEY = '$$classes';
 /**
@@ -66626,10 +66712,10 @@ exports.push([module.i, " \r\n  .container {\r\n    width: 80%;\r\n    max-width
 
 
 var appRoutes = [
-    { path: "", component: __WEBPACK_IMPORTED_MODULE_1__home_index__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_index__["a" /* AuthGuard */]] },
-    { path: "applications", component: __WEBPACK_IMPORTED_MODULE_5__applications_applications_component__["a" /* ApplicationsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_index__["a" /* AuthGuard */]] },
-    { path: "login", component: __WEBPACK_IMPORTED_MODULE_2__login_index__["a" /* LoginComponent */] },
-    { path: "register", component: __WEBPACK_IMPORTED_MODULE_3__register_index__["a" /* RegisterComponent */] },
+    { path: "", component: __WEBPACK_IMPORTED_MODULE_1__home_index__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_index__["a" /* AuthGuard */]], pathMatch: 'full' },
+    { path: "applications", component: __WEBPACK_IMPORTED_MODULE_5__applications_applications_component__["a" /* ApplicationsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_index__["a" /* AuthGuard */]], pathMatch: 'full' },
+    { path: "login", component: __WEBPACK_IMPORTED_MODULE_2__login_index__["a" /* LoginComponent */], pathMatch: 'full' },
+    { path: "register", component: __WEBPACK_IMPORTED_MODULE_3__register_index__["a" /* RegisterComponent */], pathMatch: 'full' },
     // otherwise redirect to home
     { path: "**", redirectTo: "" }
 ];
@@ -69041,7 +69127,7 @@ var SidebarComponent = /** @class */ (function () {
 /* 393 */
 /***/ (function(module, exports) {
 
-module.exports = "<span>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\" class=\"ml-xs mat-icon-button\">\r\n    <mat-icon>account_circle</mat-icon>\r\n    <div>\r\n        {{user.userName}} \r\n    </div>\r\n    <div>\r\n        ({{user.groupName}})\r\n    </div>\r\n</button>\r\n<mat-menu #menu=\"matMenu\">\r\n    <button mat-menu-item>\r\n      <mat-icon>settings</mat-icon>\r\n      <span>Настройки</span>\r\n</button>\r\n\r\n<button mat-menu-item [routerLink]=\"['/login']\">\r\n      <mat-icon>power_settings_new</mat-icon>\r\n      <span>Выйти</span>\r\n    </button>\r\n</mat-menu>";
+module.exports = "<span>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\" class=\"ml-xs mat-icon-button\">\r\n    <mat-icon>account_circle</mat-icon>\r\n    <div>\r\n        {{user.userName}} \r\n    </div>\r\n    <div>\r\n        ({{user.groupName}})\r\n    </div>\r\n</button>\r\n<mat-menu #menu=\"matMenu\">\r\n    <button mat-menu-item>\r\n      <mat-icon>settings</mat-icon>\r\n      <span>Настройки</span>\r\n</button>\r\n\r\n<button mat-menu-item [routerLink]=\"['/login']\">\r\n      <mat-icon>power_settings_new</mat-icon>\r\n      <span>Выйти</span>\r\n    </button>\r\n</mat-menu>\r\n\r\n<!-- \r\n<span>\r\n        <mat-icon>account_circle</mat-icon>\r\n        <div>\r\n            {{user.userName}}\r\n        </div>\r\n        <div>\r\n            ({{user.groupName}})\r\n        </div>\r\n        <a mat-raised-button [routerLink]=\"['/login']\">Выйти</a>\r\n    </span> -->";
 
 /***/ }),
 /* 394 */
