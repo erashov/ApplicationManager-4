@@ -29,7 +29,7 @@ namespace ApplicationManager.Service
 
                 
                 // Note: use your real username/password here...
-                client.Authenticate("mail/name.nsf", "B6f[nbyf87");
+                client.Authenticate("startultimus@akado-telecom.ru", "SnrQF5kX");
 
                 // open the Inbox folder...
                 client.Inbox.Open(FolderAccess.ReadOnly);
@@ -42,7 +42,15 @@ namespace ApplicationManager.Service
 
                 // ...but maybe you mean unread messages? if so, use this query
                 uids = client.Inbox.Search(SearchQuery.NotSeen);
-                test1=Task.Run(()=> uids.Count);
+                foreach (var uid in uids)
+                {
+                    var message = client.Inbox.GetMessage(uid);
+                    var text = message.TextBody;
+
+     
+                }
+
+                test1 =Task.Run(()=> uids.Count);
                // Console.WriteLine("You have {0} unread message(s).", uids.Count);
 
                 client.Disconnect(true);
