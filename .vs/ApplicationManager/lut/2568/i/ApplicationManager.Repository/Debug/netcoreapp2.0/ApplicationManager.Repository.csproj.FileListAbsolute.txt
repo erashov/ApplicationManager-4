@@ -1,9 +1,0 @@
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.deps.json
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.dll
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\b\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.pdb
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.csprojResolveAssemblyReference.cache
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.csproj.CoreCompileInputs.cache
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfoInputs.cache
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.AssemblyInfo.cs
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.dll
-C:\Users\ASErashov\Documents\Visual Studio 2017\Projects\ApplicationManager\.vs\ApplicationManager\lut\0\i\ApplicationManager.Repository\Debug\netcoreapp2.0\ApplicationManager.Repository.pdb

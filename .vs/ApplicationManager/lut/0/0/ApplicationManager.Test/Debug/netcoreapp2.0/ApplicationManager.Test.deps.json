@@ -11,7 +11,7 @@
           "Microsoft.NET.Test.Sdk": "15.3.0-preview-20170628-02",
           "xunit": "2.2.0",
           "xunit.runner.visualstudio": "2.2.0",
-          "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime": "1.4.0.0"
+          "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime": "1.5.0.0"
         },
         "runtime": {
           "ApplicationManager.Test.dll": {}
@@ -1025,7 +1025,7 @@
           "System.Threading.ThreadPool": "4.3.0"
         }
       },
-      "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime/1.4.0.0": {
+      "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime/1.5.0.0": {
         "runtime": {
           "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime.dll": {}
         }
@@ -1563,7 +1563,7 @@
       "path": "xunit.runner.visualstudio/2.2.0",
       "hashPath": "xunit.runner.visualstudio.2.2.0.nupkg.sha512"
     },
-    "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime/1.4.0.0": {
+    "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime/1.5.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
