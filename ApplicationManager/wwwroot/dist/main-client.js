@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "578f226f31e061074f2d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e1fe35b9c48a911c84ee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -733,7 +733,7 @@ var global = __webpack_require__(7);
 var core = __webpack_require__(8);
 var hide = __webpack_require__(20);
 var redefine = __webpack_require__(12);
-var ctx = __webpack_require__(32);
+var ctx = __webpack_require__(33);
 var PROTOTYPE = 'prototype';
 
 var $export = function (type, name, source) {
@@ -852,7 +852,7 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 /* 8 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.5.1' };
+var core = module.exports = { version: '2.5.2' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -971,7 +971,7 @@ module.exports = function (it, key) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(34);
+var toInteger = __webpack_require__(35);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -1038,7 +1038,7 @@ module.exports = function (KEY, exec) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(9);
-var createDesc = __webpack_require__(31);
+var createDesc = __webpack_require__(32);
 module.exports = __webpack_require__(10) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
@@ -1077,7 +1077,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 // 4 -> Array#every
 // 5 -> Array#find
 // 6 -> Array#findIndex
-var ctx = __webpack_require__(32);
+var ctx = __webpack_require__(33);
 var IObject = __webpack_require__(42);
 var toObject = __webpack_require__(16);
 var toLength = __webpack_require__(15);
@@ -1248,7 +1248,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var pIE = __webpack_require__(53);
-var createDesc = __webpack_require__(31);
+var createDesc = __webpack_require__(32);
 var toIObject = __webpack_require__(18);
 var toPrimitive = __webpack_require__(27);
 var has = __webpack_require__(14);
@@ -1312,6 +1312,12 @@ module.exports = (__webpack_require__(1))(10);
 
 /***/ }),
 /* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(1))(74);
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -1325,7 +1331,7 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
@@ -1351,7 +1357,7 @@ module.exports = function (fn, that, length) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
@@ -1364,7 +1370,7 @@ module.exports = Object.keys || function keys(O) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -1376,7 +1382,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
@@ -1423,19 +1429,19 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(0);
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(33);
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 /*
@@ -1517,7 +1523,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1583,7 +1589,7 @@ function toComment(sourceMap) {
 /* unused harmony export ɵl */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tslib__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tslib__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__(125);
@@ -1618,7 +1624,7 @@ function toComment(sourceMap) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_operator_mergeAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_rxjs_operator_mergeAll__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_rxjs_operator_reduce__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_rxjs_operator_reduce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_rxjs_operator_reduce__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_platform_browser__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__);
 /**
@@ -9042,12 +9048,6 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('5.1.0'
 
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(1))(74);
-
-/***/ }),
 /* 41 */
 /***/ (function(module, exports) {
 
@@ -9074,7 +9074,7 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(34);
+var toInteger = __webpack_require__(35);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -9165,10 +9165,10 @@ module.exports = function (it, TYPE) {
 /* unused harmony export ɵb */
 /* unused harmony export ɵc */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tslib__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tslib__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(38);
 /**
  * @license Angular v5.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
@@ -12117,7 +12117,7 @@ module.exports = function (KEY, length, exec) {
 /* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ctx = __webpack_require__(32);
+var ctx = __webpack_require__(33);
 var call = __webpack_require__(109);
 var isArrayIter = __webpack_require__(110);
 var anObject = __webpack_require__(2);
@@ -12199,7 +12199,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function (test, buggy, set) {
       try {
-        set = __webpack_require__(32)(Function.call, __webpack_require__(26).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(33)(Function.call, __webpack_require__(26).f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch (e) { buggy = true; }
@@ -15862,14 +15862,15 @@ var wksDefine = __webpack_require__(158);
 var enumKeys = __webpack_require__(159);
 var isArray = __webpack_require__(62);
 var anObject = __webpack_require__(2);
+var isObject = __webpack_require__(4);
 var toIObject = __webpack_require__(18);
 var toPrimitive = __webpack_require__(27);
-var createDesc = __webpack_require__(31);
-var _create = __webpack_require__(35);
+var createDesc = __webpack_require__(32);
+var _create = __webpack_require__(36);
 var gOPNExt = __webpack_require__(93);
 var $GOPD = __webpack_require__(26);
 var $DP = __webpack_require__(9);
-var $keys = __webpack_require__(33);
+var $keys = __webpack_require__(34);
 var gOPD = $GOPD.f;
 var dP = $DP.f;
 var gOPN = gOPNExt.f;
@@ -16054,14 +16055,13 @@ $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
   return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
 })), 'JSON', {
   stringify: function stringify(it) {
-    if (it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
     var args = [it];
     var i = 1;
     var replacer, $replacer;
     while (arguments.length > i) args.push(arguments[i++]);
-    replacer = args[1];
-    if (typeof replacer == 'function') $replacer = replacer;
-    if ($replacer || !isArray(replacer)) replacer = function (key, value) {
+    $replacer = replacer = args[1];
+    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+    if (!isArray(replacer)) replacer = function (key, value) {
       if ($replacer) value = $replacer.call(this, key, value);
       if (!isSymbol(value)) return value;
     };
@@ -16167,7 +16167,7 @@ module.exports = function (IS_INCLUDES) {
 
 var dP = __webpack_require__(9);
 var anObject = __webpack_require__(2);
-var getKeys = __webpack_require__(33);
+var getKeys = __webpack_require__(34);
 
 module.exports = __webpack_require__(10) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
@@ -16249,7 +16249,7 @@ module.exports = function (it) {
 "use strict";
 
 // 19.1.2.1 Object.assign(target, source, ...)
-var getKeys = __webpack_require__(33);
+var getKeys = __webpack_require__(34);
 var gOPS = __webpack_require__(52);
 var pIE = __webpack_require__(53);
 var toObject = __webpack_require__(16);
@@ -16361,7 +16361,7 @@ module.exports = function (it, msg) {
 
 "use strict";
 
-var toInteger = __webpack_require__(34);
+var toInteger = __webpack_require__(35);
 var defined = __webpack_require__(25);
 
 module.exports = function repeat(count) {
@@ -16400,7 +16400,7 @@ module.exports = Math.log1p || function log1p(x) {
 /* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(34);
+var toInteger = __webpack_require__(35);
 var defined = __webpack_require__(25);
 // true  -> String#at
 // false -> String#codePointAt
@@ -16425,8 +16425,8 @@ module.exports = function (TO_STRING) {
 
 "use strict";
 
-var create = __webpack_require__(35);
-var descriptor = __webpack_require__(31);
+var create = __webpack_require__(36);
+var descriptor = __webpack_require__(32);
 var setToStringTag = __webpack_require__(51);
 var IteratorPrototype = {};
 
@@ -16605,7 +16605,7 @@ module.exports = function (it) {
 "use strict";
 
 var $defineProperty = __webpack_require__(9);
-var createDesc = __webpack_require__(31);
+var createDesc = __webpack_require__(32);
 
 module.exports = function (object, index, value) {
   if (index in object) $defineProperty.f(object, index, createDesc(0, value));
@@ -16755,7 +16755,7 @@ if (__webpack_require__(10) && /./g.flags != 'g') __webpack_require__(9).f(RegEx
 /***/ (function(module, exports, __webpack_require__) {
 
 var $iterators = __webpack_require__(115);
-var getKeys = __webpack_require__(33);
+var getKeys = __webpack_require__(34);
 var redefine = __webpack_require__(12);
 var global = __webpack_require__(7);
 var hide = __webpack_require__(20);
@@ -16847,9 +16847,9 @@ module.exports = __webpack_require__(76)(MAP, function (get) {
 "use strict";
 
 var dP = __webpack_require__(9).f;
-var create = __webpack_require__(35);
+var create = __webpack_require__(36);
 var redefineAll = __webpack_require__(74);
-var ctx = __webpack_require__(32);
+var ctx = __webpack_require__(33);
 var anInstance = __webpack_require__(75);
 var forOf = __webpack_require__(58);
 var $iterDefine = __webpack_require__(68);
@@ -17195,7 +17195,7 @@ exports._catch = _catch;
 /* unused harmony export ExampleDataSource */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_cdk_table__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_dialogs_service__ = __webpack_require__(135);
@@ -17432,7 +17432,7 @@ module.exports = (__webpack_require__(1))(71);
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dialoforms_applicationdialog_applicationdialog_componet__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -17477,7 +17477,7 @@ var DialogsService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationDialogComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17489,9 +17489,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ApplicationDialogComponent = /** @class */ (function () {
     function ApplicationDialogComponent(dialogRef) {
         this.dialogRef = dialogRef;
+        this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
+        this.dataSource1 = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MatTableDataSource"](ELEMENT_DATA);
     }
     ApplicationDialogComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -17503,6 +17506,13 @@ var ApplicationDialogComponent = /** @class */ (function () {
     return ApplicationDialogComponent;
 }());
 
+var ELEMENT_DATA = [
+    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+];
 
 
 /***/ }),
@@ -20984,7 +20994,7 @@ module.exports = function (name) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
-var getKeys = __webpack_require__(33);
+var getKeys = __webpack_require__(34);
 var gOPS = __webpack_require__(52);
 var pIE = __webpack_require__(53);
 module.exports = function (it) {
@@ -21032,7 +21042,7 @@ module.exports = __webpack_require__(8).Object;
 
 var $export = __webpack_require__(0);
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', { create: __webpack_require__(35) });
+$export($export.S, 'Object', { create: __webpack_require__(36) });
 
 
 /***/ }),
@@ -21089,7 +21099,7 @@ __webpack_require__(19)('getPrototypeOf', function () {
 
 // 19.1.2.14 Object.keys(O)
 var toObject = __webpack_require__(16);
-var $keys = __webpack_require__(33);
+var $keys = __webpack_require__(34);
 
 __webpack_require__(19)('keys', function () {
   return function keys(it) {
@@ -21394,7 +21404,7 @@ var $Number = global[NUMBER];
 var Base = $Number;
 var proto = $Number.prototype;
 // Opera ~12 has broken Object#toString
-var BROKEN_COF = cof(__webpack_require__(35)(proto)) == NUMBER;
+var BROKEN_COF = cof(__webpack_require__(36)(proto)) == NUMBER;
 var TRIM = 'trim' in String.prototype;
 
 // 7.1.3 ToNumber(argument)
@@ -21456,7 +21466,7 @@ if (!$Number(' 0o1') || !$Number('0b1') || $Number('+0x1')) {
 "use strict";
 
 var $export = __webpack_require__(0);
-var toInteger = __webpack_require__(34);
+var toInteger = __webpack_require__(35);
 var aNumberValue = __webpack_require__(99);
 var repeat = __webpack_require__(100);
 var $toFixed = 1.0.toFixed;
@@ -22592,7 +22602,7 @@ $export($export.S, 'Array', { isArray: __webpack_require__(62) });
 
 "use strict";
 
-var ctx = __webpack_require__(32);
+var ctx = __webpack_require__(33);
 var $export = __webpack_require__(0);
 var toObject = __webpack_require__(16);
 var call = __webpack_require__(109);
@@ -22700,7 +22710,7 @@ $export($export.P + $export.F * __webpack_require__(3)(function () {
     var start = toAbsoluteIndex(begin, len);
     var upTo = toAbsoluteIndex(end, len);
     var size = toLength(upTo - start);
-    var cloned = Array(size);
+    var cloned = new Array(size);
     var i = 0;
     for (; i < size; i++) cloned[i] = klass == 'String'
       ? this.charAt(start + i)
@@ -22924,7 +22934,7 @@ $export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(17)($nati
 
 var $export = __webpack_require__(0);
 var toIObject = __webpack_require__(18);
-var toInteger = __webpack_require__(34);
+var toInteger = __webpack_require__(35);
 var toLength = __webpack_require__(15);
 var $native = [].lastIndexOf;
 var NEGATIVE_ZERO = !!$native && 1 / [1].lastIndexOf(1, -0) < 0;
@@ -23506,7 +23516,7 @@ $export($export.S + $export.F * !__webpack_require__(3)(function () {
 
 // 26.1.2 Reflect.construct(target, argumentsList [, newTarget])
 var $export = __webpack_require__(0);
-var create = __webpack_require__(35);
+var create = __webpack_require__(36);
 var aFunction = __webpack_require__(28);
 var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(4);
@@ -23780,7 +23790,7 @@ var gOPD = __webpack_require__(26);
 var getPrototypeOf = __webpack_require__(21);
 var has = __webpack_require__(14);
 var $export = __webpack_require__(0);
-var createDesc = __webpack_require__(31);
+var createDesc = __webpack_require__(32);
 var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(4);
 
@@ -24202,8 +24212,8 @@ $metadata.exp({ metadata: function metadata(metadataKey, metadataValue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_compiler__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tslib__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tslib__ = __webpack_require__(37);
 /**
  * @license Angular v5.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
@@ -25138,7 +25148,7 @@ var platformBrowserDynamic = Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[
 /* unused harmony export splitClasses */
 /* unused harmony export createElementCssSelector */
 /* unused harmony export removeSummaryDuplicates */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(37);
 /**
  * @license Angular v5.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
@@ -60243,7 +60253,7 @@ var Extractor = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* unused harmony export getBaseUrl */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module_shared__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_app_app_component__ = __webpack_require__(123);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60286,7 +60296,7 @@ function getBaseUrl() {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModuleShared; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__ = __webpack_require__(314);
@@ -60301,7 +60311,7 @@ function getBaseUrl() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_register_index__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_shared_components_sidebar_sidebar_component__ = __webpack_require__(392);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_shared_components_header_header_component__ = __webpack_require__(396);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_material__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_material__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialoforms_applicationdialog_dialogs_module__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_hammerjs__ = __webpack_require__(401);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_hammerjs__);
@@ -60393,8 +60403,8 @@ var AppModuleShared = /** @class */ (function () {
 /* unused harmony export ɵe */
 /* unused harmony export ɵc */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tslib__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tslib__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_animations__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_animations_browser__ = __webpack_require__(315);
 /**
@@ -61348,7 +61358,7 @@ var NoopAnimationsModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return supportsWebAnimations; });
 /* unused harmony export ɵWebAnimationsPlayer */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tslib__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tslib__ = __webpack_require__(37);
 /**
  * @license Angular v5.1.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
@@ -67557,7 +67567,7 @@ module.exports = "<router-outlet>\r\n</router-outlet>";
 /* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(undefined);
+exports = module.exports = __webpack_require__(39)(undefined);
 // imports
 
 
@@ -67573,7 +67583,7 @@ exports.push([module.i, " \r\n  .container {\r\n    width: 80%;\r\n    max-width
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_index__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_index__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_index__ = __webpack_require__(131);
@@ -68860,7 +68870,7 @@ var HomeComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlertService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -69071,7 +69081,7 @@ module.exports = "<mat-sidenav-container class=\"example-container\">\r\n    <ma
 /* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(undefined);
+exports = module.exports = __webpack_require__(39)(undefined);
 // imports
 
 
@@ -69088,7 +69098,7 @@ exports.push([module.i, ".main-container{\r\n    margin-top: 60px;\r\n    margin
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router_animations__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(122);
@@ -69253,7 +69263,7 @@ module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div>\r\
 /* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(undefined);
+exports = module.exports = __webpack_require__(39)(undefined);
 // imports
 
 
@@ -69270,7 +69280,7 @@ exports.push([module.i, "body {\r\n  background: #eee !important;\r\n}\r\n\r\n.w
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -69332,7 +69342,7 @@ module.exports = "<div class=\"col-md-6 col-md-offset-3\">\r\n    <h2>Register</
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -69370,7 +69380,7 @@ var AuthGuard = /** @class */ (function () {
 /* 360 */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <mat-toolbar class=\"main-header mat-toolbar \">\r\n    <span>\r\n        <button mat-icon-button (click)=\"dialogRef.close()\">\r\n            <mat-icon>keyboard_backspace</mat-icon>\r\n            <strong>{{ title }}</strong>\r\n        </button>\r\n    </span>\r\n</mat-toolbar> -->\r\n<p>{{ message }}</p>\r\n\r\n<div class=\"container\">\r\n    <form>\r\n        <ul class=\"flex-outer\">\r\n            <li>\r\n                <label>№ 5000</label>\r\n                <label>Алиев А.Г.</label>\r\n                <label>У мастера</label>\r\n            </li>\r\n            <li>\r\n                <label for=\"first-name\">Ф.И.О</label>\r\n                <input type=\"text\" id=\"first-name\" placeholder=\"Enter your first name here\" readonly=\"readonly\" value=\"Никитина Инесса Владимировна\">\r\n            </li>\r\n            <li>\r\n                <label for=\"last-name\">Телефон</label>\r\n                <input type=\"text\" id=\"last-name\" placeholder=\"Enter your last name here\" readonly=\"readonly\" value=\"+7 495 345-43-45\">\r\n            </li>\r\n            <li>\r\n                <label for=\"email\">Договор</label>\r\n                <input type=\"text\" id=\"email\" placeholder=\"Enter your email here\" readonly=\"readonly\" value=\"45645654\">\r\n            </li>\r\n            <li>\r\n                <label for=\"phone\">Отметки</label>\r\n                <input type=\"text\" id=\"phone\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"FM: 345, 343, 347, 656\">\r\n            </li>\r\n            <li>\r\n                <label for=\"comment\">Примечание</label>\r\n                <input type=\"text\" id=\"comment\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Никитина Инесса Владимировна +7 495 345-43-45\">\r\n            </li>\r\n            <li>\r\n                <label for=\"pin\">PIN</label>\r\n                <input type=\"text\" id=\"pin\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Никитина Инесса Владимировна +7 495 345-43-45\">\r\n            </li>\r\n            <li>\r\n                <label for=\"message\">Примечание</label>\r\n                <input type=\"text\" id=\"message\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"167808\">\r\n            </li>\r\n            <li>\r\n                <label for=\"typework\">Вид работ</label>\r\n                <input type=\"text\" id=\"typework\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Ремонт не гарантийный\">\r\n            </li>\r\n            <li>\r\n                <label for=\"billing\">Биллинг</label>\r\n                <input type=\"text\" id=\"billing\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Фиксированная дата\">\r\n            </li>\r\n            <li>\r\n                <label for=\"topay\">К оплате</label>\r\n                <input type=\"text\" id=\"topay\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"177,00 руб\">\r\n            </li>\r\n            <li>\r\n                <p>Age</p>\r\n                <ul class=\"flex-inner\">\r\n                    <li>\r\n                        <input type=\"checkbox\" id=\"twenty-to-twentynine\">\r\n                        <label for=\"twenty-to-twentynine\">20-29</label>\r\n                    </li>\r\n                    <li>\r\n                        <input type=\"checkbox\" id=\"thirty-to-thirtynine\">\r\n                        <label for=\"thirty-to-thirtynine\">30-39</label>\r\n                    </li>\r\n                    <li>\r\n                        <input type=\"checkbox\" id=\"fourty-to-fourtynine\">\r\n                        <label for=\"fourty-to-fourtynine\">40-49</label>\r\n                    </li>\r\n                    <li>\r\n                        <input type=\"checkbox\" id=\"fifty-to-fiftynine\">\r\n                        <label for=\"fifty-to-fiftynine\">50-59</label>\r\n                    </li>\r\n                    <li>\r\n                        <input type=\"checkbox\" id=\"sixty-to-sixtynine\">\r\n                        <label for=\"sixty-to-sixtynine\">60-69</label>\r\n                    </li>\r\n                    <li>\r\n                        <input type=\"checkbox\" id=\"other\">\r\n                        <label for=\"other\">Other</label>\r\n                    </li>\r\n                </ul>\r\n            </li>\r\n            <li>\r\n                <button type=\"button\" mat-raised-button (click)=\"dialogRef.close(true)\">Сохранить</button>\r\n                <button type=\"button\" mat-button (click)=\"dialogRef.close()\">Отмена</button>\r\n            </li>\r\n        </ul>\r\n    </form>\r\n</div>";
+module.exports = "<!-- <mat-toolbar class=\"main-header mat-toolbar \">\r\n    <span>\r\n        <button mat-icon-button (click)=\"dialogRef.close()\">\r\n            <mat-icon>keyboard_backspace</mat-icon>\r\n            <strong>{{ title }}</strong>\r\n        </button>\r\n    </span>\r\n</mat-toolbar> -->\r\n<p>{{ message }}</p>\r\n\r\n<div class=\"container\">\r\n    <form>\r\n        <ul class=\"flex-outer\">\r\n            <li>\r\n                <label>№ 5000</label>\r\n                <label>Алиев А.Г.</label>\r\n                <label>У мастера</label>\r\n            </li>\r\n            <li>\r\n                <label for=\"first-name\">Ф.И.О</label>\r\n                <input type=\"text\" id=\"first-name\" placeholder=\"Enter your first name here\" readonly=\"readonly\" value=\"Никитина Инесса Владимировна\">\r\n            </li>\r\n            <li>\r\n                <label for=\"last-name\">Телефон</label>\r\n                <input type=\"text\" id=\"last-name\" placeholder=\"Enter your last name here\" readonly=\"readonly\" value=\"+7 495 345-43-45\">\r\n            </li>\r\n            <li>\r\n                <label for=\"email\">Договор</label>\r\n                <input type=\"text\" id=\"email\" placeholder=\"Enter your email here\" readonly=\"readonly\" value=\"45645654\">\r\n            </li>\r\n            <li>\r\n                <label for=\"phone\">Отметки</label>\r\n                <input type=\"text\" id=\"phone\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"FM: 345, 343, 347, 656\">\r\n            </li>\r\n    \r\n            <li>\r\n                <label for=\"pin\">PIN</label>\r\n                <input type=\"text\" id=\"pin\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"167808\">\r\n            </li>\r\n            <li>\r\n                <label for=\"message\">Примечание</label>\r\n                <input type=\"text\" id=\"message\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Никитина Инесса Владимировна +7 495 345-43-45\">\r\n            </li>\r\n            <li>\r\n                <label for=\"typework\">Вид работ</label>\r\n                <input type=\"text\" id=\"typework\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Ремонт не гарантийный\">\r\n            </li>\r\n            <li>\r\n                <label for=\"billing\">Биллинг</label>\r\n                <input type=\"text\" id=\"billing\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"Фиксированная дата\">\r\n            </li>\r\n            <li>\r\n                <label for=\"topay\">К оплате</label>\r\n                <input type=\"text\" id=\"topay\" placeholder=\"Enter your phone here\" readonly=\"readonly\" value=\"177,00 руб\">\r\n            </li>\r\n         <li><div class=\"example-container mat-elevation-z8\">\r\n       \r\n          </div></li>\r\n            <li>\r\n                <button type=\"button\" mat-raised-button (click)=\"dialogRef.close(true)\">Сохранить</button>\r\n                <button type=\"button\" mat-button (click)=\"dialogRef.close()\">Отмена</button>\r\n            </li>\r\n        </ul>\r\n    </form>\r\n</div>";
 
 /***/ }),
 /* 361 */
@@ -69943,7 +69953,7 @@ module.exports = (__webpack_require__(1))(61);
 /* 385 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <div class=\"example-header\">\r\n    <mat-form-field floatPlaceholder=\"never\">\r\n      <input matInput #filter placeholder=\"Поиск\">\r\n    </mat-form-field>\r\n  </div>\r\n\r\n  <mat-table #table [dataSource]=\"dataSource\" class=\"example-table\" matSort mdSortActive=\"applicationId\" matSortDisableClear matSortDirection=\"asc\">\r\n    <!--<ng-container mdColumnDef=\"select\">\r\n      <mat-header-cell *mdHeaderCellDef>\r\n        <mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"isAllSelected()\" [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n        </mat-checkbox>\r\n      </mat-header-cell>\r\n      <mat-cell *mdCellDef=\"let row\">\r\n        <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row.applicationId) : null\" [checked]=\"selection.isSelected(row.applicationId)\">\r\n        </mat-checkbox>\r\n      </mat-cell>\r\n    </ng-container> -->\r\n\r\n    <ng-container cdkColumnDef=\"applicationId\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> № заявки </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\">\r\n        <div><button mat-button (click)=\"openDialog()\"><strong>{{row.applicationId}}</strong> </button></div>\r\n        <div>{{row.districtName}}, {{row.address}}</div>\r\n      </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"numML\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> № МЛ </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.numML}} </mat-cell>\r\n    </ng-container>\r\n    <!-- Title Column -->\r\n    <!--     <ng-container cdkColumnDef=\"address\">\r\n      <mat-header-cell *cdkHeaderCellDef> Адреес </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.address}} </mat-cell>\r\n    </ng-container> -->\r\n    <!--     <ng-container cdkColumnDef=\"districtName\">\r\n      <mat-header-cell *cdkHeaderCellDef> Район </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.districtName}} </mat-cell>\r\n    </ng-container> -->\r\n    <ng-container cdkColumnDef=\"statusName\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> Статус </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.statusName}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"groupName\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> В работе у бригады </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> <button mat-button (click)=\"takeInWork(row)\"> В работе у {{row.groupName}}</button> </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"createDate\">\r\n      <mat-header-cell *cdkHeaderCellDef> Время создания заявки </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.createDate | date: 'dd/MM/yyyy hh:mm'}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"endDate\">\r\n      <mat-header-cell *cdkHeaderCellDef> Время закрытия заявки </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.endDate | date: 'dd/MM/yyyy hh:mm'}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *cdkHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *cdkRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n  </mat-table>\r\n  <mat-paginator [length]=\"dataSource.resultsLength\" [pageSize]=\"10\" [pageSizeOptions]=\"[10, 15, 25, 100]\">\r\n  </mat-paginator>\r\n\r\n</div>";
+module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <div class=\"example-header\">\r\n    <mat-form-field floatPlaceholder=\"never\">\r\n      <input matInput #filter placeholder=\"Поиск\">\r\n    </mat-form-field>\r\n  </div>\r\n\r\n  <mat-table #table [dataSource]=\"dataSource\" class=\"example-table\" matSort mdSortActive=\"applicationId\" matSortDisableClear matSortDirection=\"desc\">\r\n    <!--<ng-container mdColumnDef=\"select\">\r\n      <mat-header-cell *mdHeaderCellDef>\r\n        <mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"isAllSelected()\" [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n        </mat-checkbox>\r\n      </mat-header-cell>\r\n      <mat-cell *mdCellDef=\"let row\">\r\n        <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row.applicationId) : null\" [checked]=\"selection.isSelected(row.applicationId)\">\r\n        </mat-checkbox>\r\n      </mat-cell>\r\n    </ng-container> -->\r\n\r\n    <ng-container cdkColumnDef=\"applicationId\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> № заявки </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\">\r\n        <div><button mat-button (click)=\"openDialog()\"><strong>{{row.applicationId}}</strong> </button></div>\r\n        <div>{{row.districtName}}, {{row.address}}</div>\r\n      </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"numML\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> № МЛ </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.numML}} </mat-cell>\r\n    </ng-container>\r\n    <!-- Title Column -->\r\n    <!--     <ng-container cdkColumnDef=\"address\">\r\n      <mat-header-cell *cdkHeaderCellDef> Адреес </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.address}} </mat-cell>\r\n    </ng-container> -->\r\n    <!--     <ng-container cdkColumnDef=\"districtName\">\r\n      <mat-header-cell *cdkHeaderCellDef> Район </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.districtName}} </mat-cell>\r\n    </ng-container> -->\r\n    <ng-container cdkColumnDef=\"statusName\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> Статус </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.statusName}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"groupName\">\r\n      <mat-header-cell *cdkHeaderCellDef mat-sort-header disableClear=\"true\"> В работе у бригады </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> <button mat-button (click)=\"takeInWork(row)\"> В работе у {{row.groupName}}</button> </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"createDate\">\r\n      <mat-header-cell *cdkHeaderCellDef> Время создания заявки </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.createDate | date: 'dd/MM/yyyy hh:mm'}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"endDate\">\r\n      <mat-header-cell *cdkHeaderCellDef> Время закрытия заявки </mat-header-cell>\r\n      <mat-cell *cdkCellDef=\"let row\"> {{row.endDate | date: 'dd/MM/yyyy hh:mm'}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *cdkHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *cdkRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n  </mat-table>\r\n  <mat-paginator [length]=\"dataSource.resultsLength\" [pageSize]=\"10\" [pageSizeOptions]=\"[10, 15, 25, 100]\">\r\n  </mat-paginator>\r\n\r\n</div>";
 
 /***/ }),
 /* 386 */
@@ -69963,7 +69973,7 @@ module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <div c
 /* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(undefined);
+exports = module.exports = __webpack_require__(39)(undefined);
 // imports
 
 
@@ -70037,7 +70047,7 @@ module.exports = "<div *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_cdk_table__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applications_component__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(77);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -70136,12 +70146,12 @@ module.exports = "<span>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"me
 /* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(undefined);
+exports = module.exports = __webpack_require__(39)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "$topnav-background-color: #222;\r\n.sidebar{\r\n    border-radius: 0;\r\n    position: fixed;\r\n    z-index: 1000;\r\n    top: 155px;\r\n    left: 535px;\r\n    width: 235px;\r\n    margin-left: -235px;\r\n    border: none;\r\n    border-radius: 0;\r\n    overflow-y: auto;\r\n    background-color: $topnav-background-color;\r\n    bottom: 0;\r\n    overflow-x: hidden;\r\n    padding-bottom: 40px;\r\n    -webkit-transition: all 0.2s ease-in-out;\r\n       -moz-transition: all 0.2s ease-in-out;\r\n        -ms-transition: all 0.2s ease-in-out;\r\n         -o-transition: all 0.2s ease-in-out;\r\n            transition: all 0.2s ease-in-out;\r\n    border-top: 1px solid rgba(255,255,255,0.3);\r\n    .list-group{\r\n        a.list-group-item {\r\n            background: $topnav-background-color;\r\n            border: 0;\r\n            border-radius: 0;\r\n            color: #999;\r\n            text-decoration: none;\r\n            .fa {\r\n                margin-right: 10px;\r\n            }\r\n        }\r\n        a:hover {\r\n            background: darken($topnav-background-color, 5%);\r\n            color: #fff;\r\n        }\r\n        a.router-link-active {\r\n            background: darken($topnav-background-color, 5%);\r\n            color: #fff;\r\n        }\r\n    }\r\n    .sidebar-dropdown {\r\n        *:focus {\r\n            border-radius: none;\r\n            border:none;\r\n        }\r\n        .panel-title {\r\n            font-size : 1rem;\r\n            height : 50px;\r\n            margin-bottom:0;\r\n            a {\r\n                color : #999;\r\n                text-decoration : none;\r\n                font-weight:400;\r\n                background:$topnav-background-color;\r\n                span {\r\n                    position: relative;\r\n                    display: block;\r\n                    padding: .75rem 1.5rem;\r\n                    padding-top:1rem;\r\n                }\r\n            }\r\n            a:hover,a:focus {\r\n                color: #fff;\r\n                outline: none;\r\n                outline-offset: -2px;\r\n            }\r\n        }\r\n        .panel-title:hover {\r\n            background: darken($topnav-background-color, 5%);\r\n        }\r\n        .panel-collapse {\r\n            border-radius :0;\r\n            border : none;\r\n            .panel-body {\r\n                .list-group-item {\r\n                    border-radius : 0;\r\n                    background-color: $topnav-background-color;\r\n                    border: 0 solid transparent;\r\n                    a {\r\n                        color:#999;\r\n                    }\r\n                    a:hover {\r\n                        color:#FFF;\r\n                    }\r\n                }\r\n                .list-group-item:hover {\r\n                    background : darken($topnav-background-color, 5%);\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n.nested-menu {\r\n    .list-group-item {\r\n        cursor: pointer;\r\n    }\r\n    .nested {\r\n        list-style-type: none;\r\n    }\r\n    ul.submenu {\r\n        display: none;\r\n        height: 0;\r\n    }\r\n    & .expand {\r\n        ul.submenu {\r\n            display: block;\r\n            list-style-type: none;\r\n            height: auto;\r\n            li {\r\n                a {\r\n                    color: #FFF;\r\n                    padding: 10px;\r\n                    display: block;\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n@media screen and (max-width: 992px) {\r\n    .sidebar {\r\n        top: 54px;\r\n        left: 0px;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, "md-sidenav {\r\n    width: 13em;\r\n  }\r\n  \r\n  .sidenav-link {\r\n    width:100%;\r\n    text-align:left;\r\n  }\r\n  \r\n  .mat-sidenav-transition .mat-sidenav{\r\n    -webkit-transition: width .3s !important; /* For Safari 3.1 to 6.0 */\r\n    transition: width .3s !important;\r\n  }", ""]);
 
 // exports
 
@@ -70153,7 +70163,7 @@ exports.push([module.i, "$topnav-background-color: #222;\r\n.sidebar{\r\n    bor
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -70218,12 +70228,12 @@ module.exports = "<!-- <md-toolbar class=\"main-header mat-toolbar \" layout-ali
 /* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(undefined);
+exports = module.exports = __webpack_require__(39)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "\r\n\r\n.mat-toolbar {\r\n    min-width: 580px;\r\n}\r\n\r\n.app-toolbar-filler {\r\n    flex: 1 1 auto;\r\n  }\r\n  \r\n  .app-toolbar-menu {\r\n    padding: 0 14px 0 14px;\r\n    color: white;\r\n  }\r\n  \r\n  .app-icon-button {\r\n    box-shadow: none;\r\n    user-select: none;\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    filter: none;\r\n    font-weight: normal;\r\n    height: auto;\r\n    line-height: inherit;\r\n    margin: 0;\r\n    min-width: 0;\r\n    padding: 0;\r\n    text-align: left;\r\n    text-decoration: none;\r\n  }\r\n  .example-container {\r\n/*     //width: 500px; */\r\n    height: auto;\r\n    border: 1px solid rgba(49, 179, 10, 0.5);\r\n  }", ""]);
+exports.push([module.i, "md-toolbar {\r\n  /*background-color: white;*/\r\n  /*box-shadow: 0px 2px 8px 4px #999;*/\r\n}\r\n\r\n/*.toolbar-spacer {\r\n  flex: 1 1 auto;\r\n}*/\r\n\r\n.toolbar-menu-button {\r\n  padding:0;\r\n  min-width:3em;\r\n}\r\n\r\n.toolbar-link {\r\n  color:white;\r\n}\r\n.toolbar-link.link-active {\r\n  border-bottom: 3px solid rgba(0, 0, 0, 0.54);\r\n}\r\n", ""]);
 
 // exports
 
@@ -70235,7 +70245,7 @@ exports.push([module.i, "\r\n\r\n.mat-toolbar {\r\n    min-width: 580px;\r\n}\r\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogsModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_dialogs_service__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applicationdialog_componet__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

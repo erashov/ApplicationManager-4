@@ -48,8 +48,16 @@ namespace ApplicationManager.Repository.Concrete
 
         public IQueryable<ApplicationEntiry> FindPage(int page, int pageSize, string sort, string order, string filter)
         {
-
-            return Find(filter).OrderByDescending(i => i.ApplicationId).Skip(pageSize * (page - 1)).Take(pageSize).AsNoTracking();
+            var items = Find(filter);
+            if (sort == "applicationId" || sort == "undefined")
+            {
+                items = (order == "asc") ? Find(filter).OrderBy(i => i.ApplicationId) : Find(filter).OrderByDescending(i => i.ApplicationId);
+            }
+            if (sort == "numML")
+            {
+                items = (order == "asc") ? Find(filter).OrderBy(i => i.NumML) : Find(filter).OrderByDescending(i => i.NumML);
+            }
+            return items.Skip(pageSize * (page - 1)).Take(pageSize).AsNoTracking();
         }
 
         public ApplicationEntiry Remove(ApplicationEntiry entity)
