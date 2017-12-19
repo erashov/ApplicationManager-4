@@ -24,9 +24,6 @@ namespace ApplicationManager.Service
             {
                 // Note: depending on your server, you might need to connect
                 // on port 993 using SecureSocketOptions.SslOnConnect
-
-
-
                 client.Connect("mail.akado-telecom.ru", 993, SecureSocketOptions.SslOnConnect);
 
 
@@ -40,8 +37,7 @@ namespace ApplicationManager.Service
                 // delivered messages that have not been read yet)
                 var uids = client.Inbox.Search(SearchQuery.New);
                 // uids = client.Inbox.Search(SearchQuery.SubjectContains("Заявка из метро"));
-                // Console.WriteLine("You have {0} new message(s).", uids.Count);
-
+  
                 // ...but maybe you mean unread messages? if so, use this query
                 uids = client.Inbox.Search(SearchQuery.NotSeen);
 
@@ -92,7 +88,7 @@ namespace ApplicationManager.Service
                         //}
 
                     }
-                    //   var text = message.TextBody;
+     
 
 
                 }
